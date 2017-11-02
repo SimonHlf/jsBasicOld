@@ -1,0 +1,19 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>无标题文档</title>
+<script>
+document.onclick=function()
+{
+	//alert(document.documentElement.scrollTop);//随着滚动距离的变大scrollTop会变大 兼容ie和火狐
+   //alert(document.body.scrollTop);//谷歌下适用
+   //做兼容
+   alert(document.documentElement.scrollTop||document.body.scrollTop);
+}
+</script>
+</head>
+
+<body style="height:2000px">
+</body>
+</html>

@@ -1,0 +1,79 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>无标题文档</title>
+<style>
+*{margin:0;padding:0;}
+ul{list-style-type:none;}
+h2{font-size:16px;}
+p{font-size:12px;}
+#wrap li h2{color:#fff;background:#424242; }
+#wrap li p{color:#fff;background:#424242;}
+#wrap{ width:200px; height:310px; background:#e7e7e7; margin:50px auto;}
+#wrap ul{ margin-left:12px;}
+#wrap li{float:left;padding:8px 10px;text-align:center; width:38PX; height:38px; cursor:pointer;}
+#wrap li.active p,#wrap li.active h2{background:#fff; color:#f00;}
+.txt{ width:150px; height:70px; background:#f0f0f0; float:left; margin-left:25px;}
+</style>
+<script>
+window.onload=function()
+{
+	var arr=[ '快过年了，祝大家新年快乐@@',
+			  '杂货电商Instacart：一小时送达购物平台',
+			  '谢文：工业互联网新概念背后',
+			  '中青宝手游新品即将发布 股价两个月蹿升超140%',
+			  '美菱冰箱不到一年发生自燃 致用户损失30万',
+			  'Nvidia将对外授权图形技术：股价盘中大涨7.5%',
+			  '平板电脑市场“小”字当先：8英寸或成主流',
+			  '微软与惠普三星签订中国市场反盗版协议',
+			  '每日风投速递：腾讯投资闪购网站Fab',
+			  '潘坷聿粕衿鞣⑼ “余额宝”6天揽客超百万',
+			  '#庆Mozilla15周年，火狐有我更精彩#',
+			  '急求firefox宣传画矢量图！' 
+			 ];
+	var oDiv=document.getElementById('wrap');
+	var aLi=oDiv.getElementsByTagName('li');
+	var oTxt=oDiv.getElementsByTagName('div')[0];
+	var i=0;
+	for(i=0;i<aLi.length;i++)
+	{
+		aLi[i].index=i;
+		aLi[i].onmouseover=function()
+		{
+			for(i=0;i<aLi.length;i++)
+			{
+				aLi[i].className='';
+			}
+			this.className='active';
+			oTxt.innerHTML='<h2>'+(this.index+1)+'月活动</h2><p><a href="#">'+arr[this.index]+'</a></p>';
+		}
+	}
+}
+</script>
+</head>
+
+<body>
+<div id="wrap">
+ <ul>
+  <li class="active"><h2>1</h2><p>JAN</p></li>
+  <li><h2>2</h2><p>FEB</p></li>
+  <li><h2>3</h2><p>MAR</p></li>
+  <li><h2>4</h2><p>APR</p></li>
+  <li><h2>5</h2><p>MAY</p></li>
+  <li><h2>6</h2><p>JUN</p></li>
+  <li><h2>7</h2><p>JUL</p></li>
+  <li><h2>8</h2><p>AUG</p></li>
+  <li><h2>9</h2><p>SEP</p></li>
+  <li><h2>10</h2><p>OCT</p></li>
+  <li><h2>11</h2><p>NOV</p></li>
+  <li><h2>12</h2><p>DEC</p></li>
+ </ul>
+ <div class="txt">
+  <h2>1月活动</h2>
+  <p>快过年了，祝大家新年快乐@@</p>
+ </div>
+</div>
+
+</body>
+</html>

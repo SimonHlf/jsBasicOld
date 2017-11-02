@@ -1,0 +1,52 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>无标题文档</title>
+<style>
+*{padding:0;margin:0;}
+#box{width:300px; height:200px;margin:100px auto;}
+#box #tabnav{list-style-type:none;}
+#box #tabnav li{width:149px;height:30px; cursor:pointer;text-align:center; line-height:30px;background:#ddd; float:left; border:1px solid #ddd; border-right:none;}
+#box #tabnav li.active{background:#fff; border-bottom:none; height:31px;}
+#tabbox{ border:1px solid #ddd; width:299px;}
+#tabbox div{display:none;}
+</style>
+<script>
+window.onload=function()
+{
+	var oNav=document.getElementById('tabnav');
+	var aLi=oNav.getElementsByTagName('li');
+	var oBox=document.getElementById('tabbox');
+	var aDiv=oBox.getElementsByTagName('div');
+	for(var i=0;i<aLi.length;i++)
+	{
+		aLi[i].index=i;
+		aLi[i].onmouseover=function()
+		{
+			for(var i=0;i<aLi.length;i++)
+			{
+				aDiv[i].style.display='none';
+				aLi[i].className='';
+			}
+			this.className='active';
+			aDiv[this.index].style.display='block';
+		}
+	}
+}
+</script>
+</head>
+
+<body>
+<div id="box">
+ <ul id="tabnav">
+  <li class="active">标签一</li>
+  <li>标签二</li>
+ </ul>
+ <div id="tabbox">
+  <div style="display:block">雅虎收购地址簿应用Xobni：价格超3000万美元雅虎收购地址簿应用Xobni：价格超3000万美元雅虎收购地址簿应用Xobni：价格超3000万美元雅虎收购地址簿应用Xobni：价格超3000万美元雅虎收购地址簿应用Xobni：价格超3000万美元雅虎收购地址簿应用Xobni：价格超3000万美元雅虎收购地址簿应用Xobni：价格超3000万美元</div>
+  <div>222俄罗斯伊朗将在里海开展首次大规模联合军演俄罗斯伊朗将在里海开展首次大规模联合军演俄罗斯伊朗将在里海开展首次大规模联合军演俄罗斯伊朗将在里海开展首次大规模联合军演俄罗斯伊朗将在里海开展首次大规模联合军演俄罗斯伊朗将在里海开展首次大规模联合军演俄罗斯伊朗将在里海开展首次大规模联合军演俄罗斯伊朗将在里海开展首次大规模联合军演俄罗斯伊朗将在里海开展首次大规模联合军演俄罗斯伊朗将在里海开展首次大规模联合军演俄罗斯伊朗将在里海开展首次大规模联合军演</div>
+ </div>
+</div>
+</body>
+</html>

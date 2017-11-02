@@ -1,0 +1,50 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>无标题文档</title>
+<style>
+div{width:100px; height:100px; background:red; color:#fff}
+#div1{position:fixed;right:0; top:100px;}
+#div2{position:fixed; left:0; top:100px;}
+</style>
+<!--[if lte IE 6]>
+<style>
+#div1{position:absolute;right:0; top:0px;}
+#div2{position:absolute; left:0; top:0px;}
+
+</style>
+<script src="run.js"></script>
+<script>
+window.onload=window.onscroll=window.onresize=function()
+{
+	run1();
+	run2();
+}
+function run1()
+{
+	var oDiv1=document.getElementById('div1');
+	var scrollTop=document.documentElement.scrollTop||document.body.scrollTop;
+	var t=Math.ceil((document.documentElement.clientHeight-oDiv1.offsetHeight)/4);
+    startMove(oDiv1,{top:t+scrollTop})
+	
+}
+function run2()
+{
+	var oDiv2=document.getElementById('div2');
+	var scrollTop=document.documentElement.scrollTop||document.body.scrollTop;
+	var t=Math.ceil((document.documentElement.clientHeight-oDiv2.offsetHeight)/4);
+
+    startMove(oDiv2,{top:t+scrollTop})
+}
+</script>
+<![endif]-->
+
+</head>
+
+<body style="height:3000px;">
+<div class="box" id="div1">劳资信了你了个邪</div>
+<div class="box" id="div2">替我问候你主治大夫</div>
+
+</body>
+</html>

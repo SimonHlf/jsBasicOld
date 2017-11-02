@@ -1,0 +1,77 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>无标题文档</title>
+<script>
+window.onload=function()
+{
+	var oTab=document.getElementById('tab');
+	var oName=document.getElementById('name');
+	var oAge=document.getElementById('age');
+	var oBtn=document.getElementById('btn');
+	oBtn.onclick=function()
+	{
+		var oTr=document.createElement('tr');
+		
+		var oTd=document.createElement('td');
+		oTd.innerHTML=oTab.tBodies[0].rows.length+1;//这里的这种方法目前适用。但是等到删除一个tr的时候该行的id的数字会出错，也就是删除后再新建，id不会沿着原来的+1，还会是删除之前的那个id，所以这样是错误的，应该var id=oTab.tBodies[0].rows.length+1;然后在这里再oTd.innerHTML=id++;
+		oTr.appendChild(oTd);
+		
+		var oTd=document.createElement('td');
+		oTd.innerHTML=oName.value;
+		oTr.appendChild(oTd);
+		
+		var oTd=document.createElement('td')
+		oTd.innerHTML=oAge.value;
+		oTr.appendChild(oTd);
+		
+		oTab.tBodies[0].appendChild(oTr);
+	}
+}
+</script>
+</head>
+
+<body>
+姓名：<input type="text" id="name" /> 年龄：<input type="text" id="age" /> <input type="button" value="创建" id="btn" />
+<table id="tab" width="500px" border="1">
+ <thead>
+  <td>ID</td>
+  <td>姓名</td>
+  <td>年龄</td>
+ </thead>
+ <tbody>
+  <tr>
+   <td>1</td>
+   <td>张三</td>
+   <td>23</td>
+  </tr>
+  <tr>
+   <td>2</td>
+   <td>李四</td>
+   <td>24</td>
+  </tr>
+  <tr>
+   <td>3</td>
+   <td>王五</td>
+   <td>28</td>
+  </tr>
+  <tr>
+   <td>4</td>
+   <td>马六</td>
+   <td>29</td>
+  </tr>
+  <tr>
+   <td>5</td>
+   <td>王明</td>
+   <td>26</td>
+  </tr>
+  <tr>
+   <td>6</td>
+   <td>李刚</td>
+   <td>26</td>
+  </tr>
+ </tbody>
+</table>
+</body>
+</html>

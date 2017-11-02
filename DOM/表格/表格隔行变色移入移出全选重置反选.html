@@ -1,0 +1,262 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>无标题文档</title>
+<script>
+window.onload=function()
+{
+	var oTab=document.getElementById('tab');
+	var oldColor='';
+	var oBtn1=document.getElementById('btn1');
+	var oBtn2=document.getElementById('btn2');
+	var oBtn3=document.getElementById('btn3');
+	var aInput=oTab.getElementsByTagName('input');
+
+	for(var i=0;i<oTab.tBodies[0].rows.length;i++)
+	{
+		oTab.tBodies[0].rows[i].onmouseover=function()
+		{
+			oldColor=this.style.background;
+			this.style.background='#FBFCE2';
+		}
+		oTab.tBodies[0].rows[i].onmouseout=function()
+		{
+			this.style.background=oldColor;
+		}
+		if(i%2)
+		{
+			oTab.tBodies[0].rows[i].style.background='#ccc';
+		}
+		else
+		{
+			oTab.tBodies[0].rows[i].style.background='';
+		}
+		
+	}
+
+		oBtn1.onclick=function()
+		{
+			//alert(aInput.length);
+			for(var i=0;i<aInput.length;i++)
+			{
+				aInput[i].checked=true;
+			}
+		}
+		oBtn2.onclick=function()
+		{
+			for(var i=0;i<aInput.length;i++)
+			{
+				aInput[i].checked=false;
+			}
+		}
+		oBtn3.onclick=function()
+		{
+			for(var i=0;i<aInput.length;i++)
+			{
+				if(aInput[i].checked==true)
+				{
+					aInput[i].checked=false;
+				}
+				else
+				{
+					aInput[i].checked=true;
+				}
+			}
+		}
+
+
+}
+</script>
+</head>
+
+<body>
+<table border="1px" width="1000px" id="tab">
+ <thead style="background:#FBFCE2;">
+  <td>ID</td>
+  <td>选择</td>
+  <td>文章标题</td>
+  <td>更新时间</td>
+  <td>类目</td>
+  <td>回链</td>
+  <td>HTML</td>
+  <td>权限</td>
+  <td>发布人</td>
+  <td>操作</td>
+ </thead>
+ <tbody>
+  <tr>
+   <td>984714 </td>
+   <td><input type="checkbox" /></td>
+   <td>濮阳治疗肝病医院?</td>
+   <td>2013-07-03 09:26:16</td>
+   <td>【达州日报网】</td>
+   <td>无回链</td>
+   <td>仅动态</td>
+   <td>开放预览</td>
+   <td>濮阳东方医院</td>
+   <td>编辑</td>
+  </tr>
+  <tr>
+   <td>984714 </td>
+   <td><input type="checkbox" /></td>
+   <td>濮阳治疗人流医院?</td>
+   <td>2013-07-03 09:26:16</td>
+   <td>【泉州日报网】</td>
+   <td>无回链</td>
+   <td>仅动态</td>
+   <td>开放预览</td>
+   <td>濮阳东方医院</td>
+   <td>编辑</td>
+  </tr>
+  <tr>
+   <td>984714 </td>
+   <td><input type="checkbox" /></td>
+   <td>濮阳治疗肝病医院?</td>
+   <td>2013-07-03 09:26:16</td>
+   <td>【达州日报网】</td>
+   <td>无回链</td>
+   <td>仅动态</td>
+   <td>开放预览</td>
+   <td>濮阳东方医院</td>
+   <td>编辑</td>
+  </tr>
+  <tr>
+   <td>984714 </td>
+   <td><input type="checkbox" /></td>
+   <td>濮阳治疗肝病医院?</td>
+   <td>2013-07-03 09:26:16</td>
+   <td>【达州日报网】</td>
+   <td>无回链</td>
+   <td>仅动态</td>
+   <td>开放预览</td>
+   <td>濮阳东方医院</td>
+   <td>编辑</td>
+  </tr>
+  <tr>
+   <td>984714 </td>
+   <td><input type="checkbox" /></td>
+   <td>濮阳治疗肝病医院?</td>
+   <td>2013-07-03 09:26:16</td>
+   <td>【达州日报网】</td>
+   <td>无回链</td>
+   <td>仅动态</td>
+   <td>开放预览</td>
+   <td>濮阳东方医院</td>
+   <td>编辑</td>
+  </tr>
+  <tr>
+   <td>984714 </td>
+   <td><input type="checkbox" /></td>
+   <td>濮阳治疗肝病医院?</td>
+   <td>2013-07-03 09:26:16</td>
+   <td>【达州日报网】</td>
+   <td>无回链</td>
+   <td>仅动态</td>
+   <td>开放预览</td>
+   <td>濮阳东方医院</td>
+   <td>编辑</td>
+  </tr>
+  <tr>
+   <td>984714 </td>
+   <td><input type="checkbox" /></td>
+   <td>濮阳治疗肝病医院?</td>
+   <td>2013-07-03 09:26:16</td>
+   <td>【达州日报网】</td>
+   <td>无回链</td>
+   <td>仅动态</td>
+   <td>开放预览</td>
+   <td>濮阳东方医院</td>
+   <td>编辑</td>
+  </tr>
+  <tr>
+   <td>984714 </td>
+   <td><input type="checkbox" /></td>
+   <td>濮阳治疗肝病医院?</td>
+   <td>2013-07-03 09:26:16</td>
+   <td>【达州日报网】</td>
+   <td>无回链</td>
+   <td>仅动态</td>
+   <td>开放预览</td>
+   <td>濮阳东方医院</td>
+   <td>编辑</td>
+  </tr>
+  <tr>
+   <td>984714 </td>
+   <td><input type="checkbox" /></td>
+   <td>濮阳治疗肝病医院?</td>
+   <td>2013-07-03 09:26:16</td>
+   <td>【达州日报网】</td>
+   <td>无回链</td>
+   <td>仅动态</td>
+   <td>开放预览</td>
+   <td>濮阳东方医院</td>
+   <td>编辑</td>
+  </tr>
+  <tr>
+   <td>984714 </td>
+   <td><input type="checkbox" /></td>
+   <td>濮阳治疗肝病医院?</td>
+   <td>2013-07-03 09:26:16</td>
+   <td>【达州日报网】</td>
+   <td>无回链</td>
+   <td>仅动态</td>
+   <td>开放预览</td>
+   <td>濮阳东方医院</td>
+   <td>编辑</td>
+  </tr>
+  <tr>
+   <td>984714 </td>
+   <td><input type="checkbox" /></td>
+   <td>濮阳治疗肝病医院?</td>
+   <td>2013-07-03 09:26:16</td>
+   <td>【达州日报网】</td>
+   <td>无回链</td>
+   <td>仅动态</td>
+   <td>开放预览</td>
+   <td>濮阳东方医院</td>
+   <td>编辑</td>
+  </tr>
+  <tr>
+   <td>984714 </td>
+   <td><input type="checkbox" /></td>
+   <td>濮阳治疗肝病医院?</td>
+   <td>2013-07-03 09:26:16</td>
+   <td>【达州日报网】</td>
+   <td>无回链</td>
+   <td>仅动态</td>
+   <td>开放预览</td>
+   <td>濮阳东方医院</td>
+   <td>编辑</td>
+  </tr>
+  <tr>
+   <td>984714 </td>
+   <td><input type="checkbox" /></td>
+   <td>濮阳治疗肝病医院?</td>
+   <td>2013-07-03 09:26:16</td>
+   <td>【达州日报网】</td>
+   <td>无回链</td>
+   <td>仅动态</td>
+   <td>开放预览</td>
+   <td>濮阳东方医院</td>
+   <td>编辑</td>
+  </tr>
+  <tr>
+   <td>984714 </td>
+   <td><input type="checkbox" /></td>
+   <td>濮阳治疗肝病医院?</td>
+   <td>2013-07-03 09:26:16</td>
+   <td>【达州日报网】</td>
+   <td>无回链</td>
+   <td>仅动态</td>
+   <td>开放预览</td>
+   <td>濮阳东方医院</td>
+   <td>编辑</td>
+  </tr>
+ </tbody>
+</table>
+<input type="button" id="btn1" value="全选" />
+<input type="button" id="btn2" value="重置" />
+<input type="button" id="btn3" value="反选" />
+</body>
+</html>

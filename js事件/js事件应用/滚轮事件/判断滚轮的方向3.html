@@ -1,0 +1,65 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>无标题文档</title>
+<style>
+#div1{width:200px; height:200px; margin:20px auto; background:red;}
+</style>
+<script>
+function addEvent(obj,sEv,fn)
+{
+	if(obj.attachEvent){
+		obj.attachEvent('on'+sEv,fn)
+	}else{
+		obj.addEventListener(sEv,fn,false)
+	}
+}
+window.onload=function()
+{
+	var oDiv=document.getElementById("div1");
+	
+	
+	
+	function myWheel(ev)
+	{
+		var oEvent=ev||event;
+		//alert(oEvent.detail); //向下是3 上是-3  火狐下
+		//alert(oEvent.wheelDelta)//向下是-120 上是120  ie 谷歌下
+		var bCur=true;
+		if(oEvent.detail){
+			if(oEvent.detail>0){
+				bCur=true;
+			}else{
+				bCur=false;
+			}
+		}else{
+			if(oEvent.wheelDelta<0){
+				bCur=true;
+			}else{
+				bCur=false;
+			}
+		}
+		//alert(bCur);
+		if(bCur){
+			oDiv.style.height=oDiv.offsetHeight+20+'px';
+		}else{
+			oDiv.style.height=oDiv.offsetHeight-20+'px';
+		}
+		//火狐
+		if(oEvent.preventDefault){
+		   oEvent.preventDefault();
+		}
+		return false;//ie 谷歌
+	}
+	addEvent(oDiv,'DOMMouseScroll',myWheel);
+	addEvent(oDiv,'mousewheel',myWheel);
+}
+</script>
+</head>
+
+<body>
+<div id="div1">
+</div>
+</body>
+</html>

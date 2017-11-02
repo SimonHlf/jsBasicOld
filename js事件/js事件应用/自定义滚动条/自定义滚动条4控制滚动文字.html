@@ -1,0 +1,141 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>无标题文档</title>
+<style>
+#parent{width:600px; height:20px; background:#ccc; position:relative; margin:10px auto;}
+#div1{width:20px; height:20px; background:red; position:absolute;left:0; top:0;}
+#div2{width:450px;height:300px; border:1px solid #000; overflow:hidden; position:relative; left:350px; top:100px;}
+#div3{ position:absolute; left:0;top:0px; padding:8px;}
+</style>
+<script>
+window.onload=function()
+{
+	var oParent=document.getElementById('parent');
+	var oDiv1=document.getElementById('div1');
+	var oDiv2=document.getElementById('div2');
+	var oDiv3=document.getElementById('div3');
+	oDiv1.onmouseWheel=function(ev)
+	{
+		var oEvent=ev||event;
+		var disX=0;
+		var disY=0;
+		disX=oEvent.clientX-oDiv1.offsetLeft;
+		//disY=oEvent.clientY-oDiv1.offsetTop;
+		document.onmousemove=function(ev)
+		{
+			var oEvent=ev||event;
+			var l=oEvent.clientX-disX
+			if(l<0)
+			{
+				l=0;
+			}
+			else if(l>oParent.offsetWidth-oDiv1.offsetWidth)
+			{
+				l=oParent.offsetWidth-oDiv1.offsetWidth;
+			}
+			oDiv1.style.left=l+'px';
+			//oDiv1.style.top=oEvent.clientY-disY+'px';
+			//document.title=l;//0-580  拖动的比例  580就是父级的宽减去子级的宽 oParent.offsetWidth-oDiv1.offsetWidth
+			var scale=l/(oParent.offsetWidth-oDiv1.offsetWidth)
+			//document.title=l/580;
+			document.title=scale;
+			//oDiv2.style.width=400*scale+'px';
+			//oDiv2.style.height=400*scale+'px';
+			//oDiv2.style.filter='alpha(opacity:'+scale*100+')';
+			//oDiv2.style.opacity=scale;
+			//oDiv3.style.top=-scale*oDiv3.offsetHeight+'px';
+			oDiv3.style.top=-scale*(oDiv3.offsetHeight-oDiv2.offsetHeight)+'px';
+		}
+		document.onmouseup=function()
+		{
+			document.onmousemove=null;
+			document.onmouseup=null;
+		}
+		return false;
+	}
+}
+</script>
+</head>
+
+<body>
+<div id="parent">
+ <div id="div1">
+ </div>
+</div>
+<div id="div2">
+ <div id="div3">
+  
+高级拖拽
+
+事件捕获：把事件给抓回来， ie6 ie7 oBtn.setCapture(); 就是把网页中所有的事件全部都集中到这个按钮身上  集中到一个物体上去处理  只有ie下能够运用oDiv.releaseCapture()去除setCapture();
+
+带框的拖拽：先在样式里添加一个class为box的样式，其样式设置到它的border。还有一个绝对定为属性，然后在鼠标onmousedown的时候创建一个div，并且让其className='box',既var oBox=document.createElement('div'),oBox.className='box',然后再给这个新创建好的box一个宽和高，这个宽和高应该和需要移动的那个原来的宽和高是相同的，所以。oBox.style.width=oDiv.offsetWidth+'px';oBox.style.height=oDiv.offsetHeight+'px';然后在将这个已经创建好的document.body.appendChild(oBox)下， 这个时候已经在鼠标按下的时候创建了一个class为box的div,然后在让这个新创建的div的left值和top值和原来移动的那个div的left top值相同，既oBox.style.left=oDiv.offsetLeft+'px' oBox.style.top=oDiv.offsetTop+'px';  这个时候class为box的虚线框已经可以和div的这个框移动的相吻合了，然后在onmousemove的时候，给box一个和鼠标位置相同的left top 就是 oBox.style.left=oEvent.clientX-disX+'px'; oBox.style.top=oEvent.clientY-disY+'px'; 然后在鼠标抬起的时候，我们让原来div的style和left和这个已经移动到新位置的虚线框的left和top值相同，就是oDiv.style.left=oBox.offsetLeft+'p
+x';oDiv.style.top=oBox.offsetTop+'px',最好再将这个box个removeChild  document.body.removeChild(oBox);
+自定义滚动条
+
+缓冲运动：当物体和终点的距离大的时候速度大  当物体和终点的距离小的时候速度减小
+逐渐变慢最后停止！ 距离越远速度越大， 速度由距离决定！  速度=（目标值-当前值(oDiv.offsetLeft)）/10(10代表缩放系数，可以改变，缩放系数越大，速度越慢！)
+
+速度和距离是成正比的 300 10   30 1  控制缓冲的快慢完全可以通过除以多少的那个分母来进行修改
+
+290.5px---290px;
+299.9px--299px
+
+oDiv.offsetLeft+speed+'px';
+
+296+0.4px--296.4px--296px  所以物体就会在这个位置给定住不动了！ 所以问题的关键就是speed，所以为了使speed是个整数需要用到：
+
+Math.ceil()//ceil就是向上取整
+
+Math.floor()//floor向下取整
+
+就是需要给speed给取个整数：speed=Math.ceil(speed)或者向下取整speed=Math.floor(speed)
+
+向左是floor  
+
+从左向右走，速度是正的，要向上取整，用到Math.ceil(),从右向左走。速度是负的，需要向下取整！Math.floor();
+
+speed=speed>0?Math.ceil(speed):Math.floor(speed);
+当是缓冲运动的时候一定要运用的取整！
+
+缓冲运动框架：
+function startMove(iTarget)
+{
+ var oDiv=document.getElementById('div1');
+ clearInterval(timer);
+ timer=setInterval(function(){
+    var speed=(iTarget-oDiv.offsetLeft)/10----这里的分母值不固定，可以根据效果任意设置
+    speed=speed>0?Math.ceil(speed):Math.floor(speed);
+    if(oDiv.offsetLeft==iTarget)
+    { 
+     clearInterval(timer);
+    }
+    else
+    {
+     oDiv.style.left=oDiv.offsetLeft+speed+'px'; 
+    }
+   },30)
+}
+缓冲菜单：
+
+匀速运动的停止条件：
+
+运动终止的条件：匀速：距离足够近！ 缓冲运动：两点重合
+
+数学方法：绝对值：Math.abs()  匀速运动停止条件：只要让这个物体和目标之间的距离小于速度！
+
+if(Math.abs(iTarget-oDiv.offsetLeft)<=-7)
+{
+ cleatInterval(timer)
+ oDiv.style.left=iTarget+'px';
+}
+else
+{
+ oDiv.style.left=oDiv.offsetLeft+speed+'px';
+}
+ </div>
+</div>
+</body>
+</html>

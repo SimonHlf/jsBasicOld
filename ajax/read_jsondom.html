@@ -1,0 +1,36 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>无标题文档</title>
+<script src="ajax.js"></script>
+<script>
+window.onload=function()
+{
+	var oBtn=document.getElementById('btn');
+	var oUl=document.getElementById('ul');
+	oBtn.onclick=function()
+	{         //相对路径        //绝对路径：http://localhost/aaa.txt
+		ajax('jsondom.txt?t='+new Date().getTime(),function(str){
+			var arr=eval(str)
+			for(var i=0;i<arr.length;i++)
+			{
+				var oLi=document.createElement('li');
+				oLi.innerHTML='用户名:<strong>'+arr[i].user+'</strong>密码:<span>'+arr[i].pass+'</span>'
+				oUl.appendChild(oLi);
+			}
+			//alert(arr[0].a);//这里需要用到eval()，就是把里面的语句的内容给解析成js能够识别的东西
+			},function(){
+				alert('失败')
+				})
+	}
+}
+</script>
+</head>
+
+<body>
+<input type="button" value="读取" id="btn" />
+<ul id="ul">
+</ul>
+</body>
+</html>

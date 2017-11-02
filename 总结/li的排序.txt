@@ -1,0 +1,36 @@
+<script>
+window.onload=function()
+{
+	var oUl1=document.getElementById('ul1');
+	var oBtn=document.getElementById('btn');
+	var aLi=oUl1.getElementsByTagName('li');
+	oBtn.onclick=function()
+	{
+		var arr=[];
+		for(var i=0;i<aLi.length;i++)
+		{
+			arr[i]=aLi[i];
+		}
+		arr.sort(function(li1,li2){
+			var n1=parseInt(li1.innerHTML);
+			var n2=parseInt(li2.innerHTML);
+			return n1-n2;
+			});
+		//alert(arr[0].innerHTML);
+		for(var i=0;i<arr.length;i++)
+		{
+			alert('该把'+arr[i].innerHTML+'插入到最后')
+			oUl1.appendChild(arr[i]);
+		}
+	}
+}
+</script>
+整体算是先定义一个空的数组。然后用一个for循环将aLi[i]里面的所有的值全都不丢在这个数组里面，既arr[i]=aLi[i],然后再对这个数组进行排序，就是arr.sort(function(li1,li2){
+var n1=parseInt(li1.innerHTML);
+var n2=parseInt(li1.innerHTML);
+return n1-n2;
+});
+最后再第这个数组进行一个for循环，然后把这个这个数组统一的给appendChild到oUl下面
+
+
+表格的排序原理同上面

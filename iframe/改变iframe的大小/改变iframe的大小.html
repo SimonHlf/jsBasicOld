@@ -1,0 +1,74 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>无标题文档</title>
+<style>
+*{margin:0;padding:0;}
+#ceshi{
+	position:absolute;
+	left:50%;
+	top:100px;
+	display:none;
+}
+</style>
+<script src="jquery-1.7.2.min.js"></script>
+<script>
+//window.onload=function(){
+	//var aInput=document.getElementsByTagName("input");
+	//var oBtn=$('#btn');
+	//var oFrame=$("#iframe");
+	//var oCeshi=$("#ceshi");
+	//var oFrame=document.getElementById("iframe");
+	//function changeHeight(){
+		//setTimeout(function(){
+				//oFrame.height()=oFrame.contentWindow.document.body.offsetHeight();
+		//},100)
+	//};
+	//changeHeight();
+	//oBtn.onclick=function(){
+		//oFrame.src='iframe1.html';
+		//document.getElementById("ceshi").style.display="block";
+		//oCeshi.show();
+		//changeHeight();
+	//};
+	//oBtn.click(function(){
+		//oCeshi.show();
+		//changeHeight();
+	//});
+	/*
+	aInput[1].onclick=function(){
+		oFrame.src='iframe2.html';
+		changeHeight();
+	};*/
+//};
+function show(){
+	var oBtn=$('#btn');
+	//var oFrame=$("#iframe");
+	var oFrame=document.getElementById("iframe");
+	 function changeHeight(){
+		setTimeout(function(){
+				oFrame.height=oFrame.contentWindow.document.body.offsetHeight;
+		},100)
+	 };
+
+	//oBtn.onclick=function(){
+		//oFrame.src='iframe1.html';
+		//document.getElementById("ceshi").style.display="block";
+		//oCeshi.show();
+		//changeHeight();
+	//};
+		$("#ceshi").show();
+		changeHeight();
+}
+</script>
+</head>
+
+<body>
+ <input id="btn" type="button" value="切换1" onclick="show()"/>
+ <input type="button" value="切换2" />
+ <div id="ceshi">
+ 	<iframe id="iframe" width="100%" height="100%" src="iframe1.html" frameborder="0" scrolling="no"></iframe>
+ </div>
+</body>
+</html>

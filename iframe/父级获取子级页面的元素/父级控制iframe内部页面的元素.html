@@ -1,0 +1,23 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>无标题文档</title>
+<script>
+window.onload=function(){
+	var oBtn=document.getElementById("btn");
+	var oIframe=document.getElementById("iframe");
+	
+	oBtn.onclick=function(){
+		//oIframe.contentWindow.document.getElementById("div1").style.color="red";
+		oIframe.contentDocument.getElementById("div1").style.color="red";//contentDocument在ie6 ie7下是不兼容的
+	};
+};
+</script>
+</head>
+
+<body>
+ <input type="button" value="改变" id="btn" />
+ <iframe id="iframe" src="soniframe.html"></iframe>
+</body>
+</html>

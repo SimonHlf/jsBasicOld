@@ -1,0 +1,23 @@
+function addEvent(obj,sEv,fn)
+{
+	if(obj.attachEvent)
+	{
+		obj.attachEvent('on'+sEv,fn)
+	}
+	else{
+		obj.addEventListener(sEv,fn,false)
+	}
+}
+
+
+window.onload=function()
+{
+	var oBtn=document.getElementById("btn");
+	
+	addEvent(oBtn,'click',function(){
+		alert("我是做兼容后的事件绑定1")
+	})
+	addEvent(oBtn,'click',function(){
+		alert("我是做兼容后的事件绑定2")
+	})
+}

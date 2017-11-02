@@ -1,0 +1,172 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>无标题文档</title>
+<style>
+.clover_calender{margin:10px auto 0px; width:210px; height:auto; position:relative;z-index:1;font-family:"Microsoft Yahei";}
+.clover_calender *{margin:0;padding:0;list-style:none;}
+.clover_calender .clr{min-height:1%;_height:1%;}
+.clover_calender .clr:after{clear:both;content:".";overflow:hidden;height:0;display:block;}
+.clover_calender .cal-hd{height:30px;background:#000;color:#FFF;}
+.clover_calender .cal-bd{padding:10px 0px 0px 0px;position:relative;z-index:1;}
+.clover_calender .cal-bd .cal-num{position:absolute;top:25px;font-size:120px;z-index:-1;opacity:0.1;filter:alpha(opacity=10);width:210px;text-align:center; color:#FB9D00;}
+.clover_calender .cal-seldate{text-align:center;height:30px;line-height:30px;font-size:14px; font-weight:bold;}
+.clover_calender .cal-toleft,
+.clover_calender .cal-toright{position:absolute;z-index:1;width:20px;height:20px;text-indent:-999em;overflow:hidden;background:url("calender/cal.gif") no-repeat 6px 4px;display:block;top:20px;cursor:pointer;-moz-user-select:none;-webkit-user-select:none;user-select:none;}
+.clover_calender .cal-toleft{left:25px;}
+.clover_calender .cal-toright{background-position:6px -129px;right:25px;}
+.clover_calender .cal-day{padding-bottom:8px; width:210px;}
+.clover_calender .cal-day li{float:left;width:30px;}
+.clover_calender .cal-day li span{width:12px;height:12px;display:block;background:url("calender/cal.gif") no-repeat 0 -23px;text-indent:-999em;overflow:hidden;margin:0 auto;}
+.clover_calender .cal-day .item1 span,
+.clover_calender .cal-day .item7 span{background-position:0 -23px;}
+.clover_calender .cal-day .item2 span{background-position:0 -45px;}
+.clover_calender .cal-day .item3 span,
+.clover_calender .cal-day .item5 span{background-position:0 -67px;}
+.clover_calender .cal-day .item4 span{background-position:0 -89px;}
+.clover_calender .cal-day .item6 span{background-position:0 -111px;}
+.clover_calender .cal-date{width:210px;}
+.clover_calender .cal-date li{float:left;font-size:12px;width:30px;height:30px;text-align:center;}
+.clover_calender .cal-date li a{width:20px;height:20px;margin:0 auto;text-decoration:none;color:#77B049;display:block;line-height:20px;}
+.clover_calender .cal-date .cal-red a{color:#77B049;}
+.clover_calender .cal-date li .cal-on,
+.clover_calender .cal-date li a:hover{background:#0D0D0D;color:#FFF;}
+.clover_calender .cal-date .cal-red .cal-on,
+.clover_calender .cal-date .cal-red a:hover{background:#77B049;color:#FFF;}
+.clover_calender .cal-date li .cal-fade{color:#999;}
+</style>
+<script>
+window.onload=function(){
+	//取现在的时间
+	var oNowDate=new Date();
+	//取设置的时间
+	var oDate=new Date();
+	var y=oDate.getFullYear();
+	var m=oDate.getMonth()+1;//获取当前月数
+	var d=oDate.getDate();
+	
+	//计算选中月有多少天
+	var oDate=new Date();
+	oDate.setMonth(m,1);
+	oDate.setDate(0);
+	var n=oDate.getDate();	
+	function psssDate(){
+		var allLi
+		if(y<oNowDate.getFullYear() || m<oNowDate.getMonth()+1){
+		}
+	}
+
+	function createDate(){
+		//插入本月天数
+		var oCalDate=document.getElementById('cal_date');
+		oCalDate.innerHTML='';
+		for(var i=0;i<n;i++){
+			var oLi=document.createElement('li');	
+			var oA=document.createElement('a');
+			oA.href='javascript:;';
+			oA.target='_self';
+			if((i+1)==d){
+				oA.className='cal-on';
+			}
+			oA.innerHTML=i+1;
+			oLi.appendChild(oA);	
+			oCalDate.appendChild(oLi);
+		}		
+		//插入星期补位
+		var aLi=oCalDate.getElementsByTagName('li');	
+		var aA=oCalDate.getElementsByTagName('a');		
+		oDate.setDate(1);
+		var w=oDate.getDay();
+		for(i=0;i<w;i++){
+			var wLi=document.createElement('li');
+			oCalDate.insertBefore(wLi,aLi[0]);
+		}		
+		//周六周日变色
+		var aAllLi=oCalDate.getElementsByTagName('li');	
+		for(i=0;i<aAllLi.length;i++){
+			if(i%7==0 || i%7==6){
+				aAllLi[i].className='cal-red';
+			}
+		}
+		//当前日点击
+		for(i=0;i<aA.length;i++){
+			aA[i].index=i;
+			aA[i].onclick=function(){
+				for(i=0;i<aA.length;i++){
+					if(aA[i].className='cal-on'){
+						aA[i].className='';
+					}
+				}
+				this.className='cal-on';
+				d=this.index+1;
+				oDate.setDate(d);						
+				oSeldate.innerHTML=(y+' 年 '+m+' 月 '+d+' 日');							
+			};			
+		}
+		var calnum=document.getElementById('calnum')
+		calnum.innerHTML=m;
+		oSeldate.innerHTML=(y+' 年 '+m+' 月 '+d+' 日');			
+	}	
+	
+	//左右切换
+	var oLeft=document.getElementById('cal_toleft');
+	var oRight=document.getElementById('cal_toright');
+	var oSeldate=document.getElementById('cal_seldate');	
+	
+/*	oLeft.onclick=function(){
+		if(m==1){
+			y-=1;
+			m=12;
+		}else{
+			m-=1;
+		}
+		d=1;
+		oDate.setFullYear(y,m-1,d);		
+		createDate();
+	};	
+	
+	oRight.onclick=function(){
+		if(m==12){
+			y+=1;
+			m=1;
+		}else{
+			m+=1;
+		}
+		d=1;
+		oDate.setFullYear(y,m-1,d);
+		createDate();		
+	};*/
+	createDate();
+}
+</script>
+</head>
+
+<body>
+<div class="clover_calender">
+	<!-- 上一月，下一月 -->
+    <div class="cal-hd">
+    	<!--a href="javascript:;" class="cal-toleft" id="cal_toleft" target="_self">←</a>
+        <a href="javascript:;" class="cal-toright" id="cal_toright" target="_self">→</a-->
+        <div class="cal-seldate" id="cal_seldate"></div>
+    </div>
+    <!-- 星期 -->
+    <div class="cal-bd">
+    	<ul class="cal-day clr">
+        	<li class="item1"><span>日</span></li>
+            <li class="item2"><span>一</span></li>
+            <li class="item3"><span>二</span></li>
+            <li class="item4"><span>三</span></li>
+            <li class="item5"><span>四</span></li>
+            <li class="item6"><span>五</span></li>
+            <li class="item7"><span>六</span></li>
+        </ul>
+        <!-- 月份对应的天数 -->
+        <ul class="cal-date clr" id="cal_date"></ul>
+        <!-- 背景的该月份，大字体 -->
+        <span class="cal-num" id="calnum"></span>
+    </div>
+</div>
+<!--div class="box" id="box"></div-->
+</body>
+</html>

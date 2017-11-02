@@ -1,0 +1,32 @@
+5行12列
+
+0 0 0 0 0 0 0 0 0 0 0 0 
+
+0 0 0 0 0 0 0 0 0 0 0 0 
+
+0 0 0 0 0 0 0 0 0 0 0 0 
+
+var str="";
+for(var i=0;i<3;i++){
+	for(var j=0;j<12;j++){
+		str='<div style="width:55px; height:55px; background:Red; position:absolute; top:'+ i*55 +'px; left:'+ j*55 +'px;"></div>'
+	}
+}
+document.body.innerHTML=str;
+
+v 字形
+
+var len=5;
+var cen=Math.floor(len/2);
+var str=""
+for(var i=0;i<len;i++){
+	if(i<=cen){
+		str+='<div style="position:absolute;left:'+ i*50 +'px; top:'+ i*50 +'px; width:50px; height:50px; background:red;"></div>'
+	}else{
+		//3 4  left 增加 top减小
+		
+		str+='<div style="position:absolute;left:'+ i*50 +'px; top:'+ (len-1-i)*50 +'px; width:50px; height:50px; background:red;"></div>'
+	}
+}
+document.body.innerHTML=str;
+

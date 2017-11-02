@@ -1,0 +1,32 @@
+数码时钟：
+
+<script>
+function toDou(n)
+{
+	if(n<10)
+	{
+		return '0'+n;
+	}
+	else
+	{
+		return ''+n;
+	}
+}
+window.onload=function()
+{
+	var aImg=document.getElementsByTagName('img')
+	  function tick()
+	  {
+		var oDate=new Date()
+		var str=toDou(oDate.getHours())+toDou(oDate.getMinutes())+toDou(oDate.getSeconds());
+		for(i=0;i<aImg.length;i++)
+		{
+			aImg[i].src='img/'+str.charAt(i)+'.jpg'//这里的charAt(i)实际上是为了兼容ie6和ie7
+		}					 
+	 }
+
+	setInterval(tick,1000)
+	tick();
+}
+
+</script>

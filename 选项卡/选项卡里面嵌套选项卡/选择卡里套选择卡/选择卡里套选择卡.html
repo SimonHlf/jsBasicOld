@@ -1,0 +1,99 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+	<title>Document</title>
+	<style>
+		*{padding: 0px; margin: 0px;}
+		li{list-style: none;}
+		a{ text-decoration: none; color: #000;}
+		#box{ width:700px; height: 400px;background: #f1f1f1; margin: 40px auto 0; border:1px solid #ccc; overflow: hidden;}
+		#left{ height: 400px; width: 100px;float: left;}
+		#left a{display: block; width: 100px; text-align: center; height: 99px; line-height: 99px; border-bottom: 1px solid #ccc;color: red}
+		#right{ width: 600px; height: 400px;float: right; position: relative;}
+		#right img{display: block; width: 600px; height: 400px;}
+		#bottom{ position: absolute; bottom: 0px;left: 0px; width: 600px; height: 30px;}
+		#bottom a{ background: #333; color: #fff; height: 30px; display: block;float: left; line-height: 30px; text-align: center;}
+		#left a.curr{ background: #fff; color: #000; border-right: none;}
+		#bottom a.curr2{ background: #fff; color: #000;}
+
+	</style>
+	<script>
+		window.onload=function(){
+			var oLeft=document.getElementById('left');
+			    
+			var aA=oLeft.getElementsByTagName('a');
+			var arr=[
+				[['测试标题一','测试标题二','测试标题三','测试标题四'],['img/1.jpg','img/2.jpg','img/3.jpg','img/4.jpg']],
+				[['qweqweqwe','测题二','测试标sd'],['img/5.jpg','img/1.jpg','img/4.jpg']],
+				[['测试标题一','测试asd标题二','测试标题三','测试标题四'],['img/3.jpg','img/2.jpg','img/1.jpg','img/4.jpg']],
+				[['测试标题一','测试标asd题二'],['img/1.jpg','img/4.jpg']]
+			]
+			fn1(arr[0][0],arr[0][1])
+			var adaA=aA[0];
+			adaA.className='curr'
+			for(var i=0;i<aA.length;i++){
+				aA[i].index=i;
+				aA[i].onclick=function(){
+					adaA.className='';
+					adaA=this;
+					this.className='curr';
+					fn1(arr[this.index][0],arr[this.index][1])
+				}
+			}
+				
+
+
+			
+
+		}
+		function fn1(arrTitle,arrImg){
+			var oRight=document.getElementById('right');
+			var oBottom=document.getElementById('bottom');
+			var oImg=oRight.getElementsByTagName('img')[0];
+			var aA=oBottom.getElementsByTagName('a');
+
+			var width=parseInt((600-arrTitle.length*2)/arrTitle.length);
+			oBottom.innerHTML=''
+			for(var i=0;i<arrTitle.length;i++){
+				if(i>=0 && i<arrTitle.length-1){
+					oBottom.innerHTML+='<a href="javascript:;" style="width:'+width+'px;margin-right:2px;">'+arrTitle[i]+'</a>'
+				}else{
+					oBottom.innerHTML+='<a href="javascript:;" style="width:'+width+'px">'+arrTitle[i]+'</a>'
+				}
+				
+			}
+
+			oImg.src=arrImg[0]
+			var aLaA=aA[0];
+			aLaA.className='curr2';
+			for(var i=0;i<aA.length;i++){
+				aA[i].index=i;
+				aA[i].onclick=function(){
+					aLaA.className='';
+					aLaA=this;
+					this.className='curr2';
+					oImg.src=arrImg[this.index]
+				}
+			}
+		}
+	</script>
+</head>
+<body>
+	<div id="box">
+		<div id="left">
+			<a href="javascript:;" >最热团购</a>
+			<a href="javascript:;">商城优惠</a>
+			<a href="javascript:;">名品推荐</a>
+			<a href="javascript:;">缤纷活动</a>
+		</div>
+		<div id="right">
+			<img src="" alt="" />
+			<div id="bottom">
+				
+			</div>
+		</div>
+		
+	</div>
+</body>
+</html>

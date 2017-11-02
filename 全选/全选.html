@@ -1,0 +1,50 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>无标题文档</title>
+<style>
+</style>
+<script>
+window.onload=function()
+{
+var oBtn=document.getElementById('btn');
+var aInput=document.getElementsByTagName('input');
+var i=0;
+oBtn.onclick=function()
+{
+ for(i=0;i<aInput.length;i++)
+ {
+	aInput[i].checked=true; //至于i到底什么时候变true为止，上面的length决定的！
+ }
+	
+	
+}
+	
+}
+</script>
+</head>
+
+<body>
+<p id="btn">点我</p>
+<input type="checkbox" /><br/>
+<input type="checkbox" /><br/>
+<input type="checkbox" /><br/>
+<input type="checkbox" /><br/>
+<input type="checkbox" /><br/>
+<input type="checkbox" /><br/>
+<input type="checkbox" /><br/>
+<input type="checkbox" /><br/>
+<input type="checkbox" /><br/>
+<input type="checkbox" /><br/>
+<input type="checkbox" /><br/>
+<input type="checkbox" /><br/>
+<input type="checkbox" /><br/>
+<input type="checkbox" /><br/>
+<input type="checkbox" /><br/>
+<input type="checkbox" /><br/>
+<input type="checkbox" /><br/>
+<input type="checkbox" /><br/>
+<input type="checkbox" /><br/>
+</body>
+</html>

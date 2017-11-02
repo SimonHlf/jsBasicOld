@@ -1,0 +1,83 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>无标题文档</title>
+<style>
+*{margin:0;padding:0;}
+.layer{	
+	width:100%;
+	height:100%;
+	background:#000;
+	opacity:0.5;
+	filter:alpha(opacity=50);
+	position:fixed;
+	display:none;
+	z-index:2;
+	left:0;
+	top:0;
+}
+.alertDiv{
+	width:100px;
+	height:100px;
+	background:Red;
+	position:absolute;
+	left:50%;
+	top:50%;
+	margin-left:-50px;
+	margin-top:-50px;
+	z-index:5;
+	display:none;
+}
+.cancelScroll{
+	height:100%;
+	overflow:hidden;
+}
+</style>
+<script src="jquery-1.4.2.min.js"></script>
+<script>
+$(function(){
+	var scrollbarWidth =  getScrollbarWidth();
+	alert(scrollbarWidth)
+	$("#btn").click(function(){
+		$(".alertDiv").show();
+		$(".layer").show();
+		$("body").addClass("cancelScroll").css({
+			"padding-right":scrollbarWidth
+		});
+		$("html").addClass("cancelScroll").css({
+			"padding-right":scrollbarWidth
+		});
+	});
+	
+});
+function getScrollbarWidth() {
+		
+		var oP = document.createElement('p'),
+			styles = {
+				width: '100px',
+				height: '100px',
+				overflowY: 'scroll'
+			}, i, scrollbarWidth;
+		oP.id="creaP";
+		for (i in styles) oP.style[i] = styles[i];
+		document.body.appendChild(oP);
+		scrollbarWidth = oP.offsetWidth - oP.clientWidth;
+		//clientWidth的宽度是不包括滚动条的宽度的
+		//offsetWidth的宽度就是该元素原始的宽度
+		//alert(oP.offsetWidth + ":" + oP.clientWidth)
+		$("#creaP").remove();
+		return scrollbarWidth;
+}
+	
+	
+</script>
+</head>
+
+<body style="height:2000px;">
+<input type="button" value="anniu" id="btn" />
+<div class="layer"></div>
+<div class="alertDiv"></div>
+<div style="height:600px; width:500px; background:yellow;">fsddsfdsfsdl</div>
+</body>
+</html>

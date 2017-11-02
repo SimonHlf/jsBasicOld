@@ -1,0 +1,31 @@
+function toDou(n)
+{
+	if(n<10)
+	{
+		return '0'+n;
+	}
+	else
+	{
+		return ''+n;
+	}
+}
+window.onload=function()
+{
+	var now=new Date()
+	//alert(now.getMonth()+1);6月
+	//alert(now.getFullYear());2013年
+	//alert(now.getDate());//这个是弹出的是几号的意思24号
+	//alert(now.getHours());9点
+	//alert(now.getMinutes())57分
+	//alert(now.getSeconds());45秒
+	//alert(now.getDay());星期一
+	//alert(now.getTime());
+	var year=now.getFullYear();
+	var mouth=now.getMonth()+1;
+	var date=now.getDate();
+	var hours=now.getHours();
+	var minu=toDou(now.getMinutes());
+	var sec=now.getSeconds();
+	alert('您好,现在是'+year+'年'+mouth+'月'+date+'日'+hours+'点'+minu+'分'+sec+'秒'+'欢迎访问我们的网站！！')
+}
+</script>

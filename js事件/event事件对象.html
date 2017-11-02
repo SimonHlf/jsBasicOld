@@ -1,0 +1,25 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>无标题文档</title>
+<script>
+window.onload=function()
+{
+	document.onclick=function(ev)//参数，事件对象是系统传过来的
+	{
+		//alert(event.clientX+','+event.clientY);  ie下
+		//alert(ev.clientX+','+ev.clientY);//火狐下.  ie下不能用.所以要处理兼容性
+		
+		var oEvent=ev||event;//这里用到了或
+		alert(oEvent.clientX+','+oEvent.clientY);
+
+		
+	}
+}
+</script>
+</head>
+
+<body>
+</body>
+</html>

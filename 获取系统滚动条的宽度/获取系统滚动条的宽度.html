@@ -1,0 +1,57 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>无标题文档</title>
+<script src="jquery-1.4.2.min.js"></script>
+<script>
+window.onload = function(){
+	/**function getScrollbarWidth() {
+		
+		var oP = document.createElement('p'),
+			styles = {
+				width: '100px',
+				height: '100px',
+				overflowY: 'scroll'
+			}, i, scrollbarWidth;
+		oP.id="creaP";
+		for (i in styles) oP.style[i] = styles[i];
+		document.body.appendChild(oP);
+		scrollbarWidth = oP.offsetWidth - oP.clientWidth;
+		//clientWidth的宽度是不包括滚动条的宽度的
+		//offsetWidth的宽度就是该元素原始的宽度
+		alert(oP.offsetWidth + ":" + oP.clientWidth)
+		$("#creaP").remove();
+		return scrollbarWidth;
+	}
+	
+	var scrollbarWidth =  getScrollbarWidth();
+	alert(scrollbarWidth)
+	**/
+	function getScrollbarWidth() {
+		var oP = document.createElement('p'),
+			styles = {
+				width: '100px',
+				height: '100px'
+			}, i, clientWidth1, clientWidth2, scrollbarWidth;
+		oP.id="creaP";
+		for (i in styles) oP.style[i] = styles[i];
+		document.body.appendChild(oP);
+		clientWidth1 = oP.clientWidth;//（100）这个时候的clientWidth是不带滚动条的
+		oP.style.overflowY = 'scroll';//然后动态给当前新建的p元素添加y轴滚动条
+		clientWidth2 = oP.clientWidth;//（83）这个时候再把原来的clientWidth2是不带滚动条的
+		scrollbarWidth = clientWidth1 - clientWidth2;
+		$("#creaP").remove();
+		return scrollbarWidth;
+	}
+	var scrollbarWidth =  getScrollbarWidth();
+	alert(scrollbarWidth)
+}
+
+</script>
+</head>
+
+<body style="height:2000px;">
+fsafsdfsdf
+</body>
+</html>

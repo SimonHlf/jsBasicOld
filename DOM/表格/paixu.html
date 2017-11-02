@@ -1,0 +1,43 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>无标题文档</title>
+<script>
+/*var arr=[12,58,32,105,10,36,47];
+arr.sort(function(n1,n2){
+	return n1-n2;
+});
+alert(arr)*/
+function quickSort(arr)
+{
+	if(arr.length<=1)
+	{
+		return arr;
+	}
+	var num=Math.floor(arr.length/2);
+	var numValue=arr.splice(num,1);//找到基准点
+	
+	var left=[];//左右定义两个空数组
+	var right=[];
+	
+	for(var i=0;i<arr.length;i++)
+	{
+		if(arr[i]<numValue)//对这个数组循环然后进行和基准点的比较
+		{
+			left.push(arr[i]);
+		}
+		else
+		{
+			right.push(arr[i]);
+		}
+	}
+	return quickSort(left).concat([numValue],quickSort(right));//采用递归原理
+}
+alert(quickSort([12,38,46,25,78,3,16,20]))
+</script>
+</head>
+
+<body>
+</body>
+</html>

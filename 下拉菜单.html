@@ -1,0 +1,44 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>下拉菜单</title>
+<style>
+ul{ list-style-type:none; background:green; width:100px;}
+ul a{ text-decoration:none; color:#000;}
+</style>
+<script>
+window.onload=function()
+{
+	var oBtn=document.getElementById('btn');
+	var oUl=document.getElementById('ul');
+	oBtn.onclick=function()
+	{	
+	 if(oUl.style.display=='block')
+	 {
+		oUl.style.display='none'; 
+		 }
+		 else
+		 {
+			 oUl.style.display='block';
+			 }
+	 
+	 
+	 };
+	
+	
+	};
+</script>
+</head>
+
+<body>
+
+ <input id="btn" type="submit" value="点我显示内容" />
+ <ul id="ul" style=" display:block;">
+  <li><a href="#">菜单一</a></li>
+  <li><a href="#">菜单一</a></li>
+  <li><a href="#">菜单一</a></li>
+ </ul>
+
+</body>
+</html>

@@ -1,0 +1,86 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="gb18030">
+<title>鼠标经过</title>
+<style type="text/css">
+*{margin:0; padding:0;}
+.level{width:514px; height:1px; border-top:1px solid #333; margin-top:5px; overflow:hidden;}
+ul{list-style:none; width:513px; height:300px; margin-top:20px;}
+li{width:56px; height:84px; float:left; margin: 0px 29px 20px 0px; float:left; position:relative; z-index:1;}
+li div{position:absolute; display:none;}
+.xx{width:231px; height:137px; position:absolute; left:40px; top:40px;}
+</style>
+<script type="text/javascript">
+window.onload = function(){
+	var oLi = document.getElementsByTagName('li');
+	var i =0;
+	for (i=0; i<oLi.length; i++){
+		oLi[i].index = i;
+		oLi[i].onmouseover = function(){
+			this.style.zIndex = 10;
+			this.getElementsByTagName('div')[0].style.display = "block";
+		};
+		oLi[i].onmouseout = function(){
+			this.style.zIndex = 1;
+			this.getElementsByTagName('div')[0].style.display = "none";
+		};
+	};
+};
+</script>
+</head>
+
+<body>
+<h4>最新上线</h4>
+<div class="level"></div>
+<ul>
+	<li>
+		<img src="a.jpg" width="56" height="84" alt="道具图片">
+		<div class="xx" style="z-index:10"><img src="images/c13.jpg" width="231" height="137" alt="道具图"></div>
+	</li>
+	<li>
+		<img src="a.jpg" width="56" height="84" alt="道具图片">
+		<div class="xx" style="z-index:10"><img src="images/c13.jpg" width="231" height="137" alt="道具图"></div>
+	</li>
+	<li>
+		<img src=".jpg" width="56" height="84" alt="道具图片">
+		<div class="xx" style="z-index:10"><img src="images/c13.jpg" width="231" height="137" alt="道具图"></div>
+	</li>
+	<li>
+		<img src="images/c4.jpg" width="56" height="84" alt="道具图片">
+		<div class="xx" style="z-index:10"><img src="images/c13.jpg" width="231" height="137" alt="道具图"></div>
+	</li>
+	<li>
+		<img src="images/c5.jpg" width="56" height="84" alt="道具图片">
+		<div class="xx" style="z-index:10"><img src="images/c13.jpg" width="231" height="137" alt="道具图"></div>
+	</li>
+	<li>
+		<img src="images/c6.jpg" width="56" height="84" alt="道具图片">
+		<div class="xx" style="z-index:10"><img src="images/c13.jpg" width="231" height="137" alt="道具图"></div>
+	</li>
+	<li>
+		<img src="images/c7.jpg" width="56" height="84" alt="道具图片">
+		<div class="xx" style="z-index:10"><img src="images/c13.jpg" width="231" height="137" alt="道具图"></div>
+	</li>
+	<li>
+		<img src="images/c8.jpg" width="56" height="84" alt="道具图片">
+		<div class="xx" style="z-index:10"><img src="images/c13.jpg" width="231" height="137" alt="道具图"></div>
+	</li>
+	<li>
+		<img src="images/c9.jpg" width="56" height="84" alt="道具图片">
+		<div class="xx" style="z-index:10"><img src="images/c13.jpg" width="231" height="137" alt="道具图"></div>
+	</li>
+	<li>
+		<img src="images/c10.jpg" width="56" height="84" alt="道具图片">
+		<div class="xx" style="z-index:10"><img src="images/c13.jpg" width="231" height="137" alt="道具图"></div>
+	</li>
+	<li>
+		<img src="images/c11.jpg" width="56" height="84" alt="道具图片">
+		<div class="xx" style="z-index:10"><img src="images/c13.jpg" width="231" height="137" alt="道具图"></div>
+	</li>
+	<li>
+		<img src="images/c12.jpg" width="56" height="84" alt="道具图片">
+		<div class="xx" style="z-index:10"><img src="images/c13.jpg" width="231" height="137" alt="道具图"></div>
+	</li>
+</body>
+</html>

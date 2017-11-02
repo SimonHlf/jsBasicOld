@@ -1,0 +1,58 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>无标题文档</title>
+<style>
+#div1{width:200px;height:200px; background:red; position:absolute; left:0; top:50px;filter:alpha(opacity:30);/*这个是针对ie的*/opacity:0.3;/*这个是针对火狐谷歌的*/}
+</style>
+<script>
+var timer=null;
+var alpha=30;////这里很重要
+function startMove(iTarget)
+{
+	var oDiv=document.getElementById('div1');
+	clearInterval(timer);
+	timer=setInterval(function(){
+		var speed=0;
+		if(alpha<iTarget)
+		{
+			speed=3;
+		}
+		else
+		{
+			speed=-3
+		}
+		if(alpha==iTarget)
+		{
+			clearInterval(timer);
+		}
+		else
+		{
+			alpha+=speed;
+			oDiv.style.filter='alpha(opacity:'+alpha+')';//这里很重要
+			oDiv.style.opacity=alpha/100;
+		}
+		},30)
+}
+window.onload=function()
+{
+	var oDiv=document.getElementById('div1');
+	oDiv.onmouseover=function()
+	{
+		startMove(100)
+	}
+	oDiv.onmouseout=function()
+	{
+		startMove(30)
+	}
+}
+</script>
+</head>
+
+<body>
+<div id="div1">
+
+</div>
+</body>
+</html>

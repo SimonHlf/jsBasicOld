@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+		<html lang="en">
+		<head>
+			<meta charset="UTF-8">
+			<title>Document</title>
+			<style>
+               #divA{width: 156px;height: 156px;position: relative;left: 500px;top: 100px;padding: 1px 1px 1px 1px;z-index: 0;}
+               img{width: 156px;height: 156px;position: relative; z-index: 3;cursor: pointer;}
+               #divtop{width: 0px;height: 0px;position: absolute;left: 0;top: 0;background: red;z-index: 1;transition:1s;}
+               #divleft{width: 0;height: 0;position: absolute;right: 0;bottom: 0;background: red;z-index: 1;transition:1s;}
+			</style>
+			<script>
+              window.onload=function(){
+              	var oimg=document.getElementById("oimg");
+              	var divtop=document.getElementById("divtop");
+              	var divleft=document.getElementById("divleft");
+              	oimg.onmouseover=function(){
+                   HeiWid(divtop,158);
+                   HeiWid(divleft,158);
+              	}
+              	oimg.onmouseout=function(){
+              	   HeiWid(divtop,0);
+                   HeiWid(divleft,0);
+              	}
+
+              	function HeiWid(obj,item){
+                     obj.style.width=item+"px";
+                     obj.style.height=item+"px";
+              	}
+              }
+			</script>
+		</head>
+		<body>
+			<div id="divA">
+				<div id="divtop"></div>
+				<img id="oimg" src="123.jpg" alt="">
+				<div id="divleft"></div>
+			</div>
+		</body>
+		</html>		

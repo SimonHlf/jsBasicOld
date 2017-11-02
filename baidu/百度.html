@@ -1,0 +1,53 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>无标题文档</title>
+<style>
+div,p,ul,li{margin:0;padding:0;}
+li{list-style:none;}
+body{font-size:12px;}
+#div1{width:60px; height:auto; margin:100px auto;}
+#div1 p{height:22px; width:100%; line-height:22px; background:url(ico.gif) no-repeat right center; color:#36F;}
+#div1 ul{width:100%; height:76px; border:1px solid #36c; display:none;}
+#div1 li{line-height:30px; text-align:center;}
+#div1 li a{ text-decoration:none; color:#000; width:100%; height:25px; display:block;}
+#div1 li a:hover{ background:#9C0;}
+</style>
+<script>
+window.onload=function()
+{
+	var oBtn=document.getElementById('btn');
+	var oUl=document.getElementById('ul');
+	var aLi=oUl.getElementsByTagName('li');
+	var oA=document.getElementById('a');
+	oBtn.onclick=function()
+	{
+		if(oUl.style.display=='none')
+		{
+			oUl.style.display='block'
+		}
+		else
+		{
+			oUl.style.display='none'
+		}
+	}
+	oA.onclick=function()
+	{
+		oUl.style.display='none';
+	}
+}
+</script>
+</head>
+
+<body>
+<div id="div1">
+ <p id="btn">输入法</p>
+ <ul id="ul">
+  <li><a href="#">手写</a></li>
+  <li><a href="#">拼音</a></li>
+  <li><a id="a" href="#">关闭</a></li>
+ </ul>
+</div>
+</body>
+</html>

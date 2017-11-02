@@ -1,0 +1,37 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>无标题文档</title>
+<style>
+#ul1{ background:green;}
+#ul2{ background:yellow;}
+</style>
+<script>
+window.onload=function()
+{
+	var oUl1=document.getElementById('ul1');
+	var oUl2=document.getElementById('ul2');
+	var oBtn=document.getElementById('btn');
+	oBtn.onclick=function()
+	{
+		var oLi=oUl1.children[0];//找出需要移动的li是谁，实际上需要移动的li就是ul1的第0个子节点
+		//oUl1.removeChild(oLi);//把lI从ul1里面移出掉
+		oUl2.appendChild(oLi);///把lI从ul2添加进去  appendChild()先将元素从原有的父级上给删除，第二步添加到新的父级上！
+	}
+}
+</script>
+</head>
+
+<body>
+<ul id="ul1">
+ <li>1</li>
+ <li>2</li>
+ <li>3</li>
+ <li>4</li>
+</ul>
+<input type="button" value="移动" id="btn" />
+<ul id="ul2">
+</ul>
+</body>
+</html>

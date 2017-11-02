@@ -1,0 +1,69 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>无标题文档</title>
+<style>
+#progressBox{width:300px; height:40px; border:1px solid #cbc8c8; background:white; position:relative;}
+#progressBar{ position:absolute; left:0; top:0px; z-index:2; height:40px; width:100%;line-height:40px; color:white; text-align:center; font-size:20px; font-weight:bold; font-family:Georgia;background:#00a1f5; clip:rect(0px 0px 40px 0px)}
+#progressText{ position:absolute; left:0;top:0; z-index:1; width:100%; height:40px; line-height:40px; color:block; text-align:center; font-size:20px; font-weight:bold; font-family:Georgia;}
+</style>
+<script>
+window.onload=function()
+{
+	progress();
+}
+function progress()
+{
+	var now=0
+	var timer=setInterval(function(){
+		if(now==100)
+		{
+			clearInterval(timer);
+		}
+		else
+		{
+			now+=1;
+			progressFn(now);
+		}
+
+	},30)
+	
+	function progressFn(cent)//cent百分比
+	{
+		var oDiv1=document.getElementById('progressBox');
+		var oDiv2=document.getElementById('progressBar');
+		var oDiv3=document.getElementById('progressText');
+		
+		var allWidth=parseInt(getStyle(oDiv1,'width'));
+		
+		oDiv2.innerHTML=cent+'%';
+		oDiv3.innerHTML=cent+'%';
+		
+		oDiv2.style.clip='rect(0px, '+cent/100*allWidth +'px, 40px, 0px)'
+		function getStyle(obj,attr)
+		{
+			if(obj.currentStyle)
+			{
+				return obj.currentStyle[attr];
+			}
+			else
+			{
+				return getComputedStyle(obj,false)[attr];
+			}
+		}
+	}
+}
+//1：硬编码  写死的一个数据 不好维护  把数据写成常数而不是变量
+//2,flash配合 as3
+//3.html5:
+</script>
+</head>
+
+<body>
+<div id="progressBox">
+ <div id="progressBar">0%</div>
+ <div id="progressText">0%</div>
+</div>
+</body>
+</html>

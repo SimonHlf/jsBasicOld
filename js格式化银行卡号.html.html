@@ -1,0 +1,69 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>js银行卡号格式输入框 - 站长素材</title>
+	<style>
+	*{margin:0;padding:0;}
+	input{margin:100px auto;display:block;border:1px solid #000;width:200px;height:30px;line-height:30px;}
+	#ceshi{
+		width:282px;
+		height:30px;
+		background:#005ea6;
+		font-family:verdana;
+		font-size:18px;
+		font-weight:bold;
+		color:#fff;
+		/*box-shadow:2px 2px 2px #999;
+		position:absolute;
+		left:600px;
+		top:132px;*/
+		border:none;
+		display:none;
+	}
+	</style>
+	<script>
+	var reg = /\D/;
+	window.onload=function(){
+		bankNumPattern();
+	};
+	function bankNumPattern(){
+		var oText = document.getElementById("text");
+		var oCeshi = document.getElementById("ceshi");
+		oText.onkeydown=function(e){
+			//oCeshi.style.display="block";
+			if(!isNaN(this.value.replace(/[ ]/g,""))){         
+				setTimeout(function(){
+					oCeshi.value =oText.value.replace(/\s/g,'').replace(/(\d{4})(?=\d)/g,"$1 ");//四位数字一组，以空格分割     
+				},30)
+				
+			}else{         
+				if(e.keyCode==8){//当输入非法字符时，禁止除退格键以外的按键输入
+					return true;         
+				}else{
+					return false        
+				}
+			}
+		};
+		oText.onfocus = function(){
+			oCeshi.style.display="block";
+		}
+		oText.onblur = function(){
+			oCeshi.style.display="none";
+		}
+	}
+	function clearWord(){
+		var oText = document.getElementById("text");
+		var oCeshi = document.getElementById("ceshi");
+		oText.value=oText.value.replace(/\D/g,'');
+		oCeshi.value = oCeshi.value.replace(/\D/g,'').replace(/(\d{4})(?=\d)/g,"$1 ");
+	}
+	</script>
+</head>
+<body>
+	<input id="text" type="text" value="" onkeyup="clearWord()"> 
+    <input type="text" id="ceshi"/>
+</div>
+</body>
+</html>

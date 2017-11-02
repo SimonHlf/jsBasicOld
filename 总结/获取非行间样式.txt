@@ -1,0 +1,38 @@
+库函数：
+
+function getStyle(obj,name)
+{
+	if(obj.currentStyle)
+	{
+		return obj.currentStyle[name]
+	}
+	else
+	{
+		return getComputedStyle(obj,false)[name];
+	}
+}
+
+加载时用的：
+window.onload=function()
+{
+	var oDiv=document.getElementById('div1');
+	//alert(oDiv.style.width);
+	//alert(oDiv.currentStyle.width);
+	//alert(getComputedStyle(oDiv,false).width);
+/*	if(oDiv.currentStyle)
+	{
+		//IE
+		alert(oDiv.currentStyle.width);
+	}
+	else
+	{
+		//FF
+		alert(getComputedStyle(oDiv,false).width);
+	}*/
+	  alert(getStyle(oDiv,'backgroundColor'))
+}
+
+
+这里用到了 currentStyle.value 和getComputedStyle(obj,flase)[name]
+
+对于复合样式如background和border需要注意

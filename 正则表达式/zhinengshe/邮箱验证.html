@@ -1,0 +1,31 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>无标题文档</title>
+<script>
+window.onload=function()
+{
+	var oBtn=document.getElementById('btn');
+	var oTxt=document.getElementById('text1');
+	oBtn.onclick=function()
+	{
+		var pattern=/^[\w]+@[a-z0-9]+\.[a-z]+$/i;//^行首（字符串的开头） $行尾（字符串的结尾）
+		if(pattern.test(oTxt.value))
+		{
+			alert('合法的邮箱')
+		}
+		else
+		{
+			alert('错误的邮箱')
+		}
+	}
+}
+</script>
+</head>
+
+<body>
+<input type="text" id="text1" />
+<input type="button" id="btn" value="验证"/>
+</body>
+</html>

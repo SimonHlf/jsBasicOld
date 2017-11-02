@@ -1,0 +1,51 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>键盘事件</title>
+<style>
+#div1{ width:100px; height:100px; background:#F00; position:absolute;}
+</style>
+<script>
+window.onload = function(){
+	var odiv = document.getElementById('div1');
+	var timer = null;
+	document.onkeydown = function(ev){
+		clearInterval(timer);
+		var	ev = ev || event;
+		switch(ev.keyCode){
+			case 37:
+			     timer = setInterval(function(){
+				   odiv.style.left = odiv.offsetLeft - 10+'px';
+				  },20);
+				  break;
+			case 38:
+			      timer = setInterval(function(){
+				   odiv.style.top = odiv.offsetTop - 10+'px';
+				  },20);
+				  break;
+			case 39:
+			      timer = setInterval(function(){
+				   odiv.style.left = odiv.offsetLeft + 10+'px';
+				  },20);
+				  break;
+			case 40:
+			       timer = setInterval(function(){
+				   odiv.style.top = odiv.offsetTop + 10+'px';
+				  },20);
+				  break;
+			}
+		}
+	document.onkeyup = function(){
+		//var	ev = ev || event;
+	    clearInterval(timer);
+
+		}
+	}
+</script>
+</head>
+
+<body>
+<div id="div1"></div>
+</body>
+</html>

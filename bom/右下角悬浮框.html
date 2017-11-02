@@ -1,0 +1,25 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>无标题文档</title>
+<style>
+#div1{width:200px;height:200px; background:red; position:absolute; right:0; bottom:0;}
+body{height:2000px;}
+</style>
+<script>
+window.onscroll=window.onresize=function()//window.onresize当改变窗口大小的时候发生window.onscroll就当页面滚动的时候会反生的时间
+{
+	var oDiv=document.getElementById('div1');
+	var scrollTop=document.documentElement.scrollTop||document.body.scrollTop;
+	oDiv.style.top=document.documentElement.clientHeight-oDiv.offsetHeight+scrollTop+'px';
+}
+</script>
+</head>
+
+<body>
+<div id="div1">
+ie6下是不认position:fixed;这个属性的
+</div>
+</body>
+</html>

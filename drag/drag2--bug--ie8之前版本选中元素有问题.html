@@ -1,0 +1,45 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+<title>无标题文档</title>
+<style>
+.div1{width:100px; height:100px; background:red; position:absolute;}
+</style>
+<script>
+//bug 浏览器对ie8之前版本的选中元素的问题  setCapture()全局捕获（生成一个透明层）
+//releaseCapture();释放全局捕获（删除了这个层）;
+window.onload = function(){
+	var oDiv = document.getElementById("div");
+	var disX = 0;
+	var disY = 0;
+	oDiv.onmousedown = function(ev){
+		var oEvent = ev || window.event;
+		disX = oEvent.clientX - oDiv.offsetLeft;
+		disY = oEvent.clientY - oDiv.offsetTop;
+		
+		if(oDiv.setCapture){
+			oDiv.setCapture();
+		}
+		document.onmousemove = function(ev){
+			var oEvent = ev || window.event;
+			oDiv.style.left = oEvent.clientX - disX  +'px';
+			oDiv.style.top = oEvent.clientY - disY +'px';
+		}
+		document.onmouseup = function(){
+			document.onmousemove = null;
+			document.onmouseup = null;
+			if(oDiv.releaseCapture){
+				oDiv.releaseCapture();
+			}
+		}
+		return false;
+	}
+}
+</script>
+</head>
+
+<body>
+<div id="div" class="div1">11111111111111111</div>
+</body>
+</html>

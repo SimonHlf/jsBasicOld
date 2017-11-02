@@ -1,0 +1,80 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>无标题文档</title>
+<style>
+body{background:black;overflow:hidden;}
+div{position:absolute;}
+</style>
+<script>
+function getRndAndFillZero()
+{
+	var str=Math.ceil(Math.random()*16777215).toString(16);
+	while(str.length<6)
+	{
+		str='0'+str;
+	}
+	return str;
+}
+document.onclick=function(ev)
+{
+	var oEvent=ev||event;
+	var l=oEvent.clientX;
+	var t=oEvent.clientY;
+	var oRedDiv=document.createElement('div');
+	oRedDiv.style.width='4px';
+	oRedDiv.style.height='30px';
+	oRedDiv.style.background='red';
+	oRedDiv.style.left=oEvent.clientX+'px';
+	oRedDiv.style.top=document.documentElement.clientHeight+'px';
+	oRedDiv.style.left=oEvent.clientX+'px';
+	document.body.appendChild(oRedDiv);
+	var timer=setInterval(function(){
+		oRedDiv.style.top=oRedDiv.offsetTop-20+'px';
+		if(oRedDiv.offsetTop<=t)
+		{
+			clearInterval(timer);
+			document.body.removeChild(oRedDiv);
+			var aDiv=[];
+			for(var i=0;i<100;i++)
+			{
+				var oDiv=document.createElement('div');
+				oDiv.style.width='4px';
+				oDiv.style.height='4px';
+				oDiv.style.background='#'+getRndAndFillZero();
+				oDiv.style.left=l+'px';
+				oDiv.style.top=t+'px';
+				document.body.appendChild(oDiv);
+				aDiv.push(oDiv);
+				//添加随机速度
+				oDiv.speedX=Math.random()*40-10//-20-20
+				oDiv.speedY=Math.random()*40-10;
+
+			}
+			var newTimer=setInterval(function(){
+				for(var i=0;i<aDiv.length;i++)
+				{
+					if(!aDiv[i])continue;
+					aDiv[i].style.left=aDiv[i].offsetLeft+aDiv[i].speedX+'px'
+					aDiv[i].style.top=aDiv[i].offsetTop+aDiv[i].speedY+'px'
+					aDiv[i].speedY++;
+					
+					if(aDiv[i].offsetLeft<0||aDiv[i].offsetLeft>document.documentElement.clientWidth||aDiv[i].offsetTop>document.documentElement.clientHeight)
+					{
+						document.body.removeChild(aDiv[i]);
+						aDiv[i]=null;
+					}
+					
+				}
+				},30)//控制小的div的活动
+			
+		}
+		},30)
+}
+</script>
+</head>
+
+<body>
+</body>
+</html>

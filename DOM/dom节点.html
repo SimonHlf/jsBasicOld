@@ -1,0 +1,38 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>无标题文档</title>
+<script>
+window.onload=function()
+{
+	var oUl=document.getElementById('ul1');
+	//alert(oUl.childNodes.length); 11个 (5个元素节点和6个文本节点)
+	//for(i=0;i<oUl.childNodes.length;i++)
+	//{
+		//oUl.childNodes.style.background='red';
+		//alert(oUl.childNodes[i].nodeType);//当文本节点 nodeType==3的时候是文本节点！==1的时候是元素节点 
+	    //if(oUl.childNodes[i].nodeType==1)
+		//{
+			//oUl.childNodes[i].style.background='green'	
+		//}
+	//}
+	for(i=0;i<oUl.children.length;i++)
+	{
+		oUl.children[i].style.background='red'
+	}
+	
+}
+</script>
+</head>
+
+<body>
+<ul id="ul1">
+ <li></li>
+ <li></li>
+ <li></li>
+ <li></li>
+ <li></li>
+</ul>
+</body>
+</html>

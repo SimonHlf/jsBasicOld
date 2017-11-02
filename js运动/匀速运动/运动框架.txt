@@ -1,0 +1,79 @@
+var timer=null;
+function startMove()
+{
+	var oDiv1=document.getElementById('div1');
+	clearInterval(timer);
+	timer=setInterval(function(){
+	   if(oDiv1.offsetLeft==0)//就是让整个div出来所以将其left:0;
+	   {
+			clearInterval(timer);
+		}
+		else
+		{
+			oDiv1.style.left=oDiv1.offsetLeft+10+'px';
+		}
+		},30)
+}
+
+
+var timer=null;
+function startMove(speed,iTarget)
+{
+	var oDiv1=document.getElementById('div1');
+	clearInterval(timer);
+	timer=setInterval(function(){
+	   if(oDiv1.offsetLeft==iTarget)//就是让整个div出来所以将其left:0;
+	   {
+			clearInterval(timer);
+		}
+		else
+		{
+			oDiv1.style.left=oDiv1.offsetLeft+speed+'px';
+		}
+		},30)
+}
+
+
+
+var timer=null;
+function startMove(iTarget)
+{
+	var oDiv1=document.getElementById('div1');
+	clearInterval(timer);
+	timer=setInterval(function(){
+           var speed=0;
+           if(oDiv.offsetLeft>iTarget)
+           {
+              speed=-10;
+           }
+           else
+           {
+              speed=10;
+           }
+	   if(oDiv1.offsetLeft==iTarget)//就是让整个div出来所以将其left:0;
+	   {
+			clearInterval(timer);
+		}
+		else
+		{
+			oDiv1.style.left=oDiv1.offsetLeft+speed+'px';
+                   
+		}
+		},30)
+}
+
+
+
+
+
+
+
+首先清除定时器，然后再开启一个定时器，然后再定义一个speed然后用个if判断 目标点和运动中的这个点的距离的大小，如果oDiv.offsetLeft>iTarget应该是向左运动，则speed是负值！反之正直！然后在来个判断，这个判断则是判端oDiv.offsetLeft==iTarge，如果成立的话清除定时器，否则oDiv1.style.left=oDiv1.offsetLeft+speed+'px';
+
+
+
+
+
+
+
+

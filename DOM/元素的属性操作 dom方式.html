@@ -1,0 +1,25 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>无标题文档</title>
+<script>
+window.onload=function()
+{
+	var oTxt=document.getElementById('txt1');
+	var oBt=document.getElementById('bt1');
+	oBt.onclick=function()
+	{
+		//oTxt.value='你好';
+		//oTxt['value']='fsaef';                          属性的名字
+		oTxt.setAttribute('value','hello');//setAttribute('value','属性所设的值')  获取：getAttribute(名称)
+	}
+}
+</script>
+</head>
+
+<body>
+<input type="text" id="txt1" />
+<input type="button" value="设置" id="bt1" />
+</body>
+</html>

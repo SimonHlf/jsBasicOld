@@ -1,0 +1,29 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>无标题文档</title>
+<style>
+#div1{width:100px; height:180px; background:red; position:absolute;top:0; right:0;}
+#div1 span{color:#fff;}
+</style>
+<script src="run.js"></script>
+<script>
+window.onload=window.onresize=window.onscroll=function()
+{
+	var oDiv1=document.getElementById('div1');
+	var scrollTop=document.documentElement.scrollTop||document.body.scrollTop;
+	var t=Math.ceil((document.documentElement.clientHeight-oDiv1.offsetHeight)/2);
+	//oDiv1.style.top=t+scrollTop+'px';
+	startMove(oDiv1,{top:scrollTop+t})
+}
+</script>
+</head>
+
+<body style="height:2000px;">
+<div id="div1">
+ <span>ie6下的fixed是不支持的,所以在ie6下可以采取运动的方式，当然，也可以让所有的浏览器都采用运动的方式来做</span>
+</div>
+
+</body>
+</html>

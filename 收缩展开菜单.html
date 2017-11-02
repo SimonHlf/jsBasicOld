@@ -1,0 +1,46 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>无标题文档</title>
+<style>
+*{ margin:0; padding:0;}
+ul{ list-style-type:none; width:150px; height:100px; background:red;}
+
+</style>
+<script>
+ window.onload= function(){
+	 var oBtn=document.getElementById('btn');
+	 var oUl=document.getElementById('ul');
+	 var oCl=document.getElementById('close');
+	 
+	 oBtn.onclick= function(){
+		 if(oUl.style.display=='block'){
+			 
+			 oUl.style.display='none';
+			 }
+		 else
+		 {
+			 oUl.style.display='block';
+			 }
+		 
+		 }
+      oCl.onclick= function(){
+		  
+		  oUl.style.display='none';
+		  
+	  }
+	 }
+</script>
+</head>
+
+<body>
+<p id="btn">点我</p>
+<ul id="ul" style="display:block;">
+ <li>菜单一</li>
+ <li>菜单二</li>
+ <li>菜单三</li>
+ <li id="close"><a href="#">关闭</a></li>
+</ul>
+</body>
+</html>

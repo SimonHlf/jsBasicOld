@@ -1,0 +1,18 @@
+<div id="wrap">
+  <ul id="NavMenu">
+    <li class="active"></li>
+    <li></li>
+    <li></li>
+  </ul>
+  <div>
+    <div class="item show"></div>
+    <div class="item"></div>
+    <div class="item"></div>
+  </div>
+</div>
+
+
+
+
+.item{display:none;}
+.show{display:block;}

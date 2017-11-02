@@ -1,0 +1,122 @@
+function addEvent(obj,sEv,fn)
+{
+  if(obj.attachEvent){
+	  obj.attachEvent('on'+sEv,fn)
+  }else{
+	  obj.addEventListener(sEv,fn,false)
+  }
+}
+function onWheel(obj,fn)
+{
+	function wheel(ev)
+	{
+		var oEvent=ev||event;
+		var bCur=oEvent.detail?oEvent.detail>0:oEvent.wheelDelta<0;
+		fn.call(obj,bCur);
+		if(oEvent.preventDefault){
+		   oEvent.preventDefault();
+		}
+		return false;
+	}
+	addEvent(obj,'DOMMouseScroll',wheel);
+	addEvent(obj,'mousewheel',wheel);
+}
+
+
+<script>
+window.onload=function()
+{
+	var oDiv=document.getElementById("div1");
+	
+	onWheel(oDiv,function(bCur){
+		//alert(this);
+		if(bCur){
+			oDiv.style.height=oDiv.offsetHeight+20+'px';
+		}else{
+			oDiv.style.height=oDiv.offsetHeight-20+'px';
+		}
+	})
+}
+</script>
+
+
+
+
+<script>
+window.onload = function(){
+	
+	var oDiv = document.getElementById("div1");
+	
+	oDiv.onmousewheel = fnWheel;
+	
+	/*
+		ie/chrome:onmousewheel
+		
+			event.wheelDelta  向下：-120  向上：120
+		
+		ff:DOMMouseScroll  必须用addEventListener
+		
+			event.detail  向下：3  上：-3
+			
+			
+		return false 阻止的是 obj.on事件名称 = fn 所触发的默认行为
+		
+		addEventListener 绑定的事件需要通过event下面的preventDefault;
+	*/
+	
+	//oDiv.addEventListener('DOMMouseScroll',fnWheel,false);
+	
+	if(oDiv.addEventListener){
+		oDiv.addEventListener('DOMMouseScroll',fnWheel,false);
+	}
+	
+	function fnWheel(ev){
+		
+		/*
+			鼠标滚轮滚动的方向  
+		*/
+		var ev = ev || event;
+		
+		//alert(ev.wheelDelta)
+		//alert(ev.detail)
+		var b = true;
+		
+		if(ev.wheelDelta){//ie chrome
+			
+			b = ev.wheelDelta > 0 ? true :false;
+			
+		}else{
+			b = ev.detail < 0 ? true :false;
+		}
+		
+	//	alert(b);
+	
+		if(b){//上
+			this.style.height = this.offsetHeight - 10 +'px';
+		}else{//下
+			this.style.height = this.offsetHeight + 10 +'px';
+		}
+		
+		if(ev.preventDefault){
+			ev.preventDefault();
+		}
+		
+		return false;
+			
+	}
+	
+	/**document.oncontextmenu = function(){
+		return false; //阻止鼠标右键
+	}**/
+	
+	/**document.addEventListener("contextmenu",function(ev){
+		//return false;//火狐下不起作用
+		
+		ev.preventDefault();
+	});**/
+	
+	document.attachEvent("oncontextmenu",function(){
+		return false;//ie下
+	});
+}
+</script>

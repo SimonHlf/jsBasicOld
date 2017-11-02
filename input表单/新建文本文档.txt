@@ -1,0 +1,44 @@
+<div class="comInpBox username1">
+	<input type="text" id="userName" class="comInp inpHei1" value="请输入用户名" onkeypress="enterPress(event)"/>
+</div>
+<div class="comInpBox password1">
+	<input type="text" id="passTxt" value="请输入密码" class="comInp inpHei2"/>
+	<input type="password" id="password" class="comInp1 inpHei2" style="display:none;" onkeypress="enterPress(event)"/>
+</div>
+<div class="comInpBox vercodeBox1">
+	<input type="text" id="vercode" class="comInp inpHei1" value="请输入验证码" name="vercode" title="不区分大小写" value="" onkeypress="enterPress(event)"/>
+</div>
+
+//密码文本框的隐藏和显示
+function passwordDisplay(){
+	var oPassword=getId("password");
+	var oPassTxt=getId("passTxt");
+	oPassTxt.onfocus = function(){
+		if(this.value != "请输入密码")return;
+		this.style.display = "none";
+		oPassword.style.display = "block";
+		oPassword.value = "";
+		oPassword.focus();
+	};
+	oPassword.onblur = function(){
+		if(this.value != "") return;
+		this.style.display = "none";
+		oPassTxt.style.display = "block";
+		oPassTxt.value = "请输入密码";
+	};
+}
+function inpTipFocBlur(inpId,str){
+	var oInputId = getId(inpId);
+	oInputId.onfocus = function(){
+		if(this.value == str){
+			this.value = "";
+			this.style.color = "#363636";
+		}
+	};
+	oInputId.onblur = function(){
+		if(this.value == "" || this.value == str){
+			this.value = str;
+			this.style.color = "#b5b4b4";
+		}
+	};
+}

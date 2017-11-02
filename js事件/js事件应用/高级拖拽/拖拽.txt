@@ -1,0 +1,148 @@
+jquery:
+
+<style type="text/css">
+ 
+div{width:100px;height: 100px;background: blue;position: absolute;}
+ 
+</style>
+ 
+<script type="text/javascript">
+ 
+        $(function(){
+ 
+                var disY=0;
+ 
+                var disX=0;
+ 
+                $('div').mousedown(function(ev){
+ 
+                        disX=ev.pageX-$(this).offset().left;
+ 
+                        disY=ev.pageY-$(this).offset().top;
+ 
+                        $(document).mousemove(function(ev){
+ 
+                                $('div').css('left',ev.pageX-disX);
+ 
+                                $('div').css('top',ev.pageY-disY);
+ 
+                        })
+ 
+                        $(document).mouseup(function(){
+ 
+                                $(document).off();
+ 
+                        })
+ 
+                        return false;
+ 
+                })
+ 
+        })
+ 
+</script>
+ 
+</head>
+ 
+<body>
+ 
+<div></div>
+ 
+</body>
+
+
+原生js:
+05.<style>
+ 
+06.#div1 {width: 100px; height: 100px; background: red; position: absolute;}
+ 
+07.</style>
+ 
+08.<script>
+ 
+09.window.onload = function() {
+ 
+10.        
+
+11.        var oDiv = document.getElementById('div1');
+ 
+12.        var oImg = document.getElementById('img1');
+ 
+13.
+ 
+14.        drag(oDiv);
+ 
+15.        
+
+16.        function drag(obj) {
+ 
+17.                
+
+18.                obj.onmousedown = function(ev) {
+ 
+19.                        var ev = ev || event;
+ 
+20.                        
+
+21.                        var disX = ev.clientX - this.offsetLeft;
+ 
+22.                        var disY = ev.clientY - this.offsetTop;
+ 
+23.                        
+
+24.                        if ( obj.setCapture ) {
+ 
+25.                                obj.setCapture();
+ 
+26.                        }
+ 
+27.                        
+
+28.                        document.onmousemove = function(ev) {
+ 
+29.                                var ev = ev || event;
+ 
+30.                                
+
+31.                                obj.style.left = ev.clientX - disX + 'px';
+ 
+32.                                obj.style.top = ev.clientY - disY + 'px';
+ 
+33.                        }
+ 
+34.                        
+
+35.                        document.onmouseup = function() {
+ 
+36.                                document.onmousemove = document.onmouseup = null;
+ 
+37.                                //释放全局捕获 releaseCapture();
+ 
+38.                                if ( obj.releaseCapture ) {
+ 
+39.                                        obj.releaseCapture();
+ 
+40.                                }
+ 
+41.                        }
+ 
+42.                        return false;        
+
+43.                }
+ 
+44.        }
+ 
+45.}
+ 
+46.</script>
+ 
+47.</head>
+ 
+48.
+ 
+49.<body>
+ 
+50.        <div id="div1" style="left: 497px; top: 223px;"></div>
+ 
+51.</body>
+

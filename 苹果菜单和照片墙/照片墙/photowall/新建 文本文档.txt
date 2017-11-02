@@ -1,0 +1,57 @@
+	function findNearest(obj)//在碰撞检测的基础上诞生的
+	{
+		var iMin=999999;//临时变量，到目前为止，最小的距离
+		var iMinIndex=-1//，到目前为止，最小的距离的那个物体所处的位置
+		for(var i=0;i<aLi.length;i++)
+		{
+			if(obj==aLi[i])continue;
+			if(cdTest(obj,aLi[i]))
+			{
+				var dis=getDis(obj,aLi[i]);
+				if(iMin>dis)//判断这个距离是不是比我手上的这个iMin 的值还小，如果还小的话就将它更新成iMin
+				{
+					iMin=dis;
+					iMinIndex=i;
+				};
+			};
+		};
+		if(iMinIndex=-1)
+		{
+			return null;
+		}
+		else
+		{
+			return aLi[iMinIndex];
+		}
+	};
+
+	function findNearest(obj)	//找到碰上的，并且最近的
+	{
+		var iMin=999999999;
+		var iMinIndex=-1;
+		
+		for(i=0;i<aLi.length;i++)
+		{
+			if(obj==aLi[i])continue;
+			
+			if(cdTest(obj, aLi[i]))
+			{
+				var dis=getDis(obj, aLi[i]);
+				
+				if(iMin>dis)
+				{
+					iMin=dis;
+					iMinIndex=i;
+				}
+			}
+		}
+		
+		if(iMinIndex==-1)
+		{
+			return null;
+		}
+		else
+		{
+			return aLi[iMinIndex];
+		}
+	}

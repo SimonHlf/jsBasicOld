@@ -1,0 +1,32 @@
+@charset "utf-8";
+/* CSS Document */
+body{font-family:Arial, Helvetica, sans-serif;font-size:11px;}
+*{margin:0;padding:0;}
+
+/****** tab1 ******/
+.tabqh{height:180px;margin:30px auto;position:relative;width:450px;}
+.tabqh .menu{height:32px;width:450px;background:url(../images/qhbg.jpg) no-repeat left center;}
+.tabqh .menu ul{margin:0px;padding:0px;height:26px;list-style:none;text-align:center;}
+.tabqh .menu li{display:block;float:left;height:26px;line-height:26px;margin-right:4px;margin-top:5px;width:96px;}
+.tabqh .menu li a{color:#000000;font-size:14px;text-decoration:none;display:block;background:url(../images/unhovbg.jpg) no-repeat left bottom;}
+.tabqh .menu li a.tabactive{color:#ffffff;font-weight:bold;background:url(../images/hovbg.jpg) no-repeat left bottom;}
+.tabqh .tabdiv ul{list-style:none;}
+.tabqh .tabdiv ul li{height:24px;line-height:24px;overflow:hidden;background:url(../images/linarr.jpg) no-repeat left center;text-indent:15px;}
+.tabqh .tabdiv ul li a{text-decoration:none;color:#000000;}
+.tabqh .tabdiv ul li a:hover{color:#ff0000;}
+.tabqh .tabfirstli{margin-left:8px;}
+.tabqh .tabdiv{font-size:12px;height:128px;padding:10px;position:absolute;text-align:left;top:32px;width:428px;border:1px solid #A9CBF0;border-top:none;}	
+
+/****** tab2 ******/
+.tabqh2{height:180px;margin:30px auto;position:relative;width:480px;}
+.tabqh2 .menu{height:32px;width:480px;background:url(../images/qhbg2.jpg) no-repeat left center;}
+.tabqh2 .menu ul{margin:0px;padding:0px;height:26px;list-style:none;text-align:center;}
+.tabqh2 .menu li{display:block;float:left;height:26px;line-height:26px;margin-right:4px;margin-top:5px;width:107px;}
+.tabqh2 .menu li a{color:#000000;font-size:14px;text-decoration:none;display:block;background:url(../images/unhovbg2.jpg) no-repeat left bottom;}
+.tabqh2 .menu li a.tabactive{color:#268bdd;font-weight:bold;height:27px;background:url(../images/hovbg2.jpg) no-repeat left bottom;}
+.tabqh2 .tabdiv ul{list-style:none;}
+.tabqh2 .tabdiv ul li{height:24px;line-height:24px;overflow:hidden;background:url(../images/linarr.jpg) no-repeat left center;text-indent:15px;}
+.tabqh2 .tabdiv ul li a{text-decoration:none;color:#000000;}
+.tabqh2 .tabdiv ul li a:hover{color:#ff0000;}
+.tabqh2 .tabfirstli{margin-left:8px;}
+.tabqh2 .tabdiv{font-size:12px;height:128px;padding:10px;position:absolute;text-align:left;top:32px;width:458px;border:1px solid #A9CBF0;border-top:none;}	

@@ -1,0 +1,488 @@
+offsetLeft:某一个元素的左边距  是以一个数字存在的
+
+div.style.left=div.style.left+10  错误的
+
+div.style.left=div.offsetLeft+5+'px';  向右
+
+所有li总和：li1.offsetWidth+li2.offsetWidth+li3.offsetWidth+...
+
+li[0].offsetWidth*ali.length+'px';
+
+offsetLeft：左边距
+
+offsetTop:上边距
+
+offsetWidth:宽度
+
+offsetHeight:高度
+
+ecma:没有兼容性问题
+
+dom：文档网页变成js可以操作的对象，对于程序就是document  js操作页面的能力
+
+bom:js操作浏览器的能力  window
+
+
+
+num string boolean object function undefined
+
+a=function()
+{
+ alert('abc')
+}
+alert(typeof a)//function
+
+
+变量的类型是由所储存的东西而决定的
+
+undefined:真的没定义，  虽然定义了，但是却没有赋值
+
+
+js变量两种类型：
+
+基本类型(不可再分)   
+
+数字 12
+字符串
+true   
+
+object: 复合类型 div： id:字符串 宽度：数字 背景颜色 字符串 汽车，许多基本的东西组成   不是一个基本的单元
+
+除了数字， 字符串 boolean，undefined 其他都是对象  全都有最基本的组成  所有的对象都是复合类型
+
+object：是由上述组成的，又更基本的 num boolean string undefined
+
+object:arr[] newDate()
+
+js里一切皆是对象
+
+
+一个变量只存一种类型的数据
+
+
+
+变量数据类型的转换：必要的时候进行转换  例子加法计算器
+
+字符串》》数字parseInt()    从字符串中提取数字
+
+parseInt('abc')//NaN  not a number  非数字  NaN和任何东西相加都是NaN  不能拿两个NaN相比较
+
+
+字符串》》小数 parseFloat()
+ 
+
+isNaN  
+
+var a='12';
+var b=12;
+alert(a==b)//true;  ==隐士类型转换  先把两边的东西转换成一样的类型然后比较   -减号也是隐士类型  !=
+
+
+
+var a='12';
+var b=12;
+alert(a===b)//false ===不转换，直接比较  !===
+
+
+var a='12';
+var b='5';
+alert(a+b)//125
+
+
+var a='12';
+var b='5';
+alert(a-b)//7  -减号也是隐士类型    * /都是隐士类型
+ 
+
++  字符串连接  数字相加  
+
+-*/一种用途。  数字的相减，乘，除  
+
+
+
+
+变量作用域： 局部变量（只在本函数里面应用） 全局变量---不定义在任何函数里   闭包  父函数 子函数  子函数可以使用父函数的局部变量   闭包是一个很自然而然的过程，不能太多的去考虑！
+
+
+
+命名规范 ：可读性，规范性
+
+类型前缀：o:object  a:Array  b:boolean  re:正则  fn:函数  f:浮点数  i：整数  s:string  v
+
+运算符：算术：取模，  赋值= += *= /= %= ，关系 == === != !== ，逻辑：&&（并且and） ||(或者) ！取反
+
+优先级：括号
+取模  parseInt(n/60)+n%60
+
+
+
+
+
+程序流程：
+
+switch(变量/值)
+{
+ case
+ break;
+ default
+}
+
+
+三目：条件?语句1：语句2  speed>0?Math.ceil(speed):Math.floor(speed)
+
+while(条件)
+{
+}
+for(初始值；条件；递增)
+{
+}
+
+break:打破中断   终止整个循环
+
+continue:继续   终止本次循环，继续下一次的循环
+
+if里面可以是条件，也可以是个变量  实际上平时把一个条件丢给if。它内部还是需要将这个条件转换为true或者false
+
+var a=true
+if(a)//如果a成立
+{
+ alert('真的')
+}
+else
+{
+ alert('假的')
+}
+
+
+非0的数字都是真的  非空字符串真的  非空对象(document,window)  true 
+
+数字0是假的  空字符串假的''  空对象（null）  undefined  false
+
+json{名字：值，名字：值，名字：值....}
+
+for in  循环变量  用于json
+
+var obj={a:5,b:6,c:98};
+var attr='';//循环变量
+for(attr in obj)  //这里的attr就是存的这个obj json里面所有的名字
+{
+ alert(attr)//a , b ,c//
+ alert(attr+'='obj[attr])//a=5,b=6,c=98
+}
+
+
+
+
+函数的返回值  函数的执行结果
+没有return或者有return但是后面没有东西，但是就会返回undefined
+
+function show()
+{
+ return
+}
+
+alert(show())//undefined
+
+可变参。不定参  arguments 数组  存放所有的参数 参数数组    用来获取一个函数里面有多少个参数
+
+function show()
+{
+ alert(arguments.lenght)//2
+ alert(arguments[0])//12
+ alert(arguments[1])//5
+}
+show(12,5)
+
+当函数参数不固定的时候这个时候要想到运用arguments
+
+function sum()
+{
+}
+sum()
+
+
+push()  往数组的尾部添加元素
+
+pop(); 往数组的尾部剔除元素
+
+shift() 往数组的头部删除东西
+
+unshift()往数组的头部添加东西 
+
+
+
+数组 用length把数组变长，会出现undefined
+
+
+
+sort(比较函数)只认字符串
+
+
+数组的链接 cancat()  获得一个新的数组
+
+
+join 把数组的元素拼成一个大的字符串然后连接起来  数组》》字符串
+
+var arr=[1,25,68,12,58];
+var str=arr.join('+');//join是将一个比较大的数组转换为字符串
+alert(str);
+
+
+字符串》》数组  split
+
+var str='15-25-35-12';
+var arr=str.split('-');//将字符串转换为数组，但是切出来的还是字符串，不能直接相加，应该parseInt
+alert(arr[1])
+
+var str='12-45-8-9'
+
+var arr=str.split('-')
+alert(arr[0])//12       和join是相反的
+
+['12','45','8','9']  这个split切出来的都是字符串，不能把它给直接使用，需要用parseInt转换下
+
+splice(开始位置，长度)    从数组的中间删除一些元素 arr.splice(2,3)
+
+splice()                 从中间插入一些元素  arr.splice(5,0,'a','b','c')
+               
+                         从数组中可以替换一些元素  arr.splice(1,2,'a','b')
+
+
+
+push,pop shift,unshift,join 数组》》字符串, concat 连接数组, split 字符串》》数组  splice()  从中间删除 从中间插入元素 从中间替换一些元素
+
+
+
+
+
+dom
+
+父级.appendChide(子节点)  在一个父级上插入一个子节点 或者把一个子节点添加到某个父级上去
+
+
+appendChide只能把元素插入到父级的最后
+
+insertBefore()
+
+父级.insertBefore(子节点,在谁之前插入)
+oUl.insertBefore(oLi,aLi[0])
+
+做兼容:
+if(aLi.length>0)
+{
+ oUl.insertBefore(oLi,aLi[0])
+}
+else
+{
+ oUl.appednChild(oLi)
+}
+
+
+
+父级.removeChild()
+
+
+
+
+
+文档碎片：
+
+检查性能：
+提高dom操作的性能：文档碎片document.createDocumentFragement();
+
+new Date().getTime();
+
+
+childNodes兼容性问题
+
+childNodes 和nodeType必须结合起来运用
+
+
+
+
+
+ie:fristChild   ff:fristElementChild  第一个元素子节点
+
+ie:lastChild    ff:lastElementChild
+
+
+做兼容
+
+var oFrist=oUl.fristChild ||oUl.fristElementChild
+
+var oLast=oUl.lastChild||oUl.lastElementChild;
+
+
+
+上一个兄弟节点：ie:previousSibling   ff:previousElementSibling
+
+nextSibling  下一个兄弟节点  ff:nextSibling
+
+
+
+
+元素的属性操作：
+
+. [] 
+dom方式：
+setAttribute('value','改成多少')
+getAttribute('')获取元素的属性
+removeAttribute()删除
+
+用className选择元素:
+
+function getClass(oParent,sClass)
+{
+ var aEle=oParent.getElementsByTagName('*');
+ var aResult=[];
+ for(var i=0;i<aEle.length;i++)
+ {
+  if(aEle[i].className==sClass)
+  {
+   aResult.push(aEle[i]);
+  }
+ }
+ return aResult;
+}
+
+
+
+
+
+
+bom：
+
+
+php:
+
+静态：写好了（html）是什么样子，最后展示给用户的就是什么样子！  没有后台
+动态：有后台， 经过服务器处理后然后再发送给用户
+
+
+<?php   服务器端标记
+?>
+
+echo 输出  和alert差不多  给输出到html代码里面   经过服务器把服务端里面的内容执行了后。前端只能看到解析后的东西 结果
+
+
+定义变量:$a  $变量的标志  a变量
++：.字符串相连
+
+
+定义函数
+
+php html 混编
+
+mvc
+
+model  模型 数据   数据库
+
+view   视图 前端标签（html+css+js）  前端
+
+controllers 控制器 各种各样的逻辑性代码  后端
+
+
+
+smarty  模版
+
+
+前端和后台的彻底分离
+
+
+
+
+表单和php
+
+
+面向对象：
+
+使用收音机：大多数人  不知道其工作原理却能使用它  内部原理没必要去了解
+
+收音机原理：少数人
+
+对象：一个整体  一个盒子，对外是封闭的比如就像收音机
+面向对象：使用对象的时候，只注重它提供的功能，但并不关注其内部的细节（使用收音机的时候，只注重它如何使用，但是对其内部的原理不需要去了解
+）
+
+jquery 一个面向对象的东西，只需要用好它的函数，至于它如何写成的，不需要去了解
+解决ie6png的那个js库也是一个面向对象的东西
+
+
+面向对象是一种通用的思想。并非只用在编程之中
+
+js面向对象：
+
+
+
+
+
+
+抽就是从一个对象里面所有特征里面之中找到自己所需要的一种或者几种特性 就是抓住这个问题的核心
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

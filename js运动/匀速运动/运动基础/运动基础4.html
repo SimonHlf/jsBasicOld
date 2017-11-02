@@ -1,0 +1,41 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>无标题文档</title>
+<style>
+#div1{ width:200px; height:200px; background:red; position:absolute; left:0; top:50px;}
+</style>
+<script>
+window.onload=function()
+{
+	var oDiv=document.getElementById('div1');
+	var oBtn=document.getElementById('btn');
+	var timer=null;
+	var speed=2;//这里只需要控制这个变量的大小就可以控制这个物体的快慢
+	oBtn.onclick=function()
+	{
+		clearInterval(timer);//这里之所以加这个关闭定时器，因为如果没有的话就会点击一次这个按钮就会开启一个定时器，久而久之，点的次数越多定时器开的就越多，所以就会出现次数越多，走的越快！所以这里就需要添加一个关闭定时器！就是把以前开过的定时器给关闭了然后在执行下面的，下面就又开了个新的！  总体必须保证只有一个定时器在工作
+		timer=setInterval(function(){
+		if(oDiv.offsetLeft>=300)
+		  {
+			  clearInterval(timer);
+		  }
+		  else
+		  {
+			  oDiv.style.left=oDiv.offsetLeft+speed+'px';
+		  }
+		  
+		},30)
+
+	}
+}
+</script>
+</head>
+
+<body>
+<input type="button" value="开始运动" id="btn" />
+<div id="div1">
+</div>
+</body>
+</html>

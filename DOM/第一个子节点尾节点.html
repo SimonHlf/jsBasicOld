@@ -1,0 +1,32 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>无标题文档</title>
+<script>
+window.onload=function()
+{
+	var oUl=document.getElementById('ul');
+	//oUl.firstChild.style.background='red'; 这个针对低版本的浏览器适用
+	//oUl.firstElementChild.style.background='red'; 这个针对高版本的浏览器适用!
+	if(oUl.lastElementChild)
+	{
+		oUl.lastElementChild.style.background='red';
+	}
+	else
+	{
+		oUl.lastChild.style.background='red';
+	}
+}
+</script>
+</head>
+
+<body>
+<ul id="ul">
+<li></li>
+<li></li>
+<li></li>
+<li></li>
+</ul>
+</body>
+</html>

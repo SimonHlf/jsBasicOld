@@ -1,0 +1,57 @@
+<!doctype html> 
+<html> 
+<head> 
+<meta charset="utf-8"> 
+<title>create</title> 
+<style> 
+.div{ width:300px; height:300px; background:red;} 
+</style> 
+<script> 
+window.onload=function(){ 
+    var create=function(tagName, attr) { 
+        var element=null; 
+        if(typeof tagName==="string") { 
+            element = document.createElement(tagName);     
+            if (typeof attr === "object") { 
+                var keyAttr, keyStyle; 
+                for (keyAttr in attr) { 
+                    if (keyAttr === "styles" && typeof attr[keyAttr] === "object") { 
+                        for (keyStyle in attr[keyAttr]) { 
+                            element.style[keyStyle]=attr[keyAttr][keyStyle]; 
+                            if (keyStyle === "opacity" && window.innerWidth + "" == "undefined") { 
+                                element.style.filter = "alpha(opacity="+ (attr[keyAttr][keyStyle] * 100) +")"; 
+                            } 
+                        } 
+                    }else { 
+                        if (keyAttr === "class") { 
+                            keyAttr = "className"; 
+                        } 
+                        element[keyAttr] = attr[keyAttr]; 
+                    } 
+                } 
+            } 
+        } 
+        return element; 
+    }; 
+    var aaa=create("div",{ 
+        styles:{ 
+            width: "100px", 
+            height:'100px', 
+            backgroundColor: "#000", 
+            opacity:0.5, 
+            position: "absolute", 
+            zIndex: 1, 
+            left: 0, 
+            bottom:40+'px' 
+        } 
+    }); 
+    var bbb=create('div',{className:'div'}) 
+    document.body.appendChild(aaa); 
+    document.body.appendChild(bbb); 
+} 
+</script> 
+</head> 
+ 
+<body> 
+</body> 
+</html> 

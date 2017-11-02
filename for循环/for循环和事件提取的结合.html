@@ -1,0 +1,28 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>无标题文档</title>
+<script>
+window.onload=function()
+{
+var aBtn=document.getElementsByTagName('input');
+var i=0;
+for(i=0;i<aBtn.length;i++)
+{
+	aBtn[i].onclick=function()
+	{	
+		alert(this.value);//this表示当前被点击的东西或者当前所发生事件的元素
+	}
+}
+	
+}
+</script>
+</head>
+
+<body>
+<input type="button" value="妙味课堂"/>
+<input type="button" value="妙味论坛" />
+<input type="button" value="妙味视频"/>
+</body>
+</html>

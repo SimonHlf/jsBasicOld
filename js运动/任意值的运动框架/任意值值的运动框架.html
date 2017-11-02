@@ -1,0 +1,74 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>无标题文档</title>
+<style>
+div{width:200px; height:200px; background:green; float:left; margin:20px;}
+</style>
+<script>
+function startMove1(obj,iTarget)
+{
+	clearInterval(obj.timer);
+	obj.timer=setInterval(function(){
+		var speed=(iTarget-obj.offsetHeight)/8;
+		speed=speed>0?Math.ceil(speed):Math.floor(speed);
+		if(obj.offsetHeight==iTarget)
+		{
+			clearInterval(obj.timer);
+		}
+		else
+		{
+			obj.style.height=obj.offsetHeight+speed+'px';
+		}
+		},30)
+}
+function startMove2(obj,iTarget)
+{
+	clearInterval(obj.timer);
+	obj.timer=setInterval(function(){
+		var speed=(iTarget-obj.offsetWidth)/8;
+		speed=speed>0?Math.ceil(speed):Math.floor(speed);
+		if(obj.offsetWidth==iTarget)
+		{
+			clearInterval(obj.timer);
+		}
+		else
+		{
+			obj.style.width=obj.offsetWidth+speed+'px';
+		}
+		},30)
+}
+window.onload=function()
+{
+	var oDiv1=document.getElementById('div1');
+	oDiv1.onmouseover=function()
+	{
+		startMove1(this,400)
+	}
+	oDiv1.onmouseout=function()
+	{
+		startMove1(this,200)
+	}
+	var oDiv2=document.getElementById('div2');
+	oDiv2.onmouseover=function()
+	{
+		startMove2(this,400)
+	}
+	oDiv2.onmouseout=function()
+	{
+		startMove2(this,200)
+	}
+}
+</script>
+</head>
+
+<body>
+<div id="div1">
+变高
+</div>
+<div id="div2">
+变宽
+</div>
+</body>
+</html>

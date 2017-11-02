@@ -1,0 +1,51 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>无标题文档</title>
+<style>
+*{margin:0;padding:0;}
+#div1{width:300px; height:250px; background:red; margin:200px; position:relative; overflow:hidden;}
+#div1 ul{list-style-type:none; position:absolute; top:0;}
+#div1 ul li{border-bottom:1px solid #ccc; height:40px; line-height:40px; width:300px;}
+</style>
+<script src="run.js"></script>
+<script>
+window.onload=function()
+{
+	var oDiv=document.getElementById('div1');
+	var oUl=oDiv.getElementsByTagName('ul')[0];
+	var aLi=oUl.getElementsByTagName('li');
+	var now=0;
+	oUl.innerHTML+=oUl.innerHTML;
+	
+	function tab()
+	{
+		if(now==aLi.length/2)
+		{
+			now=0;
+			oUl.style.top=0;
+		}
+		now++;
+		startMove(oUl,{top:-now*aLi[0].offsetHeight})
+	}
+	setInterval(tab,5000)
+}
+</script>
+</head>
+
+<body>
+<div id="div1">
+ <ul>
+  <li>#开发者学堂#分享：A week with </li>
+  <li>#开发者学堂#Web Activities</li>
+  <li>网页翻译，小号多开，视频下载等多款</li>
+  <li>#HTML5峰会#回顾 Firefox OS：开放的</li>
+  <li>#开发者学堂#Firefox OS用到的asm.js</li>
+  <li>#开发者学堂#不使用Cookie的“Cookie”</li>
+  <li>[给力][赞] 期待赶快在国内开售！</li>
+  <li>#火狐扩展#推荐：FireBBS.l！</li>
+ </ul>
+</div>
+</body>
+</html>

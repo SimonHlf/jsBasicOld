@@ -1,0 +1,64 @@
+src="http://images.movie.xunlei.com/img_default.gif" 1x1
+
+_src="http://img2.kankan.kanimg.com/gallery2/block/2013/08/27/6d7143fac51d984d19091d17872d4be7.jpg 图片的真是路径
+
+然后通过js的scroll来进行控制  onresize   如果滚动条滚动到当前可是区的范围内的话就把当前的_src的真是的路径赋给src
+
+
+img 的onload事件
+
+<div id="classInvCode" class="inputBox">
+	<div class="fl">
+		<span>班级邀请码：</span><input type="text" id="classCode" maxlength="6" class="freeCode" />
+	</div>
+	<strong class="fl">班级邀请码。若没有，可不填！<a target="_blank" href="index.do?action=useHelp&module=regCodeHelp">什么是班级邀请码？</a></strong>
+	<!-- 邀请码说明 -->
+	<div class="classInvite">
+		<p>通过此邀请码可以快速绑定班级</p>
+	</div>
+	<!-- 邀请码格式要求 -->
+	<div class="classCodeReq">
+		<p>输入六位英文或数字的格式</p>
+	</div>
+	<!-- 邀请码不存在 -->
+	<div class="notExistCode1">
+		<p>邀请码不存在！</p>
+	</div>
+	<!-- 快速绑定班级邀请码成功后显示的信息提示按钮  -->
+	<a href="javascript:void(0)" class="succTipBtn"></a>
+	<!-- 绑定到班级的盒子  -->
+	<div class="infoBox">
+		<p class="infoText"></p>
+	</div>
+	<div class="noSameCode">
+		<p>班级邀请码和学校码选其一</p>
+	</div>
+</div>
+
+	<div id="schoolInvCode" class="inputBox">
+	<div class="fl">
+		<span>学校码：</span><input type="text" id="schoolCode" maxlength="6" class="freeCode" />
+	</div>
+	<strong class="fl">学校码。若没有，可不填！<a target="_blank" href="index.do?action=useHelp&module=regCodeHelp">什么是学校码？</a></strong>
+	<!-- 邀请码格式要求 -->
+	<div class="schoolCodeReq">
+		<p>输入六位英文或数字的格式</p>
+	</div>
+	<!-- 培训学校不存在 -->
+	<div class="notExistSch">
+		<p>学校不存在！</p>
+	</div>
+	<!-- 班级邀请码不存在 -->
+	<div class="notExistClas">
+		<p>学校码不存在！</p>
+	</div>
+	<div class="noSameCode1">
+		<p>班级邀请码和学校码选其一</p>
+	</div>
+	<!-- 根据培训学校码显示的信息提示按钮  -->
+	<a href="javascript:void(0)" class="succTipBtnSch"></a>
+	<!-- 显示当前学校和班级  -->
+	<div class="infoBoxSch">
+		<p class="infoTextSch"></p>
+	</div>
+</div>

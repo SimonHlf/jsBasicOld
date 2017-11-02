@@ -1,0 +1,28 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>无标题文档</title>
+<script>
+window.onload=function()
+{
+	var oTxt=document.getElementById('txt');
+	//如果用户输入的不是退格并且不是数字
+	oTxt.onkeydown=function(ev)
+	{
+		var oEvent=ev||event;
+		//alert(oEvent.keyCode)
+		if(oEvent.keyCode!=8 &&(oEvent.keyCode<96||oEvent.keyCode>105))
+		{
+			return false;//汉字还是可以输入的
+		}
+
+	}
+}
+</script>
+</head>
+
+<body>
+<input type="text" id="txt" />
+</body>
+</html>

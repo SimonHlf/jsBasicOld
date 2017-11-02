@@ -1,0 +1,48 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>js档</title>
+<style>
+#div1{width:200px; height:200px; background:#000;}
+
+</style>
+<script>
+/*function toWidth()
+{
+	var oDiv=document.getElementById('div1');
+	oDiv.style.width='400px';
+}
+function toHeight()
+{
+	var oDiv=document.getElementById('div1');
+	oDiv.style.height='400px';
+}
+function toRed()
+{
+	var oDiv=document.getElementById('div1');
+	oDiv.style.background='red';
+}
+*/
+function setValue(name,value)
+{
+  var oDiv=document.getElementById('div1');
+  oDiv.style[name]=value//这里value是个参数，不需要添加引号
+}
+</script>
+
+</head>
+
+<body>
+<!--<input type="button" value="变宽" onclick="toWidth()"/>
+<input type="button" value="变高" onclick="toHeight()"/>
+<input type="button" value="变红" onclick="toRed()"/>-->
+<input type="button" value="变宽" onclick="setValue('width','400px')"/>
+<input type="button" value="变高" onclick="setValue('height','400px')"/>
+<input type="button" value="变红" onclick="setValue('background','red')"/>
+<div id="div1">
+</div>
+
+
+</body>
+</html>

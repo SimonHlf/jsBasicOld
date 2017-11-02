@@ -1,0 +1,7 @@
+封装一个函数
+function getPos(ev)
+    {
+        var scrollLeft=document.documentElement.scrollLeft||document.body.scrollLeft;   //      滚动距离;
+        var scrollTop=document.documentElement.scrollTop||document.body.scrollTop;  //      滚动距离;
+        return{x:ev.clientX+scrollLeft,y:ev.clientY+scrollTop};   //将位置以Json形式的值返回出来;
+    }

@@ -1,0 +1,33 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>无标题文档</title>
+<script>
+window.onload=function(){
+	var oFrame=document.createElement("iframe");
+	oFrame.src='parent.html';
+	document.body.appendChild(oFrame);
+	//oFrame.onload=function(){ //onload在ie下是没反应的。必须要使用绑定的形式才能使用
+		//alert('4556')
+	//};
+	//oFrame.attachEvent('onload',function(){
+		//alert('123');
+	//})
+	//兼容：
+	if(oFrame.attachEvent){
+		oFrame.attachEvent('onload',function(){
+			alert(123);
+		})
+	}else{
+		oFrame.onload=function(){
+			alert('123')
+		};
+	}
+};
+</script>
+</head>
+
+<body>
+</body>
+</html>

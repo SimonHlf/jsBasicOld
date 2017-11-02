@@ -1,0 +1,54 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>无标题文档</title>
+<style>
+*{margin:0;padding:0}
+
+#div1{width:1000px; height:600px; overflow:scroll; border:1px solid #ccc;position:relative; margin-top:15px;}
+#son{width:100px; height:200px; background:red; position:absolute; right:0; top:0;}
+</style>
+<script src="run.js"></script>
+<script>
+
+window.onload=function(){
+	var oDiv1=document.getElementById("div1");
+	var scrollTop=oDiv1.scrollTop;
+	var oSon=document.getElementById("son");
+
+	var t=Math.ceil((oDiv1.clientHeight-oSon.offsetHeight)/2);
+	startMove(oSon,{top:t+scrollTop})
+	oDiv1.onscroll=function(){
+		var scrollTop=oDiv1.scrollTop;
+		startMove(oSon,{top:t+scrollTop})
+	}
+}
+
+</script>
+</head>
+
+<body>
+
+<div id="div1">
+ <div id="son">
+ </div>
+ <div style="width:100px;height:300px;">
+ </div>
+  <div style="width:100px;height:300px;">
+ </div>
+  <div style="width:100px;height:300px;">
+ </div>
+  <div style="width:100px;height:300px;">
+ </div>
+  <div style="width:100px;height:300px;">
+ </div>
+  <div style="width:100px;height:300px;">
+ </div>
+  <div style="width:100px;height:300px;">
+ </div>
+  <div style="width:100px;height:300px;">
+ </div>
+</div>
+</body>
+</html>

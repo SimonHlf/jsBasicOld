@@ -1,0 +1,78 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>无标题文档</title>
+<style>
+*{margin:0;padding:0;}
+body{ background:#000;}
+#ul{list-style:none; width:1170px; margin:10px auto; position:relative;}
+#ul li{float:left; width:370px; height:224px; margin:10px;}
+</style>
+<script>
+window.onload=function()
+{
+	var oUl=document.getElementById('ul');
+	var aLi=oUl.getElementsByTagName('li');
+	var aPos=[];//新建一个数组  将li的位置给存起来
+	var iMinzIndex=2;
+	//布局转换
+	for(var i=0;i<aLi.length;i++)
+	{
+		aPos[i]={left:aLi[i].offsetLeft,top:aLi[i].offsetTop};//以json的形式将li的位置存在pos的数组里面
+	}
+	for(var i=0;i<aLi.length;i++)
+	{
+		aLi[i].style.left=aPos[i].left+'px';
+		aLi[i].style.top=aPos[i].top+'px';
+		
+		aLi[i].style.position='absolute';//
+		aLi[i].style.margin=0;
+	}
+	
+	//拖拽
+	function setDrag(obj)
+	{
+		obj.onmousedown=function(ev)
+		{
+			var oEvent=ev||event;
+			obj.style.zIndex=iMinzIndex++;
+			var disX=oEvent.clientX-obj.offsetLeft;
+			var disY=oEvent.clientY-obj.offsetTop;
+			document.onmousemove=function(ev)
+			{
+				var oEvent=ev||event;
+				obj.style.left=oEvent.clientX-disX+'px';
+				obj.style.top=oEvent.clientY-disY+'px';
+			};
+			document.onmouseup=function()
+			{
+				document.onmousemove=null;
+				document.onmouseup=null;
+			};
+			return false;
+		};
+	 };
+	for(var i=0;i<aLi.length;i++)
+	{
+		setDrag(aLi[i])
+	};
+
+};
+</script>
+</head>
+
+<body>
+<ul id="ul">
+ <li><img src="images/tile_addhov.png" /></li>
+ <li><img src="images/tile_addhov.png" /></li>
+ <li><img src="images/tile_addhov.png" /></li>
+ <li><img src="images/tile_addhov.png" /></li>
+ <li><img src="images/tile_addhov.png" /></li>
+ <li><img src="images/tile_addhov.png" /></li>
+ <li><img src="images/tile_addhov.png" /></li>
+ <li><img src="images/tile_addhov.png" /></li>
+ <li><img src="images/tile_addhov.png" /></li>
+</ul>
+</body>
+</html>

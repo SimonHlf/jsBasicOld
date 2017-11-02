@@ -1,0 +1,55 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>无标题文档</title>
+<script>
+window.onload=function()
+{
+	var oBtn=document.getElementById('btn');
+	oBtn.onclick=function()
+	{
+		//1,创建ajax对象
+		//var oAjax=new XMLHttpRequest();// 火狐，谷歌 ie9 8 7但是针对ie6下它是有问题的
+		//var oAjax=new ActiveXObject("Microsoft.XMLHTTP");//ie下可以用，其他浏览器不能用
+		if(window.XMLHttpRequest)
+		{
+			var oAjax=new XMLHttpRequest();
+		}
+		else
+		{
+			var oAjax=new ActiveXObject("Microsoft.XMLHTTP");
+		}
+		//alert(oAjax)
+		//alert(oAjax.readyState); 0
+		//2、连接服务器
+		//open(方法，文件名，异步传输) 方法:get方式或者post方式  文件名：告诉服务器需要读取的哪个文件
+		//ajax: 工作在异步中 true
+		oAjax.open('GET','create_ajax.txt?=t'+new Date().getTime(),true)  
+		//3、发送请求 
+		oAjax.send();
+		//4、接收返回 onreadystatechange跟服务器交互的时候所发生的一个事件 onreadystatechange
+		oAjax.onreadystatechange=function()
+		{
+			if(oAjax.readyState==4)//读取完成
+			{
+				if(oAjax.status==200)
+				{
+					alert('成功'+oAjax.responseText)
+				}
+				else
+				{
+					alert('失败:'+oAjax.status)
+				}
+				
+			}
+		}
+	}
+}
+</script>
+</head>
+
+<body>
+<input type="button" id="btn" value="读取" />
+</body>
+</html>

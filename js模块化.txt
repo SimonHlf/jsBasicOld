@@ -1,0 +1,52 @@
+1：冲突问题
+
+var miaov = {}; //添加命名空间可以大大减少冲突,但是无法避免冲突
+miaov.tab = function(){};
+miaov.drag = function(){};
+miaov.tips = function(){};
+
+
+2：性能问题  
+
+3：依赖
+
+
+js 模块化
+
+sea.js
+
+js-->模块化  define();
+
+普通
+function tab(){
+	alert(456);
+};
+
+模块化
+define(function(require,exports,module){ //参数写法不变
+	//exports：对外的接口
+	require('./test2.js');--> var a=10;  如果地址是一个模块的话，那么require的返回值就是模块中的exports
+	require('./test2.js').a;
+	function tab(){
+		//alert(123);
+		alert(a);
+	}
+	exports.tab = tab;
+});
+
+
+页面调用模块：
+seajs.use:页面去调用模块  第一个参数：模块的地址  第二个参数：地址加载成功后的回调函数
+
+seajs默认根目录：sea.js
+seajs.use('./js/test1.js',function(ex){//回调的参数就是模块中的exports
+	//alert("123");
+	ex.tab();
+});
+
+
+
+如何依赖模块
+require//依赖的接口
+require('./test2.js');
+

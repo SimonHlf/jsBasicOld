@@ -1,0 +1,98 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>无标题文档</title>
+<style>
+/*div,body{margin:0;padding:0;}*/
+img{border:none;}
+#zoom_box{width:200px; height:200px; border:1px solid #ccc; position:relative;padding:5px;}
+#zoom_box .small_pic { width: 200px; height: 200px; background: #eee; position: relative;}
+#zoom_box .mark{width:100%;height:100%; position:absolute;left:0; top:0; filter:alpha(opacity:0);opacity:0; z-index:2;}
+#zoom_box .float_layer{width:50px; height:50px; position:absolute; left:0; top:0; background:#fff;filter:alpha(opacity:30);opacity:0.3; display:none;border: 1px solid #000; }
+#zoom_box .big_pic{width:250px; height:250px; position:absolute; background:red
+; top: -1px; left:215px; overflow:hidden;border:2px solid #CCC; display:none;}
+#zoom_box .big_pic img{position:absolute; left:0;top:0;}
+</style>
+<script>
+function getClass(oParent,sClass)
+{
+	var aEle=oParent.getElementsByTagName('*');
+	var aReslut=[];
+	for(var i=0;i<aEle.length;i++)
+	{
+		if(aEle[i].className==sClass)
+		{
+			aReslut.push(aEle[i]);
+		}
+	}
+	return aReslut;
+}
+window.onload=function()
+{
+	var oZoom=document.getElementById('zoom_box');
+	var oMark=getClass(oZoom,'mark')[0];
+	var oFloat=getClass(oZoom,'float_layer')[0];
+	var oSmall=getClass(oZoom,'small_pic')[0];
+	var oBig=getClass(oZoom,'big_pic')[0];
+	var oImg=oBig.getElementsByTagName('img')[0];
+	
+    oMark.onmouseover=function()
+	{
+		oFloat.style.display='block';
+		oBig.style.display='block';
+	}
+    oMark.onmouseout=function()
+	{
+		oFloat.style.display='none';
+		oBig.style.display='none';
+	}
+	
+	oMark.onmousemove=function(ev)
+	{
+		var oEvent=ev||event;
+		var l=oEvent.clientX-oZoom.offsetLeft-oSmall.offsetLeft-1-oFloat.offsetWidth/2;
+		var t=oEvent.clientY-oZoom.offsetTop-oSmall.offsetTop-1-oFloat.offsetHeight/2;
+		if(l<0)
+		{
+			l=0;
+		}
+		else if(l>oMark.offsetWidth-oFloat.offsetWidth)
+		{
+			l=oMark.offsetWidth-oFloat.offsetWidth;
+		}
+		if(t<0)
+		{
+			t=0;
+		}
+		else if(t>oMark.offsetHeight-oFloat.offsetHeight)
+		{
+			t=oMark.offsetHeight-oFloat.offsetHeight;
+		}
+		oFloat.style.left=l+'px';
+		oFloat.style.top=t+'px';
+		var scaleX=l/(oMark.offsetWidth-oFloat.offsetWidth);
+		var scaleY=t/(oMark.offsetHeight-oFloat.offsetHeight);
+		oImg.style.top=-scaleY*(oImg.offsetHeight-oBig.offsetHeight)+'px';
+		oImg.style.left=-scaleX*(oImg.offsetWidth-oBig.offsetWidth)+'px';
+		
+		
+		
+	}
+}
+</script>
+</head>
+
+<body>
+<div id="zoom_box">
+ <div class="small_pic">
+  <span class="mark"></span>
+  <span class="float_layer"></span>
+  <img src="images/small.png" />
+ </div>
+ <div class="big_pic">
+  <img src="images/big.png" />
+ </div>
+</div>
+</body>
+</html>

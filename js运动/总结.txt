@@ -1,0 +1,114 @@
+修改left值 有个相对绝对定位
+
+只要点击的时候修改left的值，比如点击右键头。就是向左走，那么left值就是比如-100，那么，如何让它无缝切换呢，原理就是把ul里面的li再复制一份，然后贴到这个ul的后面，相当于有两个ul，当点击它往左走走走，当走到一半的时候再把他给拉取回来！就形成了一个无缝滚动
+
+亦或者添加节点，删除节点
+
+
+
+第一次点击走一个，第二次点击left的值走两个li的width，所以对于这样成倍的增长的话通常就是新建一个标识 ，var now=0; 让它去累加
+
+oUl.innerHTML+=oUl.innerHTML  复制一分
+
+oUl.style.width=aLi[0].offsetWidth*aLi.length+'px'; 让ul的宽度足够
+
+点击右侧向左走，left值是负的！
+
+执行的是一个运动的效果
+
+
+
+需要写一个向左运动的运动效果！封装一个公用的
+
+function startMove(obj,old,iTarget)
+{
+ clearInterval(obj.timer);
+ obj.timer=setInterval(function(){
+ var speed=(iTarget-old)/10;
+ speed=speed>0?Math.ceil(speed):Math.floor(speed);
+ if(old==iTarget)
+ {
+  clearInterval(obj.timer);
+ }
+ else
+ {
+  obj.style.left=old+speed+'px';
+ }
+
+ },30)
+}
+
+然后在点击里面调用下这个封装好的运动，
+
+
+
+
+startMove(oul,now)
+
+obj:当前操作的元素就是ul
+old:-aLi[0].offsetWidth*now
+第一次点击的时候应该是从0运动到负的一个的li的宽度  
+iTarget:-(now+1)*aLi[0].offsetWidth;
+接下来就是下一次 now++
+
+
+
+目前问题是怎么如何循环，
+
+if(now==aLi.length/2)
+{
+ now=0;
+ oUl.style.left=0;
+}
+
+
+if(now==0)
+{
+ now=aLi.length/2;
+ oUl.style.left=-oUl.offsetWidth/2+'px';
+}
+
+
+
+
+
+
+
+
+
+
+
+对于无缝滚动做判断的时候
+if(oUl.offsetLeft<-oUl.offsetWidth/2)
+{
+ oUl.style.left=0;
+}
+if(oUl.offsetLeft>0)
+{
+ oUl.style.left=-oUl.offsetWidth/2+'px';
+}
+
+
+对于flash播放器做判断的时候，就是上一个下一个
+var now=0
+下一个:
+now++
+if(now=aLi.length)
+{
+ now=0
+}
+tab();
+
+上一个：
+now--
+if(now==-1)
+{
+ now=aLi.length-1;
+}
+tab();
+
+//Ul用到的ultop的时候，。这个时候不能给li添加绝对定位的属性，不然不顶用，当给li添加一个向左运动或者向右运动的时候，这个时候应该给这个ul下li添加一个z—index=1,并且还有给它一个绝对定位的属性和left:0;top:0;的属性然后自定义一个var nowZIndex=2,然后给下面的按钮添加一个for循环，在这个里面aLiBig[this.index].style.zIndex=nowZIndex++; 然后再让aLiBig[this.index].style.width=0;startMove(aLiBig[this.index],{width:470}); 
+
+
+通过给li需要添加一个overflow：hidden，为了ie6
+

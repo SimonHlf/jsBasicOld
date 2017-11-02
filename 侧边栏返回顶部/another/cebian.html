@@ -1,0 +1,40 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>无标题文档</title>
+<style>
+#box{ position:relative;}
+#div1{width:100px; height:180px; background:red; right:0; position:absolute; top:0;}
+#div1 img{width:100px; height:180px;}
+#div1 span{cursor:pointer; position:absolute; right:0;top:0;}
+#div1 span img{width:9px; height:10px;}
+</style>
+<script src="run.js"></script>
+<script>
+window.onresize=window.onload=window.onscroll=function()
+{
+	var oDiv=document.getElementById('div1');
+	var scrollTop=document.documentElement.scrollTop||document.body.scrollTop;
+	var t=Math.ceil((document.documentElement.clientHeight-oDiv.offsetHeight)/2);
+	var oClose=document.getElementById('close');
+	var aImg=oClose.getElementsByTagName('img')[0];
+	aImg.onclick=function()
+	{
+		oDiv.style.display='none';
+	}
+	//oDiv.style.top=t+scrollTop+'px';
+	startMove(oDiv,{top:t+scrollTop})
+}
+</script>
+</head>
+
+<body style="height:4000px;">
+<div id="box">
+  <div id="div1">
+   <img src="woman.jpg" />
+   <span id="close"><img src="close.png" /></span>
+  </div>
+</div>
+</body>
+</html>

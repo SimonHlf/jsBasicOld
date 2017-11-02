@@ -1,0 +1,2177 @@
+
+js给网页添加一种交互！一种功能，一种动的东西！就是在修改样式！
+
+div1.style.display='block';//.代表'的'
+也就是说div1的style的样式display变为block
+
+document.getElementById('').style.dispaly='block';
+
+通过id获取元素！ by:用！
+
+属性：特性，特点！都是通过.来完成的！
+
+
+流程：布局：html+css；属性：确定要修改哪些属性；事件：确定用户做哪些操作(产品设计)；编写js；
+
+
+函数：
+
+js代码不能放在行间！这里的函数和css里面的class比较相似!	
+
+格式：function toGreen()//函数名 随便取，但是需要有可读性和一定的含义！
+      {
+
+      };
+
+但凡长的比较像的需要合并，用变量合并！所谓的变量就是给相同的起个别名！
+
+函数的定义：只是告诉系统有这个函数，但不会实际执行！
+
+函数的调用：真正执行函数里的代码！
+
+函数的定义和调用缺一不可！
+
+网页换肤：
+<link href="#" rel="" type=""/>前提是准备几套css！所谓的换肤就是换了link下的href，前提给link加一个id
+
+<link id="link" href="css1.css" type="text/css" rel="stylesheet" />
+
+function toSkin1()
+{
+ var oL=document.getElementById('link')
+ oL.href='css1.css';
+}
+function toSkin2()
+{
+ var oL=document.getElementById('link')
+ oL.href='css2.css';
+}
+
+<input type="submit" value="皮肤一" onclick="toSkin1()"/>
+<input type="submit" value="皮肤二"onclick="toSkin2()" />
+
+通过上述可以知道任何标签都可以加id，包括link
+任何标签的任何属性，也都可以修改 比如href
+html里怎么写，js里就怎么写除className外
+
+if判断！
+
+if(条件)
+{
+  语句1
+}
+else
+{
+  语句2
+}
+
+下拉框：
+当用户点击的时候如果div是显示，点击让它隐藏 oDiv.style.display='none';
+当用户点击的时候如果div是隐藏，点击让它显示！ oDiv.style.display='block';
+if(div是显示的)oDiv.style.display=='block'
+{
+oDiv.style.display='none';
+}
+else//就是说此时如果div是隐藏的
+{
+oDiv.style.display='block';
+}
+
+
+=  赋值（改变）
+== 判断
+
+为a链接添加js <a href="javascript:;"></a> 
+
+
+函数传参：函数就是占位符，什么时候用传参---函数里定不下来的东西也就是说不确定的因素，没有一个具体的因素！！
+(num占位符)其具体的值要看调用的时候的数值
+function show(num) (a,b)
+{
+alert(num); alert(a+b);
+}
+show('');show(5,12)
+
+
+第一种操作属性的方法：.就是的；
+var a='value'
+第二种操作属性的方法:[a] 优势：具体属性的名字是可以改变的！js中但凡用.的地方可以用[]代替！！当要修改的属性不固定的时候用[]
+
+
+字面量(常量)：看到后就知道它是什么！12 'abc'
+变量： var a=?
+
+除了变量或者参数外其他需要添加引号，如果不添加的话，js活自动将其按照变量去处理
+
+
+通过style设置的样式统统都加在行间，从style取样式时也是从行间进行获取！
+css优先级：*<标签<class<id<行间样式
+所以元素.style.属性=xxx是行间修改样式，而之后在修改其className是不会有效果的！
+对于同一个元素，要么从头到位给其弄class,要么从头到位给其style!
+
+提取行间事件：
+
+没有名字的函数为匿名函数
+  js里当需要给一个元素添加事件的时候第一种是 
+function 名字()
+{
+.....
+}
+oBtn.onclick=名字
+第二种是将函数本身丢给这个onclick
+oBtn.onclick=function ()//匿名函数
+{
+.....
+}
+
+js特点读一行显示一行。读一行显示一行！！
+所以此时需要用window.onload//就是它的功能是让整个页面加载完成！  当这个页面加载完成的时候！ window.onload=function()
+{
+   oBtn.onclick=function ()//匿名函数
+   {
+    ..... 
+   }
+
+}
+
+行为，样式，结构三者分离！ 不要添加行间样式，不要添加行间事件！
+
+
+获取一组元素：getElementsByTagName
+
+数组 将众多的文件打个压缩包！ 外面是一个，内部包括很多！
+样式只能针对一个样式进行设置，但是对多个就不行了，所以此时要用下标[]来表示，例如
+aDiv[0].style.background='red';
+aDiv[1].style.background='red';
+aDiv[2].style.background='red';
+aDiv[3].style.background='red';
+针对上面太繁琐了，所以此时需要用到循环来给其简化
+
+循环：for循环：
+
+for(条件)
+{
+  语句//此时该语句就执行一次
+}
+
+while(条件)
+{
+  语句//此时该语句就执行不止一次
+}
+如
+
+while(饿)
+{
+  吃//此时该语句就执行不止一次
+}
+
+for(初始化；条件；自增；)
+{
+  语句
+}
+for(var i=0;i<aDiv.length;i++)
+{
+aDiv[i].style.background='red';
+}
+
+if和for可以配合进行全选，全不选和反选
+
+选项卡：
+
+this:当前发生事件的元素
+
+先让所有的都隐藏，然后让当前的给显示出来！
+
+
+innerHTML
+
+数组
+
+js简易日历：
+思路：--类似选项卡，只是下面只有一个div
+--innerhtml的使用
+--数组的使用
+ 定义：arr=[1,2,3]
+ 使用：arr[0]
+--字符串的连接：作用：两个两个字符串，问题：连接中的优先级！
+
+var arr=[1,2,3,4]
+
+oTxt.innerHTML='<h2>'+(this.index+1)+'月活动</h2><p>'+arr[this.index]+'</p>';
+{
+ var arr=['快过年了，祝大家新年快乐@@',
+		   '二月来了，，，',
+		   '三月分了刘芳菲急了我就',
+		   'fewlkfjwel'
+		  ];
+ var oWra=document.getElementById('wrap');
+ var aLi=oWra.getElementsByTagName('li');
+ var oTxt=oWra.getElementsByTagName('div')[0]
+ var i=0;
+ for(i=0;i<aLi.length;i++)
+ {
+	 aLi[i].index=i;
+	 aLi[i].onmouseover=function()
+	 {
+		 for(i=0;i<aLi.length;i++)
+		 {
+			 aLi[i].className='';
+		 }
+		 this.className='active';
+         oTxt.innerHTML='<h2>'+(this.index+1)+'月活动</h2><p>'+arr[this.index]+'</p>';
+	 }
+ }
+}
+
+
+
+
+javascript组成：
+
+ecmascript  翻译，核心，解释器 
+
+dom document object(对象) modle（模型）  对象：document
+
+bom browser object modle 浏览器对象模型  对象：window
+
+ecma:几乎没有兼容问题！
+dom:有一些操作不兼容！
+bom:没有兼容问题！（完全不兼容）
+
+数据类型：
+
+js里变量本身没有类型，关键是看往变量里存储的是什么东西！！ 类型符：typeof
+
+number:数字类型！
+string:字符串类型！
+boolean:布尔类型！
+function:函数类型
+object:对象类型！
+undefined：未定义类型！1：真的没定义.2:即使定义了，但是未存放东西！
+
+同样的一个变量，最好值存放一种类型的数据！
+
+类型转换：
+
+一：显示类型转换（强制类型转换）：
+
+字符串转数字：parseInt(变量)从左向有扫描，一旦遇到非数字的就自动跳出去！
+
+NaN not a number  任何数字和nan想计算，出来的还是NaN  NaN和NaN是不相等的！弹出的是false
+
+var a=parseInt('abc')
+alert(isNaN(a));//isNaN判断是否是NaN
+
+parseInt是用来转换整数的！！
+
+商品的价格，评分需要小数的！！这时需要用parseFloat()
+
+
+
+二：隐式类型转换：
+
+var a=5;
+var b='5';
+alert(a==b);//true  先转换类型，然后比较！
+
+var a=5;
+var b='5';
+alert(a===b);//flase 不转换类型，直接比较！
+
+	
+var a='12';
+var b='5';
+
+alert(a+b);//125
+alert(a-b);//7  做减法之前已经把a和b的类型给转换了！也就是对于减法。计算机可以自动转换！
+
+而加法：1：可以做为字符串连接！2：数字相加！
+减法：数字相减！
+
+
+
+变量的作用域（范围）：
+
+局部变量：只能在定义他的函数里面使用！
+全局变量：在任何地方都能使用！
+父函数：
+子函数
+闭包：子函数可以使用父函数的局部变量！
+
+
+命名规范必要性：
+
+可读性---能看懂！ 
+规范性---符合规则
+
+匈牙利命名法：1、类型前缀（给变量起名字的时候要用！！） 2、首字母大写
+
+
+
+运算符：
+
+%：12%5=2(求模也就是说是求余数) 
+
+隔行变色
+
+i%2==0
+
+秒转时间换算 秒/60 分 秒%60 秒  156秒 var s=156;
+
+156妙   alert(parseInt(s/60)+'分'+s%60+'秒')
+
+
+!=不等于 !==不等等  区别在于类型转换的关系，和==、===一样的性质
+
+与&& 并且 条件必须都要满足
+或|| 或者 条件同时满足一个
+否！
+
+n是不是两位数
+n>9
+n<100
+
+var n=45
+if(n>9 && n<100)
+{
+alert('两位数')；
+}
+else
+{
+alert(不是两位数)；
+}
+
+括号（）
+
+流程控制：
+
+判断：
+if(条件1)
+{
+ 语句1
+}
+else if(条件2)
+{
+ 语句2
+}
+else if(条件3)
+{
+ 语句3
+}
+...
+else
+{
+ 语句n
+}
+
+switch(变量)
+{
+ case 值1：//当变量等于语句1的值的时候执行语句1
+ break;
+ case 值2：//当变量等于语句2的值的时候执行语句2
+ break;
+ case 值3：
+ break;
+ case 值3：
+ break;
+ .....
+ default:
+  语句n;
+}
+
+
+?: 三目运算符
+
+条件?语句1：语句2
+
+循环：
+while for
+
+跳出：
+break continue
+
+break：打破 中断 整个循环都会结束
+
+continue:继续  并非中断整个循环，而只是中断本次的循环
+ 
+for(var i=0;i<5;i++)
+{
+ if(i==2)
+  {
+   break//整个循环就会中断
+   continue//只是本次的循环中断了，但并不影响其他的会继续执行下面的！
+  }
+  alert(i)
+}
+
+
+什么是真，什么是假：
+true:真  除了0之外，其他的数字都是true 非空字符串  就是有东西的时候 非空对象
+false:假 0 空字符串 就是没有东西的时候 空对象 Null undefined
+
+json:存数据，和数组有点像！ 1,但是json的下标是个字符串，而数组的下标是个数字。2、json没有length,数组有。3、for in适用于json和arr
+
+var json={名字:值,名字:值,名字:值,....}
+
+var a=5;
+var b=6
+var c='abc'
+var json={a:5,b:6，c:'abc'}
+alert(json.a);
+
+var json={a:5,b:6，c:7}
+var arr[5,6,7]
+
+当碰到数组的时候用for 0-len
+
+json: for in
+
+
+
+深入js:
+
+
+函数的返回值：与函数传参的作用相反！ 一个函数应该只返回一种类型的值！
+
+return
+
+function show()
+{
+ return 12//字符串//
+}
+var a=show()
+
+alert(a)
+
+
+函数传参：arguments 可变参，不定参！ 数组
+
+css函数：
+css(oDiv,'width')  获取样式
+    第0个 第1个
+css(oDiv,'width','200px') 设置样式
+    第0个(元素) 第1个（样式）  第2个（样式所处的属性）
+ 
+css函数：放一个css函数，当然，参数的个数是不固定的，所以需要判断一下，这里用if，如果arguments.length==2也就是说如果arguments有两个参数（两个参数意味着获取元素），当然，要从哪个对象上获取也是个问题，实际上要从第0个arguments[0]来获取也就是说是arguments[0].style,但是需要获取哪个样式呢，这个时候就是需要用第一个参数，既arguments[0].style[arguments[1]]需要返回出去！就是return arguments[0].style[arguments[1]];
+else的时候实际上就不是获取了，而是设置了，现在来设置arguments[0]这个元素这个arguments[1]样式，并且需要把它设置成arguments[2]，也就是说是 arguments[0].style[arguments[1]]=arguments[2];
+
+合并起来就是
+function css()
+{
+  if(arguments.length==2)
+  {
+    return arguments[0].style[arguments[1]];
+  }
+  else
+  {
+   arguments[0].style[argument[1]]=arguments[2]
+  }
+
+}
+window.onload function()
+{ 
+  var oDiv=document.getElementById('div1')
+  alert(css(oDiv,'width'))
+  css(oDiv,'background','green')
+}
+
+
+
+获取非行间样式：currentStyle  js第二定律（但凡好东西，一定不兼容）！！ 只兼容ie    ff chrome下用 getComputedStyle(obj,flase)
+
+兼容各种浏览器用
+if(oDiv.curentStyle)
+{
+ //ie
+ alert(oDiv.curentStyle.width);
+}
+else
+{
+ //ff
+ alert(getComputedStyle(oDiv,false).width);
+}
+
+将上述封装成一个函数：
+
+functions getStyle(obj,name)
+{
+ if(obj.currentStyle[name]);
+ {
+   return obj.currentStyle[name];
+ }
+ else
+ {
+   return getComputedStyle(obj,flase)[name];
+ }
+
+}
+window.onload=function()
+{
+  var oDiv=document.getElementById('div1');
+  alert(getStyel(oDiv,'width/backgroundColor'));
+}
+
+
+css里面有复合样式：background border 
+         单一样式/简单样式：width、height、
+
+
+
+
+数组：var a=newArray()  一个数组里面只存一种类型的变量 字符串
+属性：lenght 既可以获取也可以设置
+
+var arr=[1,2,3,4,5,6]
+arr.length=0;
+alert(arr);  清空一个数组的值
+
+数组的方法：
+
+添加：push(尾部添加)  unshift(从头部添加) 
+var arr=[1,2,3]
+arr.push(4)
+alert(arr);
+
+
+删除：pop(尾部删除) shift(从头部删除)
+
+从中间删除和splice splice(起点,长度)
+
+从中间插入元素 splice(起点,长度,元素。。。)
+
+数组的转换类：
+
+数组的连接：concat(数组2)
+var a=[1,2,3]
+var b=[4,5,6]
+alert(a.concat(b))   //123456
+
+数组的拼接：join
+var a=[1,2,3]
+alert(a,join('-'))//1-2-3
+
+数组的排序：sort(比较函数)，排序一个数组：排序一个字符串数组、、排序一个数字数组
+排列一个字符串数组直接是arr.sort()
+排列一个数字数组是：
+arr.srot(function(n1,n2){
+    if(n1<n2)
+     {
+       return -1;
+     }
+    else if(n1>n2)
+     {
+        return 1;
+     }
+    else
+     {
+        return 0;
+     }
+
+})
+
+上述等价于arr.sort(function(n1,n2){
+
+			return n1-n2
+           })
+
+
+
+
+定时器：
+  
+setInterval(函数，时间)  间隔型  clearInterval
+setTimeout 延时型，只执行一次  claerTimeout
+function show()
+{
+ alert('a');
+}
+setInterval(show,1000)
+
+setInterval(function show(){
+  alert('a')
+},1000)
+
+
+border-bottom:1px solid #9CCEFD;
+
+定时器开启，关闭 clearInterval(需要关闭哪一个) 前提是给需要关闭的定时器起一个名字
+
+claerTimeout
+
+
+
+
+数码时钟：  getHours() getMinutes() getSeconds() getMouth()+1 
+
+问题：如何用js获取到当前的时间！ var oDate=new Date() alert(oDate.get FUllYear());
+
+      如何用js来修改图片的路径！ var aImg=document.getElemntsByTagName='img'
+      首先先放一个字符串var str='162756';//就是现在的时分秒
+                  var str=oDate.getHours()+oDate.getMinutes()+oDate.getSeconds()
+      做一个循环：for(i=0;i<aImag.length;i++)
+                     {
+                         aImg[0].src=?1.png 6.png   'img/?.png'等价与'img/str[i].'
+                         aImg[i].src='img/'+str[i]+'.png'
+                        
+
+                       } 第零个图片对应的上述str里面的第一个文字，第一个图片对应的是str里面第二个文字。。。第i个图片就是对应的是str[i]
+
+        var oDate=new Date() 
+
+
+补零：function toDou(n)
+        {
+          if(n<10)
+           {
+            return '0'+n;
+           }
+           else 
+           {
+             return ''+n;
+            }
+          }    
+         
+                                  
+       var str=toDou(oDate.getHours())+toDou(oDate.getMinutes())+toDou(oDate.getSeconds())   //让时分秒都转换成两位的来写，并且是字符串！              
+
+                         
+定时器当打开后需要等到一秒钟以后来执行：为了解决。
+
+charAt(i)它的作用就是获取字符串上某一位上的东西！和[i]是相同的。只不过charAt的兼容性比[i]的兼容性更好！
+
+
+
+延时提示框：
+
+两个div div1,div2 让div2和div1的mouseover都添加一个清除定时器cleatTimeout(timer)，并且让oDiv2.style.display=block;
+
+让div1和div2的mouseout放一个定时器Timeout(function(){oDiv2.style.display='none'},500)
+
+
+无缝滚动：
+
+
+物体运动的基础：让物体动起来实际上就是在修改它的left和top,所以需要添加一个绝对定位！！让物体向右边跑就是需要让其的left值不断变大  offsetLeft就是用来获取物体的左边距！其最大的优点就是会综合考虑所有影响这个物体位置的因素之后然后计算出它的值。
+oDiv.style.left=oDiv.offsetLeft+10+'px'; 物体运动起来了！
+
+offsetTop:获取物体的上边距
+offsetWidth/Height:获取物体的宽度和高度
+
+让物体运动起来就是需要用到定时器！  
+
+setInterval(function(){
+var oDiv=document.getElementById('div1');
+oDiv.style.left=oDiv.offsetLeft+10+'px';},30)
+
+<div>
+<ul>
+ <li><img src=''/></li>
+ <li><img src=''/></li>
+ <li><img src=''/></li>
+ <li><img src=''/></li>
+</ul>
+</div>
+
+
+    
+     css  js   dom
+dom: 标签 元素 节点  操作页面的，操作div获取，修改样式。。。
+
+火狐99%
+ie10% ie9 
+谷歌60%
+
+dom节点：
+
+父节点：parentNode
+
+子节点：childNotes  文本节点 元素节点  ie6-8没问题 只计算第一层！
+nodeType==3  文本节点
+nodeType==1  元素节点
+
+for(i=0;i<oUl.childNodes[i].length;i++)
+{
+ if(oUl.childNodes[i].nodeType==1)
+  {                                             
+    oUl.childNodes[i].style.background='red';
+  }
+}
+
+
+for(i=0;i<oUl.children.length;i++)
+{
+  oUl.children[i].style.background='red'
+}
+
+
+if(oUl.childNodes[i].nodeType==1)
+{
+ oUl.childNodes[i].style.background='red';
+}
+
+
+children==childNotes
+
+offsetParent:可以获取到一个元素用来定位的它的父级！ 获取元素在页面上的实际位置  样式不同也会发生变化
+
+首尾字节点：
+fristChild ie6-8  第一个子节点  lastChild:尾节点！ 
+
+兄弟节点：
+nextSilbling 下一个节点  previousSibling上一个节点！
+
+firstElementChild  高级浏览器！
+lastElementChild
+nextElementSilbling
+previouslementSibling
+处理兼容：
+
+if(oUl.firstElementChild)
+{
+ oUl.firstElementChild.style.background='red';
+}
+else
+{
+ oUl.firstChild.style.background='red'
+}
+
+
+dom元素的属性操作：
+
+                   属性的名字
+. []  setAttribute('value','属性所设的值')  设置
+           名称
+获取：getAttribute(名称)
+
+删除：removeAttribute(名称)
+常用属性： cookie domain title
+
+
+
+dom元素的灵活查找：
+
+如何用className选择元素：
+
+封装函数：
+getByClass
+
+function getByClass(oParent,sClass)//parent:从哪个父级下去选取元素！
+{
+  var aResult=[];//空数组
+  var aEle=oParent.getElementsByTagName('*')
+  for(var i=0;i<aEle.length;i++)
+  {
+    if(aEle[i].className==sClass)
+    {
+      aResult.push(aEle[i]);//把每一个所找到的元素全部都堆到这个数组里面
+    }
+  }
+  return aResult;
+}
+
+window.onload=function()
+{
+  var oUl=document.getElementById('ul1');
+  var aLi=oUl.document.getElementsByTagName('li')
+  for(i=0;i<aLi.length;i++)
+  {
+    if(aLi[i].className=='box')
+    { 
+      aLi[i].style.background='red'
+    } 
+  }
+}
+
+等价于
+var oUl=document.getElementById('ul1');
+var aBox=getClassBy(oUl,'box');
+for(i=0;i<aBox.length;i++)
+{
+ aBox[i].style.background='red';
+}
+
+获取元素，获取完后筛选，然后再扔到数组里面，最好再将这个数组给返回出去！
+ 
+
+
+
+
+dom应用：
+
+如何创建dom元素：
+
+createElement('参数标签名') var oLi=document.createElement('li')
+
+appendChild给东西添加子节点！  父级.appendChild(子节点)  父级的末尾！
+
+所以给一个页面插入一个新的元素，需要：1：createElement('参数标签名') 2、父级.appendChild(子节点)
+
+var oUl=document.getElementById('ul');
+var oBt=docuemnt.getElementById('bt');
+oBt.onclick=function()
+{
+ var oLi=document.createElement('li');
+ oUl.appendChild(oLi)
+}
+
+var oUl=document.getElementById('ul');
+var oBt=docuemnt.getElementById('bt');
+var oTxt=docuemnt.getElementById('txt');
+oBt.onclick=function()
+{
+ var oLi=document.createElement('li');
+ oUl.appendChild(oLi);
+ oLi.innerHTML=oTxt.value
+}
+
+
+如何把元素插入到最前面：insertBefore
+
+父级.appendChild(子节点)  添加到父级的末尾
+父级.insertBefore(子节点,在谁之前) var aLi=documentByTagName('li');  oUl.insetBefore(oLi,aLi[0]);  但是这个在ie下不支持，原因是ul里面本身没有li。所以就不错在所谓的aLi，所以这里应该用到if判断
+
+if(aLi.length>0)
+{
+ oUl.insertBefore(oLi,aLi[0]);
+}
+else
+{
+ oUl.appendChild(oLi)
+}
+
+                                                                
+删除dom元素：
+
+父级.removeChild(子节点)  彻底的删掉！
+
+
+
+文档碎片： createDocumentFragment()
+
+将零碎的东西元素组合成一个整体然后  如。创建多个li后。不需要创建一个插入一个，创建一个插入一个，只是等创建好后然后将其弄成一个整体，然后将这个整体插入页面！  高级浏览器这个对性能的提升几乎没有什么影响！
+
+
+
+dom高级应用：
+
+一个表格可以有好几个tBodies,数组 thead tfoot元素
+
+getElementsByTagName('tbody')等价于tBodies
+
+行：getElementsByTagName('tr')等价于rows
+
+列：getElementsByTagName('td')等价于cells
+
+表格的添加和删除：
+
+假如表格每行有三列，就是说如果想要创建一行的话需要创建一个tr和在这个tr里面创建三个td
+
+		var oTr=document.createElement('tr');3
+
+		第一个td
+		var oTd=document.createElement('td');
+	        oTd.innerHTML=oTab.tBodies[0].rows.length+1;
+                第一个td塞到创建的tr里面
+	        oTr.appendChild(oTd);
+		
+                第二个td
+		var oTd=document.createElement('td');
+		oTd.innerHTML=oName.value;
+                第二个td塞到创建的tr里面
+		oTr.appendChild(oTd);
+
+		第三个td
+		var oTd=document.createElement('td')
+		oTd.innerHTML=oAge.value;
+                第三个td塞到创建的tr里面
+		oTr.appendChild(oTd);
+		
+                将创建好的tr塞到table里面
+		oTab.tBodies[0].appendChild(oTr);
+
+
+表格搜索：1:基础的版本：字符串比较！2：忽略大小写：大小写转换：toLowerCase():可以把一个字符串转换成全小写！ 3：模糊搜索：search的使用   模糊搜索：search 找到并且发现字符串出现的位置，当然，如果未找到的话就会返回-1！    4：多关键词：split('用什么来切如空格')原理：就是把需要搜索的字符串给切开，切成几段，然后做个循环让每一段分别都给他找一次    5：高亮显示、筛选
+
+1、对于表格搜索基础版本字符串的比较是先给每一个表格下的每一行做一个for循环，然后再进行个if判断，就是看看文本框里面的value值和表格内部的某一个tr下的td值是不是相等，如果相等的话就给这一个tr添加一个高亮的显示！代码：
+               for(var i=0;i<oTab.tBodies[0].rows.length;i++)//每一个表格下的每一行做一个for循环，
+		{
+			if(oTab.tBodies[0].rows[i].cells[1].innerHTML==oTxt.value)
+			{
+				oTab.tBodies[0].rows[i].style.background='yellow';
+			}
+			else
+			{
+				oTab.tBodies[0].rows[i].style.background='';
+			}
+		}
+
+2、对于大小写的忽略这里用到了toLowerCase(),也就是说让表格下的每一行做个for循环后然后给其每一行下的td的innerHTML添加一个toLowerCase()，然后也给文本框的value值也添加一个toLowerCase()，然后判断这两个toLowerCase()的值是否相等就可以了！代码：
+
+
+                for(var i=0;i<oTab.tBodies[0].rows.length;i++)
+		{
+			var sTab=oTab.tBodies[0].rows[i].cells[1].innerHTML;
+			var sTxt=oTxt.value;
+			if(sTab.toLowerCase()==sTxt.toLowerCase())//这里是重点！
+			{
+				oTab.tBodies[0].rows[i].style.background='yellow';
+			}
+			else
+			{
+				oTab.tBodies[0].rows[i].style.background='';
+			}
+		}
+
+
+3、模糊搜索这里用到search()的使用：search()找到并且发现字符串出现的位置，当然，如果未找到的话就会返回-1！ 就是对表格内部的tr下的td的innerHtml进行搜索，就是说看看它里面的值是不是和txt的value值相等，如果找到了就是了，如果未找到就是-1   找的是字符串的一部分 代码：
+
+
+	       for(var i=0;i<oTab.tBodies[0].rows.length;i++)
+		{
+			var sTab=oTab.tBodies[0].rows[i].cells[1].innerHTML.toLowerCase();
+			var sTxt=oTxt.value.toLowerCase();
+			if(sTab.search(sTxt)!=-1)//这里很重要
+			{
+				oTab.tBodies[0].rows[i].style.background='yellow';
+			}
+			else
+			{
+				oTab.tBodies[0].rows[i].style.background='';
+			}
+		}
+         
+4、多关键词搜索，这里用到split()的使用，通常split和数组是结合到一块的！split() 方法用于把一个字符串分割成字符串数组。 语法：stringObject.split(sepeator,howmany)  String.split() 执行的操作与 Array.join 执行的操作是相反的。  如果把空字符串 ("") 用作 separator，那么 stringObject 中的每个字符之间都会被分割。  代码：
+
+
+                for(var i=0;i<oTab.tBodies[0].rows.length;i++)
+		{
+			var sTab=oTab.tBodies[0].rows[i].cells[1].innerHTML.toLowerCase();
+			var sTxt=oTxt.value.toLowerCase();
+			var arr=sTxt.split('');//把需要搜索的字符串给切开然后存到一个数组里面
+			oTab.tBodies[0].rows[i].style.background='';
+			for(var j=0;j<arr.length;j++)//然后给这个存好的数组做一个循环然后让里面的每一段都来寻找一次
+			{
+				if(sTab.search(arr[j])!=-1)
+				{
+					oTab.tBodies[0].rows[i].style.background='yellow';
+				}
+			}
+		}
+	}
+                   
+
+
+表格排序：从小到大的顺序从新appendchild一遍
+
+li的排序： appendchild：先将元素从原有的父级上给删除，第二步添加到新的父级上！
+
+aEle aLi并非一个真正的数组 是元素的集合！对sort() join并不适用！
+
+
+li的排序：把最小的那个给appendchlid添加到最后，然后再从剩下的之中找到最小的然后再appendchlid。。反复的appendchlid
+
+所以虽然aLi并非一个数组，但是我们可以从新创建一个数组var arr=[]; 然后接下来循环所有的ali
+然后在这个循环里把aLi[i]的所有的值都丢到这个数组里面去arr[i]  arr[i]=aLi[i]  然后再对这个数组进行排序  arr.sort(function(li1,li2){
+                 var n1=parseInt(li1.innerHTML);
+                 var n2=parseInt(li2.innerHTML);
+                 return n1-n2
+                 })
+但是目前排序的仅仅是这个数组arr,但是li的实际位置并没有变化，所以此时需要给这个数组给appendchild一遍  这里给这个数组再做一个循环然后给这个数组给appendchild一遍
+
+for(var i=0;i<arr.length;i++)
+{
+ alert('该把'+arr[i].innerHTML+'插入到最后')
+ oUl1.appendChild(arr[i]);
+}
+
+
+总体就是转换数组--数组排序--重新插入
+
+
+表单：
+
+
+
+
+
+
+js运动：
+
+
+7，14，287 394 301
+
+匀速运动：
+
+运动中的bug：
+
+1：不会停止：解决方法就是做个if判断  给其一个明确的位置然后当到达这个位置的时候就把定时器给关闭
+
+2：速度取某些值的时候无法停止：7，14，287 394 301  解决方法就是：当判断的时候让offsetLeft>=这个明确的位置数字！
+
+3：到达某个位置再点击的话还会运动：解决方法就是if判断后然后再加一个else,原理就是当这个物体运动未达到这个明确的位置之前的时候执行oDiv.style.left=oDiv.offsetLeft+speed+'px';这句话，当这个物体已经达到这个指定的位置之后应该执行关闭定时器这句话clearInterval(timer);
+
+4：重复点击按钮的话速度会加快：解决方法：加个关闭定时器，因为如果没有的话就会点击一次这个按钮就会开启一个定时器，久而久之，点的次数越多定时器开的就越多，所以就会出现次数越多，走的越快！所以这里就需要添加一个关闭定时器！就是把以前开过的定时器给关闭了然后在执行下面的，下面就又开了个新的！  总体必须保证只有一个定时器在工作
+
+
+
+完美的就是：	
+        oBtn.onclick=function()
+	{
+		clearInterval(timer);//这里之所以加这个关闭定时器，因为如果没有的话就会点击一次这个按钮就会开启一个定时器，久而久之，点的次数越多定时器开的就越多，所以就会出现次数越多，走的越快！所以这里就需要添加一个关闭定时器！就是把以前开过的定时器给关闭了然后在执行下面的，下面就又开了个新的！  总体必须保证只有一个定时器在工作
+		timer=setInterval(function(){
+		if(oDiv.offsetLeft>=300)
+		  {
+			  clearInterval(timer);
+		  }
+		  else
+		  {
+			  oDiv.style.left=oDiv.offsetLeft+speed+'px';
+		  }
+		  
+		},30)
+
+	}
+
+
+上面的完美的部分可以总结为运动框架：
+
+在开始运动的时候把定时器给关闭了！
+把运动和停止给隔开（if/else）
+
+实例：分享到：  淡入淡出：
+
+
+分享到：
+初始值：left:-180px
+鼠标移入的时候需要让其出来：就是说left:-180px--0  向右运动就是+
+鼠标移出的时候需要让其出来：就是说left:0---180px  向左运动就是-
+
+淡入淡出：针对alpha的获取：采取折中的方法，先放一个变量 var alpha=30,然后做个判断
+var speed=0;
+if(alpha<iTarget)
+{
+ speed=10;
+}
+else
+{
+ speed=-10
+}
+
+if(alpha==iTarget)
+{
+ 关闭定时器
+}
+else
+{
+ alpha+=speed;                      50
+ oDiv.style.filter='alpha(opcity:'+alpha+')'//将alpha的值赋给css  这个是ie的
+ oDiv.style.opcity=alpah/100;//这个是谷歌的
+}
+
+
+
+
+缓冲运动：当物体和终点的距离大的时候速度大  当物体和终点的距离小的时候速度减小
+逐渐变慢最后停止！ 距离越远速度越大， 速度由距离决定！  速度=（目标值-当前值(oDiv.offsetLeft)）/10(10代表缩放系数，可以改变，缩放系数越大，速度越慢！)
+
+速度和距离是成正比的 300 10   30 1  控制缓冲的快慢完全可以通过除以多少的那个分母来进行修改
+
+290.5px---290px;
+299.9px--299px
+
+oDiv.offsetLeft+speed+'px';
+
+296+0.4px--296.4px--296px  所以物体就会在这个位置给定住不动了！ 所以问题的关键就是speed，所以为了使speed是个整数需要用到：
+
+Math.ceil()//ceil就是向上取整
+
+Math.floor()//floor向下取整
+
+就是需要给speed给取个整数：speed=Math.ceil(speed)或者向下取整speed=Math.floor(speed)
+
+向左是floor  
+
+从左向右走，速度是正的，要向上取整，用到Math.ceil(),从右向左走。速度是负的，需要向下取整！Math.floor();
+
+speed=speed>0?Math.ceil(speed):Math.floor(speed);
+当是缓冲运动的时候一定要运用的取整！
+
+缓冲运动框架：
+function startMove(iTarget)
+{
+ var oDiv=document.getElementById('div1');
+ clearInterval(timer);
+ timer=setInterval(function(){
+    var speed=(iTarget-oDiv.offsetLeft)/10----这里的分母值不固定，可以根据效果任意设置
+    speed=speed>0?Math.ceil(speed):Math.floor(speed);
+    if(oDiv.offsetLeft==iTarget)
+    { 
+     clearInterval(timer);
+    }
+    else
+    {
+     oDiv.style.left=oDiv.offsetLeft+speed+'px'; 
+    }
+   },30)
+}
+缓冲菜单：
+
+
+
+匀速运动的停止条件：
+
+运动终止的条件：匀速：距离足够近！ 缓冲运动：两点重合
+
+数学方法：绝对值：Math.abs()  匀速运动停止条件：只要让这个物体和目标之间的距离小于速度！
+
+if(Math.abs(iTarget-oDiv.offsetLeft)<=-7)
+{
+ cleatInterval(timer)
+ oDiv.style.left=iTarget+'px';
+}
+else
+{
+ oDiv.style.left=oDiv.offsetLeft+speed+'px';
+}
+
+
+
+
+
+
+
+js运动的应用：
+
+
+
+多物体的运动框架：
+
+多物体框架里面所有东西都不能共用！！
+
+
+
+任意值值的运动框架：
+
+多物体运动框架之变化不同的属性的时候代码容易重复：
+
+
+offset的bug：
+
+width:200px; border:1px; padding:10px;  这个时候它的offsetWidth:222px;
+offsetWidth:获取的物体的盒模型 包括border的宽度，padding的宽度或者margin的宽度
+
+
+#div1{width:200px;height:200px; background:red; border:1px solid #ccc;}
+
+oDiv.style.width=oDiv.offsetWidth-1+'px';
+
+上述，起始，width:200px; offsetWidth:202px  201px; 然后再把这201px赋给了width;
+
+            width:201px; offsetWidth:203px  202px; 然后再把这202px赋给了width;
+
+            width:202px; offsetWidth:204px  203px; 然后再把这203px赋给了width;
+          
+             ........
+
+从而这样就导致了oDiv.style.width=oDiv.offsetWidth-1+'px';出来的结果会越来越宽
+
+
+为了解决上面的bug就是不用offsetWidth
+
+
+function getStyle(obj,name)
+{
+	if(obj.currentStyle)
+	{
+		return obj.currentStyle[name];
+	}
+	else
+	{
+		return getComputedStyle(obj,false)[name];
+	}
+}
+setInterval(function(){
+	var oDiv=document.getElementById('div1');
+	oDiv.style.width=parseInt(getStyle(oDiv,'width'))-1+'px';
+	},30)
+
+
+
+
+
+js运动中级：
+
+链式运动框架：startMove(obj,attr,iTarget,fnEnd)
+
+
+完美运动框架：
+
+运动框架小问题：两个属性同时运动（宽和高同时改变） 不能让好几个属性同时运动
+
+这里用到了json
+
+json循环用for in循环
+
+用一个循环把（for(attr in json)）原来的运动步骤给包在里面，每一次定时器执行的时候，总要循环几次，当然，循环的次数取决于json里面写的什么
+function startMove(obj,json,fnEnd)
+{
+	clearInterval(obj.timer);
+	obj.timer=setInterval(function(){
+        for(attr in json)//这里很重要
+        {
+		var cur=0;
+		if(attr=='opacity')
+		{
+			cur=Math.round(parseFloat(getStyle(obj,attr))*100);
+		}
+		else
+		{
+			cur=parseInt(getStyle(obj,attr));
+		}		
+		speed=(json[attr]-cur)/8;//json[attr]当前循环的目标点
+		speed=speed>0?Math.ceil(speed):Math.floor(speed);
+		if(cur==json[attr])
+		{
+			clearInterval(obj.timer);
+			if(fnEnd)fnEnd();
+		}
+		else
+		{
+			if(attr=='opacity')
+			{
+			    obj.style.filter='alpha(opacity:'+(cur+speed)+')';
+			    obj.style.opacity=(cur+speed)/100;
+			}
+			else
+			{
+				obj.style[attr]=cur+speed+'px';
+			}
+		}
+          }
+		
+		},30)
+}
+
+最终的完美
+function startMove(obj,json,fnEnd)
+{
+	clearInterval(obj.timer);
+	obj.timer=setInterval(function(){
+        var bStop=true;//假设：所有的值都已经到了
+        for(attr in json)//这里很重要
+        {
+		var cur=0;
+		if(attr=='opacity')
+		{
+			cur=Math.round(parseFloat(getStyle(obj,attr))*100);
+		}
+		else
+		{
+			cur=parseInt(getStyle(obj,attr));
+		}		
+		speed=(json[attr]-cur)/8;//json[attr]当前循环的目标点
+		speed=speed>0?Math.ceil(speed):Math.floor(speed);
+                if(cur!=json[attr])
+                 bStop=false;
+		
+			if(attr=='opacity')
+			{
+			    obj.style.filter='alpha(opacity:'+(cur+speed)+')';
+			    obj.style.opacity=(cur+speed)/100;
+			}
+			else
+			{
+				obj.style[attr]=cur+speed+'px';
+			}
+          }
+
+		if(bStop)
+                 {
+                  clearInterval(obj.timer);
+                  if(fnEnd)fnEnd();
+                 }
+		},30)
+}
+先把关闭定时器这一步给删除了，等所有东西都到了，关闭，（如果没有不到的，关闭），然后每次当开启定时器的时候添加一句话var bStop=true//假设：所有的值都已经到了,然后当执行for循环的时候
+做个判断if(cur!=json[attr])就是说有一个值不等于目标点就是没到，bStop=false,因为有一个并没有到达目标点的值，所以这个假设不成立的，所以这个bStop应该为false,然后在整个循环都结束之后如果这个bStop还是保持true这个状态，这就说明中间并没有出现刚才的那个false的情况，吉说明都到达目标点了也就是说if(bStop){clearInterval(obj.timer);if(fnEnd)fnEnd()},
+
+
+
+
+bom：面向浏览器的对象：打开关闭窗口 关闭提示问题 
+
+
+打开一个新窗口：onclick=window.open('url')
+
+关闭窗口：onclink=window.close();
+
+
+document.write:写一些东西到页面! 如果将其放在一个事件里面来用话它会现在页面内部所以的东西先清空，然后再把这个页面上的东西写进去  先清空---再写！
+
+useragent当前浏览器的版本类型！
+
+location：当前页面所处的地址！
+
+可视区的宽度和高度浏览器窗口的大小有关系
+//alert(document.documentElement.scrollTop);//随着滚动距离的变大scrollTop会变大 兼容ie和火狐
+//alert(document.body.scrollTop);//谷歌下适用
+//做兼容
+alert(document.documentElement.scrollTop||document.body.scrollTop);
+
+window.onscroll就当页面滚动的时候会反生的时间
+
+window.onresize当改变窗口大小的时候发生
+
+userAgent>ie6  fixed
+
+
+Math.round()四舍五入
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+js事件：
+
+事件对象
+
+event对象和事件冒泡：
+
+event对象：用来获取事件的详细信息：鼠标位置，鼠标的按键 键盘的按键
+document.onclick=function()
+{
+ alert('a')
+}
+document代表了整个网页
+
+所以以后想要用到整个页面的事件的时候，应该给document添加事件，不能给body添加
+
+事件对象：event  详细信息
+获取鼠标位置：clientX clientY  event.clientX   event.clientY  在火狐上不兼容  火狐不认event  火狐下事件处理函数所传的参数就是---事件对象
+document的本质：documentchildNodes[0].tagName
+
+||如果两边放的东西一个是真一个是假，它会把为真的给挑出来  0false ''false  如果两个都为真，先碰上哪个是哪个
+
+
+获取event对象（兼容性）  
+var oEvent=ev||event;//这里用到了或
+alert(oEvent.clientX+','+oEvent.clientY);
+
+事件流：
+事件冒泡：取消冒泡：var oEvent=ev||event;  oEvent.cancelBubble=true;
+取消冒泡就是说从这里开始不会向父级传递了！
+
+
+鼠标事件： 可视位置（坐标）clientX clientY  鼠标的clientY+scrollTop 就是鼠标到页面顶部的位置，然后再给div
+
+onmousemove 当鼠标运动的时候发生
+document.onmousemove=function()
+{
+}
+
+由于div本身是相对于body是决定的定位浮动，所以这是鼠标距离这个div的距离会随着这个滚动条下拉框的下来会越来越远，。只有当可视区和页面的顶部是重合的这样才没没问题 解决这个问题用到scrollTop
+clientY+scrollTop就是鼠标距离页面顶部的位置然后再把它给div
+
+var scrollTop=document.documentElement.scrollTop||document.body.scrollTop;
+
+
+但凡用到clientX clientY一定要加上scrollTop和scrollLeft        
+
+封装一个函数
+function getPos(ev)
+    {
+        var scrollLeft=document.documentElement.scrollLeft||document.body.scrollLeft;   //      滚动距离;
+        var scrollTop=document.documentElement.scrollTop||document.body.scrollTop;  //      滚动距离;
+        return{x:ev.clientX+scrollLeft,y:ev.clientY+scrollTop};   //将位置以Json形式的值返回出来;
+    }
+
+
+document.onmousemove=function(ev)
+{
+	var oDiv=document.getElementById('div1');
+	var oEvent=ev||event;
+	var pos=getPos(oEvent);
+	oDiv.style.left=pos.x+'px';
+	oDiv.style.top=pos.y+'px';
+	
+}
+
+
+后一个跟着前一个走，前一个再跟着他前面的走，第一个跟着鼠标走
+
+
+键盘事件：keyCode 获取键盘里面具体操作的是哪一个按键
+
+onkeydown
+
+onkeyup
+
+
+document.onkeydown=function(ev)
+{
+	var oEvent=ev||event;
+	var oDiv=document.getElementById('div1');
+	if(oEvent.keyCode==37)
+	{
+		oDiv.style.left=oDiv.offsetLeft-10+'px';
+	}
+	else if(oEvent.keyCode==39)
+	{
+		oDiv.style.left=oDiv.offsetLeft+10+'px';
+	}
+	else if(oEvent.keyCode==38)
+	{
+		oDiv.style.top=oDiv.offsetTop-10+'px';//向上运动
+	}
+	else if(oEvent.keyCode==40)
+	{
+		oDiv.style.top=oDiv.offsetTop+10+'px';//向下运动
+	}
+
+}
+
+ctrlKey  告诉我们ctrl有没有按下去  shiftKey  altKey 
+
+
+oTxt1.onkeydown=function(ev)
+	{
+		var oEvent=ev||event;
+		if(oEvent.keyCode==13&&oEvent.ctrlKey)//ctrlKey  告诉我们ctrl有没有按下去
+		{
+			oTxt2.value=oTxt2.value+oTxt1.value+'\n';
+			oTxt1.value='';
+		}
+	}
+
+
+
+默认行为，默认事件：点击鼠标的右键会出现一个下拉菜单就是默认行为，。凡事浏览器自带的就是默认行为
+
+
+oncontextmenu 当用户点击右键调右键菜单的时候   点击右键就是给document添加一个oncontextmenu事件
+
+
+
+document.oncontextmenu=function()
+{
+ return false//阻止默认事件
+}
+
+
+拖拽是改的这个div的left和top  必须有绝对定位
+
+原理：首先需要计算一下鼠标和物体之间的距离首先先定义两个变量，然后存起来,var disX=0  var disY=0，因为这个距离是一直不变的，disX=oEvent.clientX(鼠标的位置)-oDiv.offsetLeft  disY=oEvent.clientY(鼠标的位置)-oDiv.offsetTop  然后把这个距离存下来之后，当需要用鼠标的坐标去计算这个div物体的位置的时候，只需要用鼠标的oDiv.style.left=oEvent.clientX-disX  oDiv.style.top=oEvent.clientY-disY就行了
+
+鼠标按下事件  鼠标抬起事件  onmousedown onmousemove onmouseup
+
+主要是求出鼠标和物体之间的距离   鼠标的坐标减去div的坐标
+
+
+onmousedown事件中：
+var disX=0;
+var disY=0;
+disX=oEvent.clientX(鼠标的位置)-oDiv.offsetLeft
+disY=oEvent.clientY(鼠标的位置)-oDiv.offsetTop
+
+onmousemove事件中：
+oDiv.style.left=oEvent.clientX-disX+'px'
+oDiv.style.top=oEvent.clientY-disY+'px'
+
+
+onmouseup事件中：
+oDiv.onmousemove=null;
+oDiv.onmouseup=null;
+火狐的bug是在拖拽空的div的时候会出现阴影 这里解决的问题是在onmousedown里添加一个return false
+
+
+为了防止用户在拖拽的过程中将该物体拖出浏览器窗口，这个时候需要在onmousemove判断下分别与浏览器上，下，左，右的距离  首先定义两个变量  var l=oEvent.clientX-disX;var t=oEvent.clientX-disX  然后再来if判断  if(l>0)//已经出左窗口了。我让l=0; else if(l>document.documentElement.clientWidth-oDiv.offsetWidth)//已经出右窗口了  这时我让l=document.documentElement.clientWidth-oDiv.offsetWidth  if(t>0)//已经出上窗口了 这时我让t=0
+else if(t>document.documentElement.clientHeight-oDiv.offsetHeight)//已经出下窗口了 这时我让t=document.documentElement.clientHeight-oDiv.offsetHeight
+
+
+
+
+
+事件绑定： attachEvent(事件名,函数)  同时可以添加多个函数多一个事件上  但是谷歌和火狐不认这个方法  火狐和谷歌下是addEventListener(事件名，函数，false) 事件名里面的onclick事件是不带on的
+
+做兼容：
+	var oBtn=document.getElementById('btn');
+	if(oBtn.attachEvent)
+	{
+		oBtn.attachEvent('onclick',function(){
+		alert('a');
+		})
+	oBtn.attachEvent('onclick',function(){
+		alert('b');
+		})
+	}
+	else
+	{
+		oBtn.addEventListener('click',function(){
+		alert('a')
+		})
+	oBtn.addEventListener('click',function(){
+		alert('b')
+		})
+	}
+
+封装一个函数：
+function myAddEvent(obj,ev,fn)
+{
+	if(obj.attachEvent)
+	{
+		obj.attachEvent('on'+ev,fn);
+	}
+	else
+	{
+		obj.addEventListener(ev,fn,false)
+	}
+}
+
+          attachEvent                                 addEventListener
+解除绑定：detachEvent(事件名，函数) ie下  谷歌火狐下：removeEventListener(事件名，函数，捕获)
+
+oBtn.attachEvent('onclick',aaa)
+oBtn.detachEvent('onclick',aaa)
+
+匿名函数解除绑定：
+
+匿名函数完全体：var a=new function("alert('a');")  写一次创建一个
+
+
+
+
+
+高级拖拽
+
+事件捕获：把事件给抓回来， ie6 ie7 oBtn.setCapture(); 就是把网页中所有的事件全部都集中到这个按钮身上  集中到一个物体上去处理  只有ie下能够运用oDiv.releaseCapture()去除setCapture();
+
+带框的拖拽：先在样式里添加一个class为box的样式，其样式设置到它的border。还有一个绝对定为属性，然后在鼠标onmousedown的时候创建一个div，并且让其className='box',既var oBox=document.createElement('div'),oBox.className='box',然后再给这个新创建好的box一个宽和高，这个宽和高应该和需要移动的那个原来的宽和高是相同的，所以。oBox.style.width=oDiv.offsetWidth+'px';oBox.style.height=oDiv.offsetHeight+'px';然后在将这个已经创建好的document.body.appendChild(oBox)下， 这个时候已经在鼠标按下的时候创建了一个class为box的div,然后在让这个新创建的div的left值和top值和原来移动的那个div的left top值相同，既oBox.style.left=oDiv.offsetLeft+'px' oBox.style.top=oDiv.offsetTop+'px';  这个时候class为box的虚线框已经可以和div的这个框移动的相吻合了，然后在onmousemove的时候，给box一个和鼠标位置相同的left top 就是 oBox.style.left=oEvent.clientX-disX+'px'; oBox.style.top=oEvent.clientY-disY+'px'; 然后在鼠标抬起的时候，我们让原来div的style和left和这个已经移动到新位置的虚线框的left和top值相同，就是oDiv.style.left=oBox.offsetLeft+'p
+x';oDiv.style.top=oBox.offsetTop+'px',最好再将这个box个removeChild  document.body.removeChild(oBox);
+
+自定义滚动条
+oDiv.style.left=oEvent.clientX-disX+'px';
+var l=oEvent.clientX-disX;
+oDiv.style.left=l+'px';
+var scale=l/oParent.offsetWidth-oDiv1.offsetWidth
+
+
+
+
+
+AJAX  让js读取服务器上的数据  在不刷新页面的前提下去服务器上读取或者发送数据！  用户注册，在线聊天室，同步，异步
+
+什么是服务器  amp dede
+
+ajax使用  基础：请求并显示静态txt文件  字符集编码  js html 所要读的文件需要统一编码
+
+缓存  第一次是请求。第二次是从本地去读取！就是速度很快   阻止缓存--时常在变的东西
+
+缓存工作原理：根据url  所以要想阻止需要让url一直在变  get数据  ?t='+new Date().getTime()
+
+从服务器上读取文件
+
+window.onload=function()
+{
+	var oBtn=document.getElementById('btn');
+	oBtn.onclick=function()
+	{         //相对路径        //绝对路径：http://localhost/aaa.txt
+		ajax('aaa.txt',function(str){
+			alert(str);//把服务器返回的内容给弹出来
+			},function(){
+				alert('失败')
+				})
+	}
+}
+
+以ajax从服务器上读取过来的任何东西都是以字符串的形式
+这里需要用到eval()，就是把里面的语句的内容给解析成js能够识别的东西
+
+读取数组的时候，首先把这个文本文件里面的数组给读取过来，然后再用eval()将这个数组给解析成js识别的东西
+
+http请求方式：
+
+get方式就是把数据放到url里面，跟着网址来传递  名字=值&密码=值
+post方式：不通过网址
+
+get数据是通过网址来传递的 容量小 非常不适合传递大数据  安全性非常差 没有安全性  有缓存
+post就是通过http的content 不通过网址  容量大（2g） 安全性相对好一点 没有缓存 向服务器传递
+
+
+ajax中级：
+
+服务器上取数据：有个设备，连到对方的手机，然后跟对方去说，然后再等着对方回应咱们
+
+1、创建一个ajax对象  2、连接到服务器  3、告诉服务器要哪个文件 （发送请求） 4、接受返回值
+
+
+
+1、创建ajax对象：var oAjax=new XMLHttpRequest();  ie6下不认XMLHttpRequest();
+
+                 ie6下：var oAjax=new ActiveXObject("Microsoft.XMLHTTP");
+  var oAjax=new XMLHttpRequest();// 火狐，谷歌 ie9 8 7但是针对ie6下它是有问题的
+  var oAjax=new ActiveXObject("Microsoft.XMLHTTP");//ie下可以用，其他浏览器不能
+这里需要做兼容了：
+if(XMLHttpRequest)
+{
+ var oAjax=new XMLHttpRequest();
+}
+else
+{
+ var oAjax=new ActiveXObject("Microsoft.XMLHTTP")
+}
+
+但是到这里，ie6下还是不行  全局的变量是window上面的一个属性  如果是用一个没有定义的变量，浏览器会报错，如果一个未定义的属性。浏览器不会报错  所以因为XMLHttpRequest是一个没有定义的变量，所以这里在ie6的浏览器下是会报错的，所以这里应该添加一个window.XMLHttpRequest 使它变成一个属性 这样就会使undefined
+
+所以
+
+if(window.XMLHttpRequest)
+{
+ var oAjax=new XMLHttpRequest();
+}
+else
+{
+ var oAjax=new ActiveXObject("Microsoft.XMLHTTP")
+}
+
+
+
+
+2、连接到服务器：
+
+open(方法，文件名，异步传输)  方法:get方式或者post方式  文件名：告诉服务器需要读取的哪个文件
+同步：多件事情一块往前走  一块一起  js里面：事情一件一件来         ajax: 工作在异步中
+异步：事情一件一件的来                      多个事情可以一起做
+
+
+oAjax.open('GET','文件名','true')
+当后续的代码需要用到前面东西的时候。需要和前面内容挂钩的时候，必须等到前面代码完成后才能执行后面代码的这种需求，这个时候需要用到同步
+
+
+3、发送请求
+
+oAjax.send();
+
+4、接收返回 onreadyStatechange跟服务器交互的时候所发生的一个事件 onreadyStatechange
+
+oAjax.onreadystatechange=function()
+{
+ //oAjax.readystate        //浏览器和服务器的交互进行到哪一步了
+ if(oAjax.readystate==4)   //4代表整个交互过程已经完成了
+ {
+  if(oAjax.status==200)
+  {
+   alert('成功'+oAjax.responseText)
+  }
+  else
+  {
+   alert('失败'+oAjax.status)
+  }
+ }
+}
+
+oAjax.status==200
+代表成功
+
+
+请求状态监控：
+
+readystate属性：请求状态
+0:(为初始化)还没有条用open()方法
+1:(载入)已经调用send()方法，正在发送请求
+2:(载入完成)send()方法完成已收到全部响应内容
+3:(解析)正在解析响应内容
+4:(完成)响应内容解析完成，可以在客户端调用了
+
+
+
+
+对这个新建的ajax进行封装一个函数
+
+funciton ajax(url,fnSucc,fnFaild)
+{
+ if(window.XMLHttpRequest)
+ {
+   var oAjax=new XMLHttpRequest();
+ }
+ else
+ {
+  var oAjax=new ActiveXObject("Microsoft.XMLHTTP")
+ }
+
+ oAjax.open('GET','url','true')
+ oAjax.send();
+ 
+ oAjax.onreadystatechange=function()
+ {
+  if(oAjax.readyState==4)   //4代表整个交互过程已经完成了
+  {
+   if(oAjax.status==200)
+   {
+     fnSucc(oAjax.responseText)
+   }
+   else
+   {
+    if(fnFaild)
+    {
+       fnFaild(oAjax.status)
+    }
+   }
+  }
+}
+}
+
+
+
+
+
+
+js面向对象:
+
+
+面向对象：电视 没有了解内部的工作原理的前提下也能够操作  Date getFullyear()  在不了解内部原理的情况下会使用它的功能  
+
+对象：黑盒子 在不了解内部的结构的时候却知道它表面的各种操作。按钮   黑盒子  Array[]  sort()
+
+
+js面向对象：oop  
+
+抽象：抽  最主要的最核心的东西或者跟问题相关的一些特性给提取出来   把最主要的一些特征或者跟问题相关的特征给提取出来
+
+封装：对象黑盒子看不到内部结构，  写对象的人需要关心，用的不需要date()  看不到里面的东西
+
+继承（遗传）：孩子和父母大体差不多。。对象a里面的一些功能，然后从a里面继承了一个b。这个b具有a的所有功能。能够使代码做到最大的公用！  从父类上继承出一些方法和属性然后接下来子类又有自己的一些特性
+ 多重继承： 盒子：能装东西 汽车：有轮子，会跑   合成一个：集装箱火车：能装东西，有轮子，能跑  就是同时具备了两种父辈的属性  很少用，容易使程序混乱
+
+
+
+
+对象的组成：研究一个东西时多去看看它怎么组成的  js里面看看其方法和属性
+
+
+
+属性和变量：
+
+变量能做的事情属性也能够做  var a=12  var arr=[1,2,3] arr.a=12 alert(a)  12
+
+变量：自由自在，谁都不属于
+属性：不是自由的，属于一个对象的 有主的
+函数：自由的 function aaa()//函数：  arr.aaa=function()//方法：属于一个对象
+
+属性：  变量
+方法：  函数
+
+给一个对象添加事件本质上给这个对象添加一个方法
+
+
+this:当前的方法属于谁，this就是谁
+
+不能在系统对象上随意的添加属性和方法
+
+
+构造函数就是普通函数  ---》工厂方式  原料--加工--出厂
+
+创建一个空白的对象（原料） var obj=new Object()
+ 
+问题：1、没有new 2、函数重复，资源浪费
+
+方法都是通过原型来添加的
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+cookie: 用来保存信息  同一个网站只有一个cookie  数量大小有限  不会超过50条  以域名为单位的
+
+
+如何往cookie里面放东西 给它赋值  名字=值  名字=值   在js里面等号就是赋值就是覆盖，但是在cookie了面等号就是添加
+
+设置cookie
+function setCookie(name,value,iDay)
+{
+	var oDate=new Date();
+	oDate.setDate(oDate.getDate()+iDay);
+	//document.cookie='name=value;expires=date';
+	document.cookie=name+'='+value+';expires='+oDate;//expires=时间
+}
+
+setCookie(name,value,iDay)
+
+
+
+如何取出cookie  cookie多条数据是通过分号和空格隔开的
+
+function getCookie(name)
+{
+	var arr=document.cookie.split('; ');//把cookie进行字符串分隔然后存到一个数组里面
+	for(var i=0;i<arr.length;i++)
+	{
+		var arr2=arr[i].split('=');
+		if(arr2[0]==name)
+		{
+			return arr2[1];
+		}	
+	}
+	return '';
+}
+
+
+删除cookie
+
+function removeCookie(name)
+{
+	setCookie(name,1,-1)
+}
+
+
+
+登录的时候把用户名存进cookie  onload的时候把cookie给读出来
+
+
+
+正则表达式：RegExp      处理字符串
+
+正则：规则，写好的规则去套  强大的字符串的匹配工具
+
+台湾：规则表达式，一种模式，一种规则
+
+
+正则表达式是一个描述字符模式的对象，js中，regexp类表示正则表达式，而string和regexp都定义了使用正则表达式进行强大的模式匹配和文本检索与替换的函数，正则表达式主要用来验证客户端的输入数据。用户填写完表单单击按钮之魂，表单就会被发送到服务器，在服务器通常会用php asp等服务器脚本对齐进行进一步的处理
+
+你的用户名不能包含非法字符。。不能出现数字、、匹配
+
+创建正则表达式：
+
+1、var box=new RegExp('Box')//模式字符串      字面量表示方法/ /
+
+
+var box=new RegExp('Box','gi')//第二个参数是模式修饰符  i 忽略大小写  g:全剧匹配 m:多行匹配
+
+
+2、自变量的方式创建：var box=/Box/;//使用字面量方式的正则
+
+如果需要添加修饰符的话 /Box/ig
+
+
+
+测试匹配正则表达式  test()  exec()   本身具有的
+test()在字符串中测试模式匹配，返回true   false
+exec()在字符串中执行匹配搜索，返回结果数组成功就会返回包含查找字符串的相关信息数组 失败null
+
+
+正则表达式字符串的使用方法
+
+Math  replace search split  string提供的也可以用到正则里面
+
+
+Math来获取匹配的数组
+
+search查找到既返回，无需全局g  如果查找不到就会是-1
+
+replace(模式,要替换的字符串) 替换  //返回替换后的字符串
+
+split拆分字符串为数组
+
+
+
+
+正则表达式的静态属性 直接调用，无需声明  必须执行以下，静态属性才会有效
+
+
+input 当前被匹配的字符串$_
+leftContext最后一次匹配前的字符串
+rightContext在上次匹配之后的字符串
+lastMatch最后一个匹配的字符串$&
+lastParen最后一对圆括号内的匹配字符串
+mulitline 是否支持多行
+
+
+正则表达式的实例属性
+
+
+获取控制
+单个字符和数字
+
+.点符号表示匹配除了换行符外的任意字符
+
+重复匹配
+o *表示0个1个或者多个o  *表示前面的那个字符0 1 多个
+
+o+表示一个或者多个  +号不包括0个。所以这里是false
+
+o?表示匹配一个或者0个o 
+.?表示一个或者0个的任意字符
+.*表示初换行符外匹配0个一个或者多个的任意字符
+.+表示初换行符外匹配一个或者多个的任意字符
+
+o{n,m}表示匹配o n到m次。不能超过这个范围
+o{n}表示匹配o只能n次。大于小于都不行
+
+o{n,}表示为n个或者n个以上o
+
+[a-z]表示26小写字母任意一个都可以匹配
+
+var pattern=/[a-z]/oogle;
+
+var str=boogle
+alert(pattern.text(str))  //true
+
+
+[A-Z]表示26个大写字母任意一个都可以匹配
+
+[0-9]*表示零次一次或者多次都可以匹配
+
+[a-zA-Z0-9]a-zA-Z0-9
+
+[^0-9]表示非0-9的任意字符都可以匹配^表示非
+
+
+/^[0-9]oogle/ flase表示  行首  这个^是添加在第一个斜线后面的，而不是在中括号里面的
+/^[0-9]+oogle/true
+
+
+\w 匹配字母数字和下划线  
+\W[^a-zA-Z0-9]  减号
+
+
+\d表示0-9之间的任何数字
+\D非0-9之间[^0-9]
+
+锚元字符的匹配
+/^oogl$/ ^强制首匹配 $强制尾匹配
+
+
+\s表示空格匹配
+
+\b表示到达边界
+
+|表示匹配或选择模式  匹配概念不是相等是包含的意思
+
+()分组表示可以看成一个字符
+(google)[4-8]$ google可以看成一个字符  匹配4-8次
+
+
+RegExp.$1表示获取模式中第一个分组对应的匹配字符串
+
+var pattern=/8(.*)8/;
+var str='this is a 8google8';
+pattern text(str)
+alert(RegExp.$1) ----google
+
+$1表示分组获取字符串匹配到的内容
+
+var pattern=/8(.*)8/;
+var str='this is a 8google8';
+document.write(str.replace(pattern,'<strong>$1</strong>'))//$1表示分组获取字符串匹配到的内容
+
+
+var pattern=/(.*)\s(.*)/   (.*)分组
+var str='google baidu'
+alert(str.replace(pattern,'$2 $1'))   baidu google  位置交换
+
+
+贪婪 惰性
+
+var pattern=/[a-z]+/   贪婪模式+
+var str='abcdefg';
+alert(str.replace(pattern,'1'))//这里使用了贪婪，那么所以的字符串都变了1
+
+
+var pattern=/[a-z]+?/   惰性模式+?
+var str='abcdefg';
+alert(str.replace(pattern,'1'))//只有第一个字符变成了1，后面的都没有匹配
+
+
+var pattern=/[a-z]+?/g   惰性模式+?  开启了全局  这样会使每一个字母都换成了1
+var str='abcdefg';
+alert(str.replace(pattern,'1'))
+
+var pattern=/8(.*)8/        贪婪模式
+var str='8google8 8google8 8google8'
+document.write(str.replace(pattern,'<strong>$1</strong>'))  //这里使用了贪婪，匹配到了google8 8google8 8google  加粗的
+
+
+var pattern=/8(.*?)8/g    惰性模式  开启全局
+var str='8google8 8google8 8google8'
+document.write(str.replace(pattern,'<strong>$1</strong>'))   //google google google
+
+
+
+
+var pattern=/8([^8]*)8/g   //另一种惰性，屏蔽了8的匹配，也就是两边包含字符
+var str='8google8 8google8 8google8'
+document.write(str.replace(pattern,'<strong>$1</strong>')) 
+
+
+
+
+exec返回分组
+
+var pattern=/^[a-z]+\s[0-9]{4}$/
+var str='google 2012'
+alert(pattern.exec(str))
+
+
+
+
+
+捕获性分组  所有的分组都捕获返回
+
+
+非捕获性分组 只要在不需要捕获返回的分组前面添加?:
+
+
+
+嵌套分组  从外往内获取
+var pattern=/(a?(b?(c?)))/
+var str='abc'
+alert(pattern.exec(str))  abc,abc,bc,c
+第一步：a[0],整个匹配到的字符串abc：
+第二步：a[1]，匹配到第一个分组(a?(b?(c?))),  abc
+第三步: a[2],匹配到第二个分组(b?(c?)) bc
+第四步：a[3]，匹配到第三个分组(c?) c
+
+
+
+前瞻捕获
+
+
+常用的正则
+
+1、检查邮政的编码
+
+先把最标准的字符串给写出来然后根据这个字符串生成正则  457000  6位 数字 第一位不能为0
+var patten=/[1-9][0-9]{5}/
+var str='457000'
+
+
+2，检查文件的压缩包
+var pattern=/(文件名).(扩展名)/
+var pattern=/[a-zA-Z0-9_]\./           //a-zA-Z0-9_===\w+  一位或者多位
+var pattern=/^[\w+]\.zip|gz|rar/
+var str='123.zip'  //文件名可以是字母数字下划线.zip,gz,rar
+
+
+3、邮箱
+var pattern=/^([\w\.\-]+)@(\w\-)\.(a-zA-Z){2,4}$/
+var srt=275890380@qq.com
+
+
+
+规则。。
+
+
+HTML标签规则：<p id="pl">  <任意字符>  <.+>  <除了<>以外的.+>
+
+转义字符：
+\d  [0-9]              \D[^0-9]
+\w[a-zA-Z0-9_]          \W[^a-zA-Z0-9_]
+\s空格                  \S非空白字符
+
+
+量词：｛n｝刚好出现n次
+
+｛n,m｝最少n最多n
+qq:275890380  5 11   [1-9]\d{4,10}
+
+{n,}最少n最多不限
+
+
+?固定电话：  010-8758147      (0\d{2,3}-)?[1-9]\d{7}(-\d{1,5})
+
+*
+
+^行首（字符串的开头） $行尾（字符串的结尾）
+
+
+
+
+
+
+
+
+
+
+
+
+
+变量：var 变量的声明  var a=12声明的同时给a赋值
+
+
+
+
+排序：
+
+
+快速排序
+
+找到基准点  这一组里面中心的数字  小于这个基准点的就放在左边大于的放在右边（从小到大的排序）
+
+建立两个数组，分别存储左边和右边的数字
+
+利用递归原理进行下次比较
+
+
+function quickSort(arr)
+{
+ if(arr.length<=1)
+ {
+  return arr//只有一个数，就不需要进行比较，直接把这个数组给返回出来
+ }
+ var num=Math.floor(arr.length/2);//找到中间的那个数
+ var numValue=arr.splice(num,1)//找到这个数的值
+
+ var left=[];
+ var right=[];
+
+ for(var i=0;i<arr.length;i++)
+ {
+  if(arr[i]<numValue)
+　{
+    left.push(arr[i]);
+　}
+  else
+  {
+   right.push(arr[i])
+  }
+ }
+  return quickSort(left).concat([numValue],quickSort(right))//递归原理
+}
+
+alertt(quickSort([]))
+
+
+
+
+
+
+
+函数声明与表达式  
+
+声明： function 函数名(){}
+
+表达式 function 函数名(可写可不写)(){}
+
+
+
+
+
+
+

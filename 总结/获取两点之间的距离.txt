@@ -1,0 +1,7 @@
+function getDis(obj1,obj2)
+	{
+		var a=obj1.offsetLeft-obj2.offsetLeft;
+		var b=obj1.offsetTop-obj2.offsetTop;
+		
+		return Math.sqrt(a*a+b*b);
+	}

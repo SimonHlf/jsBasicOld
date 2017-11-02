@@ -1,0 +1,120 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>无标题文档</title>
+<style>
+#parent{width:20px; height:600px; background:#ccc; position:relative; float:right; margin-right:100px;}
+#div1{width:20px; height:20px; position:absolute; left:0;top:0; background:red;}
+#div2{width:500px; height:300px; position:relative; border:1px solid #000; overflow:hidden;}
+#div3{width:500px; position:absolute;}
+</style>
+<script>
+window.onload=function()
+{
+	var oParent=document.getElementById('parent');
+	var oDiv1=document.getElementById('div1');
+	var oDiv2=document.getElementById('div2');
+	var oDiv3=document.getElementById('div3');
+	oDiv1.onmousedown=function(ev)
+	{
+		var oEvent=ev||event;
+		var disX=0;
+		var disY=0;
+		//disX=oEvent.clientX-oDiv1.offsetLeft;
+		disY=oEvent.clientY-oDiv1.offsetTop;
+		if(oDiv1.setCapture)
+		{
+			oDiv1.onmousemove=function(ev)
+		    {
+				
+			    var oEvent=ev||event;
+				var t=oEvent.clientY-disY;
+				if(t<0)
+				{
+					t=0;
+				}
+				else if(t>oParent.offsetHeight-oDiv1.offsetHeight)
+				{
+					t=oParent.offsetHeight-oDiv1.offsetHeight;
+				}
+				//oDiv1.style.left=l+'px';
+				oDiv1.style.top=t+'px';
+				var scale=t/(oParent.offsetHeight-oDiv1.offsetHeight);
+				//oDiv2.style.width=300*scale+'px';
+				//oDiv2.style.height=300*scale+'px';
+				//oDiv2.style.filter='alpha(opacity:'+scale*100+')';
+				//oDiv2.style.opacity=scale;
+				oDiv3.style.top=-scale*(oDiv3.offsetHeight-oDiv2.offsetHeight)+'px';
+				//document.title=scale;
+				
+				}
+				oDiv1.onmouseup=function()
+				{
+					oDiv1.onmousemove=null;
+					oDiv1.onmouseup=null;
+					oDiv1.releaseCapture();
+				}
+				oDiv1.setCapture();
+				return false;
+		}
+		else
+		{
+		   		document.onmousemove=function(ev)
+			    {
+				  var oEvent=ev||event;
+				  var t=oEvent.clientY-disY;
+				  if(t<0)
+				  {
+					  t=0;
+				  }
+				  else if(t>oParent.offsetHeight-oDiv1.offsetHeight)
+				  {
+					  t=oParent.offsetHeight-oDiv1.offsetHeight;
+				  }
+				  //oDiv1.style.left=l+'px';
+				  oDiv1.style.top=t+'px';
+				  var scale=t/(oParent.offsetHeight-oDiv1.offsetHeight);
+				  //oDiv2.style.width=300*scale+'px';
+				  //oDiv2.style.height=300*scale+'px';
+				  //oDiv2.style.filter='alpha(opacity:'+scale*100+')';
+				  //oDiv2.style.opacity=scale;
+				  oDiv3.style.top=-scale*(oDiv3.offsetHeight-oDiv2.offsetHeight)+'px';
+				  //document.title=scale;
+				
+				}
+				document.onmouseup=function()
+				{
+					document.onmousemove=null;
+					document.onmouseup=null;
+				}
+				    return false;
+		}
+		
+
+			
+	}
+}
+</script>
+</head>
+
+<body>
+<div id="parent">
+ <div id="div1">
+ </div>
+</div>
+<div id="div2">
+ <div id="div3">
+    一名男子暗恋自己的女同事，但无奈女同事对他没感觉，想找女同事聊天，她也总推脱没空。男子实在忍受不住，偷偷配了该女同事家的钥匙。深夜，他潜入女同事的闺房，静静地看她睡觉。女子被惊醒，与男子扭打，后该男子被干警挡获。近日，四川省成都市武侯区人民法院审理认定该男子构成非法侵入住宅罪，判处有期徒刑一年六个月，缓刑二年。　　刘某今年30出头，在银行工作，前几年离婚后单身。去年，单位来了位女同事陈某。刘某觉得女同事不错，渐渐对她产生了好感，也多次约陈某，但陈某都以没空推脱。陈某在刘某眼中显得很神秘，刘某决定到她家一探究竟。2012年7月，女同事每天下班乘公交车回家，刘某便骑自行车跟踪。跟了三四次后，刘某摸清了陈某的住所。
+　　2012年8月13日和15日，刘某未经过陈某同意，用私自配制的陈某家钥匙进入陈某家中，翻看陈某电脑并取走一张照片。当月16日中午，刘某上班时约陈某晚上网聊，陈某依然说没空。下班后，刘某越想越想不通，情急之下就想到她家聊天。当晚12点左右，刘某来到陈某家。打开房门后，刘某借着手机亮光来到陈某的卧室，走到床前看陈某睡觉，静静地看了两分钟。突然，陈某看到站在床边的黑影尖叫。刘某逃离现场时与陈某及其父母扭打，造成陈某父母轻微伤，后刘某被警方挡获。
+　　法院审理认为，被告人刘某未经陈某及其家人的允许，擅自进入陈某住所，严重影响她人生活，已构成非法侵入住宅罪。据此，法院作出上述判决。审理期间，刘某向单位辞职并给陈某写下保证书，保证两年缓刑考验期内不进行骚扰。
+　　对于该案，办案法官建议，现在社会工作生活压力大，不少年轻人情感受挫容易走极端，不仅伤了心爱的人，也毁了自己。因此，遇到心仪女子，应通过适当方式表达，关键要保持良好的心态。
+　　法官说法：
+　　我国《刑法》规定，非法侵入他人住宅的，处三年以下有期徒刑或者拘役。司法工作人员滥用职权，犯前款罪的，从重处罚。该罪侵犯的是公民住宅安宁权，具体是指，违背住宅内成员的意愿或无法律依据进入公民住宅，或进入公民住宅后经要求退出而拒不退出的行为。其中，“侵入”指未经住宅权人同意、许可进入他人住宅，及不顾反对劝阻强行进入他人住宅。住宅是私人生活的载体，是公民隐私权、财产权及其他权利的象征，住宅安宁权属于人身权的一部分，需严格保护。此外，“他人”理解要宽泛，亲戚朋友的住宅也是他人住宅，婚姻存续期间曾共同共有的住房，离婚后分开另住，依法也是他人住宅。房屋租给租客，居住权已发生转移，非法侵入已出租的住宅，也构成本罪。
+
+
+分享到: QQ空间QQ空间 腾讯微博腾讯微博 腾讯朋友腾讯朋友 
+ </div>
+</div>
+</body>
+</html>

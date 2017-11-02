@@ -1,0 +1,92 @@
+1,从父级获取到子页面的元素进行控制的时候。。 用contentWindow或者contentDocument
+contentWindwo 兼容各种浏览器。不过需要注意一点就是在chrome下需要在服务器下运行才能看到效果
+contentDocument在ie7 ie6下是不兼容的！
+
+2.从子级获取到父级页面的元素的时候  window.parent.document.getElementById("");
+  从孙级获取爷级页面进行元素控制的时候这个时候需要window.top.document.getElementById("");  window.top最顶层
+
+3，onload的事件
+
+  var oFrame=document.createElement("iframe");
+  oFrame.src='XXX.html';
+  document.body.appendChild(oFrame);
+
+  oFrame.onload=function(){
+    alert('123');
+  }
+  注意:这里的这种方法在ie下是不能执行的。在ie下面必须使用绑定的形式才能加载attachEvent('onload',function(){})
+
+  所以这里需要做兼容
+
+  var oFrame=document.createElement("iframe");
+  oFrame.src='xx.html';
+
+  if(oFrame.attachEvent){
+    oFrame.attachEvent('onload',function(){
+      alert('123')
+    })
+  }else{
+    oFrame.onload=function(){
+      alert("123")
+    };
+  }
+
+
+ 3,  防止被嵌套iframe 防钓鱼
+
+  来判断在防止钓鱼的页面中写一个看当前的window是不是最顶层。如果不是的话需要把当前的网址赋给最顶层
+  在iframe所在的页面添加js
+  if(window!=window.top){
+    window.top.location.href=window.location.href;
+  }
+4,<script>
+	  window.onload=function(){
+		var aInput=document.getElementsByTagName("input");
+		var oFrame=document.getElementById("iframe");
+		function changeHeight(){
+			setTimeout(function(){
+					oFrame.height=oFrame.contentWindow.document.body.offsetHeight;
+			},100)
+		};
+		changeHeight();
+		aInput[0].onclick=function(){
+			oFrame.src='iframe1.html';
+			changeHeight();
+		};
+		aInput[1].onclick=function(){
+			oFrame.src='iframe2.html';
+			changeHeight();
+		};
+	  };
+  </script>
+
+ <input type="button" value="切换1" />
+ <input type="button" value="切换2" />
+ <iframe id="iframe" height="100%" src="iframe1.html" frameborder="0" scrolling="no"></iframe>
+
+ 5, 自动获取子页面的高度然后在父级的页面去呈现
+
+  function autoHeight(){
+	 var oBookIframe=document.getElementById("bookiframe");//这里的id就是父级页面下嵌的iframe的id
+	 function changeHeight(){ 
+		oBookIframe.height=oBookIframe.contentWindow.document.body.offsetHeight;
+	 }
+	 changeHeight();
+	 if(oBookIframe.attachEvent){
+		 oBookIframe.attachEvent('onload',function(){//在ie下面必须使用绑定的形式才能加载attachEvent('onload',function(){})
+			 changeHeight();
+		 })
+	 }else{
+		 oBookIframe.onload=function(){
+			 changeHeight();
+		 }
+	 };
+  };
+   <iframe id="bookiframe" height="100%" src="iframe1.html" frameborder="0" scrolling="no"></iframe>
+  
+  然后在这个所引导的子级页面的大的div下要么给这个div一个固定的高度。要么让这个div的高度根据她内部的内容的多少去自撑，
+  不过前提是给这个div一个height:auto overflow:hidden的属性
+
+
+
+  注：以上所有的代码在chrome下测试的时候必须是在’http 的形势下去测试，。不然不会出效果的   如果在本地的话需要在本地搭建服务器

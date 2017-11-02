@@ -1,0 +1,21 @@
+<script>
+var arr=[112,8,15,35,143]
+arr.sort(function(n1,n2){
+/*	if(n1<n2)
+	{
+		return -1;
+	}
+	else if(n1>n2)
+	{
+		return 1;
+	}
+	else
+	{
+		return 0;
+	}*/
+	return n1-n2;
+				  
+});
+alert(arr);
+
+对于字母的比较是arr.sort()

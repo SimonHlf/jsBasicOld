@@ -1,0 +1,14 @@
+//窗口倒计时关闭
+function delayAction(){
+	 document.getElementById("timeStr").style.display = "block";
+	 var delay = document.getElementById("endtime").innerHTML;
+	 if(delay > 0){
+		 delay--;
+		 document.getElementById("endtime").innerHTML = delay;
+	 }else{
+		 window.parent.c_window(1);
+	 }
+	 setTimeout("delayAction()", 1000);
+ }
+
+<center><span id="timeStr" style="display: none;">窗口将在<span id="endtime">2</span>后关闭</span></center>

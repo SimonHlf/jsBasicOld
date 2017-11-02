@@ -1,0 +1,39 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>无标题文档</title>
+<style>
+body{background:#000;}
+canvas{ background:#fff;}
+span{color:white;}
+</style>
+<script>
+window.onload=function()
+{
+	var oC=document.getElementById('c1');
+	
+	var oGc=oC.getContext('2d');//绘制环境
+	
+	oGc.beginPath()//绘制路径的开始
+	
+	oGc.moveTo(100,100);
+	
+	oGc.lineTo(200,200);
+	
+	oGc.lineTo(300,200);
+	
+	oGc.closePath();//绘制路径的结束
+
+	//oGc.stroke();//这句话很重要，不然绘制的直线是显示不出来的  画线
+	oGc.fill();
+}
+</script>
+</head>
+
+<body>
+<canvas id="c1" width="400" height="400">
+ <span>不支持canvas的浏览器</span>
+</canvas><!--默认宽300高是150-->
+</body>
+</html>

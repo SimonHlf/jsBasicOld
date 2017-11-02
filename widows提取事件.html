@@ -1,0 +1,35 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>无标题文档</title>
+<style>
+div{ width:100px; height:100px; background:red;}
+.box{ width:200px; height:200px; background:green;}
+</style>
+<script>
+//行为，样式，结构三者需要分离，不能在body的元素内部添加行间事件
+window.onload=function()//widow.onload是在页面加载完成之后来执行的一个功能,匿名函数，提取body内元素的事件
+{
+var oDiv1=document.getElementById('div1');
+oDiv1.onmouseover=toGreen;
+oDiv1.onmouseout=toRed;//这里不能加括号
+}
+function toGreen()//这里是函数名字
+{
+var oDiv1=document.getElementById('div1');
+oDiv1.className='box';
+}
+function toRed()
+{
+var oDiv1=document.getElementById('div1');
+oDiv1.className='';
+}
+</script>
+</head>
+
+<body>
+<div id="div1"><!--行间事件-->
+</div>
+</body>
+</html>

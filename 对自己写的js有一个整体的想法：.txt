@@ -1,0 +1,23 @@
+对自己写的js有一个整体的想法：
+
+
+就是在一个网站或者一个页面如何去写自己的js：
+
+1：js的分层（功能）：jquery(tools)  组件（ui） 拖拽，弹窗  应用（app）
+
+2：js的规划（管理）避免全局变量和全局的方法（命名空间，闭包。面向对象），模块化
+window.onload=function()
+{
+mv.app.toTip();
+}
+
+命名空间：var mv={}  //全局对象
+
+分层：
+mv.tools={};
+mv.ui={};
+mv.app={};
+
+mv.app.toTip=function()
+{
+}

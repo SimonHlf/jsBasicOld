@@ -1,0 +1,53 @@
+<script>
+window.onload=function()
+{
+ var oUl=document.getElementById('tabnav');
+ var aLi=oUl.getElementsByTagName('li');
+ var oDiv=document.getElementById('tabbox');
+ var oDivDiv=oDiv.getElementsByTagName('div');
+ var i=0;
+ for(i=0;i<aLi.length;i++)
+ {
+	aLi[i].index=i;
+	aLi[i].onclick=function()
+	{
+		for(i=0;i<aLi.length;i++)
+		{
+			oDivDiv[i].style.display='';
+			aLi[i].className='';
+		}
+		this.className="active";
+		oDivDiv[this.index].style.display='block';
+	}
+ }
+}
+</script>
+
+就是让所有的div的diaplay为none 所有的li的className为空
+然后让当前的div的diaplay为block,当前的li的className为active;
+
+
+
+function tab(obj1,obj2,tag1,tag2,cn1,cn2,cN1,cN2){
+		var oId1=document.getElementById(obj1)
+		var oBq1=oId1.getElementsByTagName(tag1);
+		var oId2=document.getElementById(obj2);
+		var oBq2=oId2.getElementsByTagName(tag2);
+
+		for(var i=0; i<oBq1.length; i++)
+		{
+			oBq1[i].index=i;
+			oBq1[i].onmouseover=function()
+			{
+				for(var i=0; i<oBq1.length; i++)
+				{
+					oBq1[i].className=cn1;
+					oBq2[i].className=cn2;
+				};
+				this.className=cN1;
+				oBq2[this.index].className=cN2;
+			};
+		};
+	};
+	 tab("tabnav","tabbox","li","div","","item","active","item show")
+	 tab("tabCon","tabBox","li","div","","item","active","item show")

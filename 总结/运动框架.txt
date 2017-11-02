@@ -1,0 +1,21 @@
+在开始运动的时候把定时器给关闭了！
+把运动和停止给隔开（if/else）
+function startMove()
+{
+
+ clearInterval(timer);
+ setInterval(function(){
+  if(oDiv.offsetLeft>=300)
+  {
+    clearInterval(timer);
+  }
+  else
+  {
+   oDiv.style.left=oDiv.offsetLeft+10+'px';
+  }
+
+   },30)
+
+}
+
+向右是+向左是-

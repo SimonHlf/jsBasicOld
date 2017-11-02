@@ -1,0 +1,261 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>无标题文档</title>
+<script src="jquery-1.4.2.min.js"></script>
+<style>
+*{margin:0;padding:0;}
+#layer{width:100%;height:100%;background:#000;filter:alpha(opacity=50);opacity:0.5;position:fixed;left:0;top:0; display:none; z-index:999; overflow:auto;}
+#divWin{width:1000px; background:#fff; z-index:1000; position:absolute;left:50%;margin-left:-500px;top:0px;}
+.fixeds{position:fixed;width:100%;height:100%; left:50%;top:0px;}
+.cancelScroll{height:100%;overflow:hidden;}
+.close{width:50px;height:50px; background:red;position:fixed;right:0;top:0px;cursor:pointer;}
+#wrap{width:100%; height:100%;overflow:auto; display:none; position:absolute;z-index:1000; top:0px;}
+</style>
+<script>
+window.onload = function(){
+	//createP();
+	ceshi();
+	ceshi1();
+}
+
+var tmpScroll = 0;
+function createP(){
+	var str = "";
+	for(var i=0;i<150;i++){
+		str+="<p>"+ i +"</p><br/>"
+	}
+	var inp = '<input id="btn" type="button" value="按钮"/>';
+	$("#divs").append(str + inp);
+}
+function ceshi(){
+	var oBtn = document.getElementById("btn");
+	var oLayer = document.getElementById("layer");
+	var oDiv = document.getElementById("divWin");
+
+	
+	oBtn.onclick = function(){
+		
+		var scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
+		oLayer.style.display = "block";
+		$("#wrap").show().css({
+			"top":scrollTop
+			
+		});
+		document.getElementById("wrap").scrollTop = 0;
+		//oDiv.style.display = "block";
+		
+		//$("divs").addClass("fixeds");
+		$("html").addClass("cancelScroll");
+		$("window").scrollTop(0);
+		
+	}
+}
+function ceshi1(){
+	$(".close").click(function(){
+		//alert(scrollTop1);
+		$("#layer").hide();
+		
+		//$("#divWin").hide();
+		$("#wrap").hide();
+		//scrollTop1 = 0;
+		//$("divs").removeClass("fixeds");
+		$("html").removeClass("cancelScroll");
+	});
+}
+</script>
+</head>
+
+<body >
+<div id="divs">
+
+<p>0</p><br><p>1</p><br><p>2</p><br><p>3</p><br><p>4</p><br><p>5</p><br><p>6</p><br><p>7</p><br><p>8</p><br><p>9</p><br><p>10</p><br><p>11</p><br><p>12</p><br><p>13</p><br><p>14</p><br><p>15</p><br><p>16</p><br><p>17</p><br><p>18</p><br><p>19</p><br><p>20</p><br><p>21</p><br><p>22</p><br><p>23</p><br><p>24</p><br><p>25</p><br><p>26</p><br><p>27</p><br><p>28</p><br><p>29</p><br><p>30</p><br><p>31</p><br><p>32</p><br><p>33</p><br><p>34</p><br><p>35</p><br><p>36</p><br><p>37</p><br><p>38</p><br><p>39</p><br><p>40</p><br><p>41</p><br><p>42</p><br><p>43</p><br><p>44</p><br><p>45</p><br><p>46</p><br><p>47</p><br><p>48</p><br><p>49</p><br><p>50</p><br><p>51</p><br><p>52</p><br><p>53</p><br><p>54</p><br><p>55</p><br><p>56</p><br><p>57</p><br><p>58</p><br><p>59</p><br><p>60</p><br><p>61</p><br><p>62</p><br><p>63</p><br><p>64</p><br><p>65</p><br><p>66</p><br><p>67</p><br><p>68</p><br><p>69</p><br><p>70</p><br><p>71</p><br><p>72</p><br><p>73</p><br><p>74</p><br><p>75</p><br><p>76</p><br><p>77</p><br><p>78</p><br><p>79</p><br><p>80</p><br><p>81</p><br><p>82</p><br><p>83</p><br><p>84</p><br><p>85</p><br><p>86</p><br><p>87</p><br><p>88</p><br><p>89</p><br><p>90</p><br><p>91</p><br><p>92</p><br><p>93</p><br><p>94</p><br><p>95</p><br><p>96</p><br><p>97</p><br><p>98</p><br><p>99</p><br><p>100</p><br><p>101</p><br><p>102</p><br><p>103</p><br><p>104</p><br><p>105</p><br><p>106</p><br><p>107</p><br><p>108</p><br><p>109</p><br><p style="background:REd;">110</p><br><input id="btn" type="button" value="按钮"><p style="background:green;">111</p><br><p>112</p><br><p>113</p><br><p>114</p><br><p>115</p><br><p>116</p><br><p>117</p><br><p>118</p><br><p>119</p><br><p>120</p><br><p>121</p><br><p>122</p><br><p>123</p><br><p>124</p><br><p>125</p><br><p>126</p><br><p>127</p><br><p>128</p><br><p>129</p><br><p>130</p><br><p>131</p><br><p>132</p><br><p>133</p><br><p>134</p><br><p>135</p><br><p>136</p><br><p>137</p><br><p>138</p><br><p>139</p><br><p>140</p><br><p>141</p><br><p>142</p><br><p>143</p><br><p>144</p><br><p>145</p><br><p>146</p><br><p>147</p><br><p>148</p><br><p>149</p><br>
+</div>
+
+<div id="layer"></div>
+<div id="wrap">
+<div id="divWin">
+	<span class="close"></span>
+	<p>fsdfdsfdsfs1</p><br/>
+    <p>fsdfdsfdsfs1</p><br/>
+    <p>fsdfdsfdsfs1</p><br/>
+    <p>fsdfdsfdsfs1</p><br/><p>fsdfdsfdsfs1</p><br/><p>fsdfdsfdsfs1</p><br/>
+    <p>fsdfdsfdsfs1</p><br/>
+    <p>fsdfdsfdsfs1</p><br/>
+    <p>fsdfdsfdsfs1</p><br/>
+    <p>fsdfdsfdsfs1</p><br/>
+    <p>fsdfdsfdsfs1</p><br/><p>fsdfdsfdsfs1</p><br/><p>fsdfdsfdsfs1</p><br/>
+    <p>fsdfdsfdsfs1</p><br/>
+    <p>fsdfdsfdsfs1</p><br/>
+    <p>fsdfdsfdsfs1</p><br/>
+    <p>fsdfdsfdsfs1</p><br/>
+    <p>fsdfdsfdsfs1</p><br/><p>fsdfdsfdsfs1</p><br/><p>fsdfdsfdsfs1</p><br/>
+    <p>fsdfdsfdsfs1</p><br/>
+    <p>fsdfdsfdsfs1</p><br/>
+    <p>fsdfdsfdsfs1</p><br/>
+    <p>fsdfdsfdsfs1</p><br/>
+    <p>fsdfdsfdsfs1</p><br/><p>fsdfdsfdsfs1</p><br/><p>fsdfdsfdsfs1</p><br/>
+    <p>fsdfdsfdsfs1</p><br/>
+    <p>fsdfdsfdsfs1</p><br/>
+    <p>fsdfdsfdsfs1</p><br/>
+    <p>fsdfdsfdsfs1</p><br/>
+    <p>fsdfdsfdsfs1</p><br/><p>fsdfdsfdsfs1</p><br/><p>fsdfdsfdsfs1</p><br/>
+    <p>fsdfdsfdsfs1</p><br/><p>fsdfdsfdsfs1</p><br/>
+    <p>fsdfdsfdsfs1</p><br/>
+    <p>fsdfdsfdsfs1</p><br/>
+    <p>fsdfdsfdsfs1</p><br/><p>fsdfdsfdsfs1</p><br/><p>fsdfdsfdsfs1</p><br/>
+    <p style="background:red;">fdsfdsfsdffsd</p><br/>
+    <p>fsdfdsfdsfs1</p><br/><p>fsdfdsfdsfs1</p><br/>
+    <p>fsdfdsfdsfs1</p><br/>
+    <p>fsdfdsfdsfs1</p><br/>
+    <p>fsdfdsfdsfs1</p><br/><p>fsdfdsfdsfs1</p><br/><p>fsdfdsfdsfs1</p><br/>
+    <p>fsdfdsfdsfs1</p><br/><p>fsdfdsfdsfs1</p><br/>
+    <p>fsdfdsfdsfs1</p><br/>
+    <p>fsdfdsfdsfs1</p><br/>
+    <p>fsdfdsfdsfs1</p><br/><p>fsdfdsfdsfs1</p><br/><p>fsdfdsfdsfs1</p><br/>
+    <p>fsdfdsfdsfs1</p><br/><p>fsdfdsfdsfs1</p><br/>
+    <p>fsdfdsfdsfs1</p><br/>
+    <p>fsdfdsfdsfs1</p><br/>
+    <p>fsdfdsfdsfs1</p><br/><p>fsdfdsfdsfs1</p><br/><p>fsdfdsfdsfs1</p><br/>
+    <p>fsdfdsfdsfs1</p><br/><p>fsdfdsfdsfs1</p><br/>
+    <p>fsdfdsfdsfs1</p><br/>
+    <p>fsdfdsfdsfs1</p><br/>
+    <p>fsdfdsfdsfs1</p><br/><p>fsdfdsfdsfs1</p><br/><p>fsdfdsfdsfs1</p><br/>
+    <p>fsdfdsfdsfs1</p><br/><p>fsdfdsfdsfs1</p><br/>
+    <p>fsdfdsfdsfs1</p><br/>
+    <p>fsdfdsfdsfs1</p><br/>
+    <p>fsdfdsfdsfs1</p><br/><p>fsdfdsfdsfs1</p><br/><p>fsdfdsfdsfs1</p><br/>
+    <p style="background:yellow;">fdsfdsfsdffsd</p><br/>
+    <p>fsdfdsfdsfs1</p><br/><p>fsdfdsfdsfs1</p><br/>
+    <p>fsdfdsfdsfs1</p><br/>
+    <p>fsdfdsfdsfs1</p><br/>
+    <p>fsdfdsfdsfs1</p><br/><p>fsdfdsfdsfs1</p><br/><p>fsdfdsfdsfs1</p><br/>
+    <p>fsdfdsfdsfs1</p><br/>
+    <p>fsdfdsfdsfs1</p><br/>
+    <p>fsdfdsfdsfs1</p><br/>
+    <p>fsdfdsfdsfs1</p><br/>
+    <p>fsdfdsfdsfs1</p><br/><p>fsdfdsfdsfs1</p><br/><p>fsdfdsfdsfs1</p><br/>
+    <p>fsdfdsfdsfs1</p><br/><p>fsdfdsfdsfs1</p><br/>
+    <p>fsdfdsfdsfs1</p><br/>
+    <p>fsdfdsfdsfs1</p><br/>
+    <p>fsdfdsfdsfs1</p><br/><p>fsdfdsfdsfs1</p><br/><p>fsdfdsfdsfs1</p><br/>
+    <p>fsdfdsfdsfs1</p><br/><p>fsdfdsfdsfs1</p><br/>
+    <p>fsdfdsfdsfs1</p><br/>
+    <p>fsdfdsfdsfs1</p><br/>
+    <p>fsdfdsfdsfs1</p><br/><p>fsdfdsfdsfs1</p><br/><p>fsdfdsfdsfs1</p><br/>
+    <p>fsdfdsfdsfs1</p><br/><p>fsdfdsfdsfs1</p><br/>
+    <p>fsdfdsfdsfs1</p><br/>
+    <p>fsdfdsfdsfs1</p><br/>
+    <p style="background:green;">fdsfdsfsdffsd</p><br/>
+    <p>fsdfdsfdsfs1</p><br/><p>fsdfdsfdsfs1</p><br/><p>fsdfdsfdsfs1</p><br/>
+    <p>fsdfdsfdsfs1</p><br/>
+        <p>fsdfdsfdsfs1</p><br/><p>fsdfdsfdsfs1</p><br/><p>fsdfdsfdsfs1</p><br/>
+    <p>fsdfdsfdsfs1</p><br/><p>fsdfdsfdsfs1</p><br/>
+    <p>fsdfdsfdsfs1</p><br/>
+    <p>fsdfdsfdsfs1</p><br/>
+    <p>fsdfdsfdsfs1</p><br/><p>fsdfdsfdsfs1</p><br/><p>fsdfdsfdsfs1</p><br/>
+    <p>fsdfdsfdsfs1</p><br/><p>fsdfdsfdsfs1</p><br/>
+    <p>fsdfdsfdsfs1</p><br/>
+    <p>fsdfdsfdsfs1</p><br/>
+    <p style="background:green;">fdsfdsfsdffsd</p><br/>
+    <p>fsdfdsfdsfs1</p><br/><p>fsdfdsfdsfs1</p><br/><p>fsdfdsfdsfs1</p><br/>
+    <p>fsdfdsfdsfs1</p><br/>
+        <p>fsdfdsfdsfs1</p><br/><p>fsdfdsfdsfs1</p><br/><p>fsdfdsfdsfs1</p><br/>
+    <p>fsdfdsfdsfs1</p><br/><p>fsdfdsfdsfs1</p><br/>
+    <p>fsdfdsfdsfs1</p><br/>
+    <p>fsdfdsfdsfs1</p><br/>
+    <p>fsdfdsfdsfs1</p><br/><p>fsdfdsfdsfs1</p><br/><p>fsdfdsfdsfs1</p><br/>
+    <p>fsdfdsfdsfs1</p><br/><p>fsdfdsfdsfs1</p><br/>
+    <p>fsdfdsfdsfs1</p><br/>
+    <p>fsdfdsfdsfs1</p><br/>
+    <p style="background:green;">fdsfdsfsdffsd</p><br/>
+    <p>fsdfdsfdsfs1</p><br/><p>fsdfdsfdsfs1</p><br/><p>fsdfdsfdsfs1</p><br/>
+    <p>fsdfdsfdsfs1</p><br/>
+        <p>fsdfdsfdsfs1</p><br/><p>fsdfdsfdsfs1</p><br/><p>fsdfdsfdsfs1</p><br/>
+    <p>fsdfdsfdsfs1</p><br/><p>fsdfdsfdsfs1</p><br/>
+    <p>fsdfdsfdsfs1</p><br/>
+    <p>fsdfdsfdsfs1</p><br/>
+    <p>fsdfdsfdsfs1</p><br/><p>fsdfdsfdsfs1</p><br/><p>fsdfdsfdsfs1</p><br/>
+    <p>fsdfdsfdsfs1</p><br/><p>fsdfdsfdsfs1</p><br/>
+    <p>fsdfdsfdsfs1</p><br/>
+    <p>fsdfdsfdsfs1</p><br/>
+    <p style="background:green;">fdsfdsfsdffsd</p><br/>
+    <p>fsdfdsfdsfs1</p><br/><p>fsdfdsfdsfs1</p><br/><p>fsdfdsfdsfs1</p><br/>
+    <p>fsdfdsfdsfs1</p><br/>
+        <p>fsdfdsfdsfs1</p><br/><p>fsdfdsfdsfs1</p><br/><p>fsdfdsfdsfs1</p><br/>
+    <p>fsdfdsfdsfs1</p><br/><p>fsdfdsfdsfs1</p><br/>
+    <p>fsdfdsfdsfs1</p><br/>
+    <p>fsdfdsfdsfs1</p><br/>
+    <p>fsdfdsfdsfs1</p><br/><p>fsdfdsfdsfs1</p><br/><p>fsdfdsfdsfs1</p><br/>
+    <p>fsdfdsfdsfs1</p><br/><p>fsdfdsfdsfs1</p><br/>
+    <p>fsdfdsfdsfs1</p><br/>
+    <p>fsdfdsfdsfs1</p><br/>
+    <p style="background:green;">fdsfdsfsdffsd</p><br/>
+    <p>fsdfdsfdsfs1</p><br/><p>fsdfdsfdsfs1</p><br/><p>fsdfdsfdsfs1</p><br/>
+    <p>fsdfdsfdsfs1</p><br/>    <p>fsdfdsfdsfs1</p><br/><p>fsdfdsfdsfs1</p><br/><p>fsdfdsfdsfs1</p><br/>
+    <p>fsdfdsfdsfs1</p><br/><p>fsdfdsfdsfs1</p><br/>
+    <p>fsdfdsfdsfs1</p><br/>
+    <p>fsdfdsfdsfs1</p><br/>
+    <p>fsdfdsfdsfs1</p><br/><p>fsdfdsfdsfs1</p><br/><p>fsdfdsfdsfs1</p><br/>
+    <p>fsdfdsfdsfs1</p><br/><p>fsdfdsfdsfs1</p><br/>
+    <p>fsdfdsfdsfs1</p><br/>
+    <p>fsdfdsfdsfs1</p><br/>
+    <p style="background:green;">fdsfdsfsdffsd</p><br/>
+    <p>fsdfdsfdsfs1</p><br/><p>fsdfdsfdsfs1</p><br/><p>fsdfdsfdsfs1</p><br/>
+    <p>fsdfdsfdsfs1</p><br/>    <p>fsdfdsfdsfs1</p><br/><p>fsdfdsfdsfs1</p><br/><p>fsdfdsfdsfs1</p><br/>
+    <p>fsdfdsfdsfs1</p><br/><p>fsdfdsfdsfs1</p><br/>
+    <p>fsdfdsfdsfs1</p><br/>
+    <p>fsdfdsfdsfs1</p><br/>
+    <p>fsdfdsfdsfs1</p><br/><p>fsdfdsfdsfs1</p><br/><p>fsdfdsfdsfs1</p><br/>
+    <p>fsdfdsfdsfs1</p><br/><p>fsdfdsfdsfs1</p><br/>
+    <p>fsdfdsfdsfs1</p><br/>
+    <p>fsdfdsfdsfs1</p><br/>
+    <p style="background:green;">fdsfdsfsdffsd</p><br/>
+    <p>fsdfdsfdsfs1</p><br/><p>fsdfdsfdsfs1</p><br/><p>fsdfdsfdsfs1</p><br/>
+    <p>fsdfdsfdsfs1</p><br/>    <p>fsdfdsfdsfs1</p><br/><p>fsdfdsfdsfs1</p><br/><p>fsdfdsfdsfs1</p><br/>
+    <p>fsdfdsfdsfs1</p><br/><p>fsdfdsfdsfs1</p><br/>
+    <p>fsdfdsfdsfs1</p><br/>
+    <p>fsdfdsfdsfs1</p><br/>
+    <p>fsdfdsfdsfs1</p><br/><p>fsdfdsfdsfs1</p><br/><p>fsdfdsfdsfs1</p><br/>
+    <p>fsdfdsfdsfs1</p><br/><p>fsdfdsfdsfs1</p><br/>
+    <p>fsdfdsfdsfs1</p><br/>
+    <p>fsdfdsfdsfs1</p><br/>
+    <p style="background:green;">fdsfdsfsdffsd</p><br/>
+    <p>fsdfdsfdsfs1</p><br/><p>fsdfdsfdsfs1</p><br/><p>fsdfdsfdsfs1</p><br/>
+    <p>fsdfdsfdsfs1</p><br/>    <p>fsdfdsfdsfs1</p><br/><p>fsdfdsfdsfs1</p><br/><p>fsdfdsfdsfs1</p><br/>
+    <p>fsdfdsfdsfs1</p><br/><p>fsdfdsfdsfs1</p><br/>
+    <p>fsdfdsfdsfs1</p><br/>
+    <p>fsdfdsfdsfs1</p><br/>
+    <p>fsdfdsfdsfs1</p><br/><p>fsdfdsfdsfs1</p><br/><p>fsdfdsfdsfs1</p><br/>
+    <p>fsdfdsfdsfs1</p><br/><p>fsdfdsfdsfs1</p><br/>
+    <p>fsdfdsfdsfs1</p><br/>
+    <p>fsdfdsfdsfs1</p><br/>
+    <p style="background:green;">fdsfdsfsdffsd</p><br/>
+    <p>fsdfdsfdsfs1</p><br/><p>fsdfdsfdsfs1</p><br/><p>fsdfdsfdsfs1</p><br/>
+    <p>fsdfdsfdsfs1</p><br/>    <p>fsdfdsfdsfs1</p><br/><p>fsdfdsfdsfs1</p><br/><p>fsdfdsfdsfs1</p><br/>
+    <p>fsdfdsfdsfs1</p><br/><p>fsdfdsfdsfs1</p><br/>
+    <p>fsdfdsfdsfs1</p><br/>
+    <p>fsdfdsfdsfs1</p><br/>
+    <p>fsdfdsfdsfs1</p><br/><p>fsdfdsfdsfs1</p><br/><p>fsdfdsfdsfs1</p><br/>
+    <p>fsdfdsfdsfs1</p><br/><p>fsdfdsfdsfs1</p><br/>
+    <p>fsdfdsfdsfs1</p><br/>
+    <p>fsdfdsfdsfs1</p><br/>
+    <p style="background:green;">fdsfdsfsdffsd</p><br/>
+    <p>fsdfdsfdsfs1</p><br/><p>fsdfdsfdsfs1</p><br/><p>fsdfdsfdsfs1</p><br/>
+    <p>fsdfdsfdsfs1</p><br/>
+        <p>fsdfdsfdsfs1</p><br/><p>fsdfdsfdsfs1</p><br/><p>fsdfdsfdsfs1</p><br/>
+    <p>fsdfdsfdsfs1</p><br/><p>fsdfdsfdsfs1</p><br/>
+    <p>fsdfdsfdsfs1</p><br/>
+    <p>fsdfdsfdsfs1</p><br/>
+    <p>fsdfdsfdsfs1</p><br/><p>fsdfdsfdsfs1</p><br/><p>fsdfdsfdsfs1</p><br/>
+    <p>fsdfdsfdsfs1</p><br/><p>fsdfdsfdsfs1</p><br/>
+    <p>fsdfdsfdsfs1</p><br/>
+    <p>fsdfdsfdsfs1</p><br/>
+    <p style="background:green;">fdsfdsfsdffsd</p><br/>
+    <p>fsdfdsfdsfs1</p><br/><p>fsdfdsfdsfs1</p><br/><p>fsdfdsfdsfs1</p><br/>
+    <p>fsdfdsfdsfs1</p><br/>
+</div>
+</div>
+</body>
+</html>

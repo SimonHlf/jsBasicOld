@@ -1,0 +1,36 @@
+<script>
+/*function css()
+{
+	if(arguments.length==2)//参数个数不固定 如果有两个参数 获取元素
+	{
+		return arguments[0].style[arguments[1]];
+	}
+	else//设置样式
+	{
+		arguments[0].style[arguments[1]]=arguments[2];
+	}
+}
+window.onload=function()
+{
+	var oDiv=document.getElementById('div1');
+	//alert(css(oDiv,'width'))
+	css(oDiv,'width','300px')
+}*/
+function css(obj,name,value)
+{
+	if(arguments.length==2)//参数个数不固定 如果有两个参数 获取元素
+	{
+		return obj.style[name];//获取样式
+	}
+	else
+	{
+		obj.style[name]=value;//设置样式
+	}
+}
+window.onload=function()
+{
+	var oDiv=document.getElementById('div1')
+	//alert(css(oDiv,'height'))
+	css(oDiv,'background','green')
+}
+  </script>

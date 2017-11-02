@@ -1,0 +1,77 @@
+<html>
+    <head>
+    <title>JS实现随机显示背景图片丨芯晴网页特效丨CsrCode.Cn</title>
+    <meta content="text/html; charset=gb2312" http-equiv="Content-Type">
+    <style type="text/css">BODY {
+    FONT-FAMILY: "宋体"; FONT-SIZE: 9pt
+    }
+    A {
+    COLOR: #000000; FONT-FAMILY: "宋体"; FONT-SIZE: 9pt; TEXT-DECORATION: none
+    }
+    A:hover {
+    COLOR: red; FONT-FAMILY: "宋体"; FONT-SIZE: 9pt; TEXT-DECORATION: underline
+    }
+    A:visited {
+    COLOR: darkblue; FONT-FAMILY: "宋体"; FONT-SIZE: 9pt
+    }
+    A:active {
+    COLOR: cyan; FONT-FAMILY: "宋体"; FONT-SIZE: 9pt; FONT-STYLE: normal; FONT-WEIGHT: bold; TEXT-DECORATION: underline
+    }
+    TD {
+    COLOR: #000000; FONT-FAMILY: "宋体"; FONT-SIZE: 9pt; TEXT-DECORATION: none
+    }
+    BR {
+    FONT-FAMILY: "宋体"; FONT-SIZE: 9pt
+    }
+    </style>
+    <script language="JavaScript">
+    bg = new Array(5);
+    bg[0] = '/images/m01.jpg'
+    bg[1] = '/images/m02.jpg'
+    bg[2] = '/images/m03.jpg'
+    bg[3] = '/images/m04.jpg'
+    bg[4] = '/images/m05.jpg'
+    index = Math.floor(Math.random() * bg.length);
+    document.write("<BODY BACKGROUND="+bg[index]+">");</script>
+    </head>
+    <body>
+    <div align="center">
+    <center>
+    <table border="0" width="100%">
+    <tr>
+    <td width="41%">　</td>
+    <td width="59%">    <font size="6" color="#0000FF">背景随机显示</font><br>
+    <font size="3">试着单击浏览器工具栏“刷新”按钮，是不是每次刷新后的页面背景都不一样，很有趣吧。其实现方法其实很简单，注意下面的代码：</font></td>
+    </tr>
+    <tr>
+    <td width="41%"></td>
+    <td width="59%"></td>
+    </tr>
+    </table>
+    </center>
+    </div>
+    <p align="center"><br>
+    </p>
+    <p align="center">　</p>
+    <div align="center"><center>
+    <table border="0" cellPadding="0" cellSpacing="0" width="80%">
+    <TBODY>
+    <tr>
+    <td width="100%">将如下代码加入HTML的<HEAD>区：<br>
+    <br>
+    <script LANGUAGE="JavaScript"><br>
+    bg = new Array(<font color="#ff0000">2</font>); //设定图片数量，如果图片数为3，这个参数就设为2，依次类推<br>
+    bg[0] = '<font color="#ff0000">bg1.gif</font>'  //显示的图片路径，可用http://<br>
+    bg[1] = '<font color="#ff0000">bg2.gif</font>'<br>
+    bg[2] = '<font color="#ff0000">bg3.gif</font>'<br>
+    index = Math.floor(Math.random() * bg.length);<br>
+    document.write("<BODY BACKGROUND="+bg[index]+">");<br>
+    </script></td>
+    </tr>
+    </TBODY>
+    </table>
+    </center></div>
+    </body>
+    </html>
+    <br><br><hr><p align="center"><font color=red>本特效由 <a href="http://www.CsrCode.cn" target="_blank">芯晴网页特效</a>丨CsrCode.Cn 收集于互联网，只为兴趣与学习交流，不作商业用途。</font></p>
+    

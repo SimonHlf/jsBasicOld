@@ -1,0 +1,101 @@
+<title>无标题文档</title>
+<style>
+*{ margin:0; padding:0;}
+li{ list-style-type:none;}
+.y1{ float:left; width:310px; margin:0 5px 0 0;}
+.y1 img{ border:none; float:left; border:1px solid #ccc;}
+.y1 .wz{ float:left; margin-left:10px; width:180px;}
+.y1 .wz b{ line-height:24px; color:rgb(216,0,0); font-size:14px;}
+.y1 .wz p{ line-height:20px; margin-bottom:8px;}
+.y1 .wz li{ float:left; margin-right:2px;}
+body{ font-size:12px;}
+
+
+
+</style>
+</head>
+
+<body>
+
+     <div id=demo2 style="OVERFLOW: hidden; WIDTH: 965px; align: center; margin-left:8px;float:left; height:150px; margin-bottom:10px;">
+        <table cellspacing="0" cellpadding="0" align="center" 
+border="0">
+          <tbody>
+            <tr>
+              <td id="marquePic5" valign="top">
+               <table width="965" height="150" border="0" cellpadding="0" cellspacing="0" >
+            
+                  <tr>
+                    <td width="310" align="center">
+                       <div class="y1"> 
+                        <img src="zj3.jpg" width="108" height="138" class="img" alt="" />
+                         <div class="wz">
+                          <b>陈桂芬 教授</b>
+                           <p>从医肝病治疗事业20余年，运用中西医结合的理论指导临床实践，充分发挥中医辨证理论在治疗肝..<a href="/zhuanjia/">[详细]</a></p>
+                           <li><a href="http://www.pydf120.com"><img src="btn1.jpg" /></a></li>
+                           <li><img src="btn2.jpg" /></a></li>
+                        </div>
+                      </div>
+                     </td>
+                     
+                     
+                    <td width="310"  align="center" >
+                     <div class="y1">
+                      <img src="fanruixian.jpg" width="108" height="138" class="img" alt="" />
+                        <div class="wz"> <b>范瑞仙 主治医师</b>
+                          <p>范瑞仙 主治医师 中华医学会河南省分会会员 中国妇科疾病研究会员 毕业于新乡…<a href="/zhuanjia/">[详细]</a></p>
+                          <li><img src="zixun.gif" /></a></li>
+                          <li><img src="btn2.jpg" /></a></li>
+                        </div>
+                      </div>
+                     </td>
+                     
+                     
+                     
+                    <td width="310"  align="center">
+                     <div class="y1">
+                      <img src="zj3.jpg" width="108" height="138" class="img" alt="" />
+                        <div class="wz"> <b>达朝梅 肝病专家</b>
+                          <p>就职于中国肝病研究中心，从事临床肝病诊疗10余年，对慢性肝病和乙肝大小三阳、丙肝、脂肪肝、肝纤维化..<a href="/zhuanjia/">[详细]</a></p>
+                          <li><img src="btn1.jpg" /></a></li>
+                          <li><img src="btn2.jpg" /></a></li>
+                        </div>
+                      </div>
+                     </td>
+                     
+                     
+                     
+                    <td width="310"  align="center" >
+                     <div class="y1">
+                      <img src="zj3.jpg" width="108" height="138" class="img" alt="" />
+                        <div class="wz"> <b>朱继德 肝病专家</b>
+                          <p>曾任职于河南省人民医院，从事肝病科研教学与临床诊疗40余年，具有扎实的肝病与丰富的临床实践经验，在肝病治疗..<a href="/zhuanjia/">[详细]</a></p>
+                          <li><img src="btn1.jpg" /></a></li>
+                          <li><img src="btn2.jpg" /></a></li>
+                        </div>
+                      </di>
+                     </td>              
+                  </tr><!--这里是个tr-->
+                  
+                </table>
+               </td><!--这里是个td-->
+              <td id="marquePic6" valign="top"></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <script type=text/javascript> 
+var speed=15 
+marquePic6.innerHTML=marquePic5.innerHTML 
+function Marquee(){ 
+if(demo2.scrollLeft>=marquePic5.scrollWidth){ 
+demo2.scrollLeft=0 
+}else{ 
+demo2.scrollLeft++ 
+}} 
+var MyMar=setInterval(Marquee,speed) 
+demo2.onmouseover=function() {clearInterval(MyMar)} 
+demo2.onmouseout=function() {MyMar=setInterval(Marquee,speed)} 
+  </script> 
+    </div>
+</body>

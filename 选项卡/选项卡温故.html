@@ -1,0 +1,47 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>无标题文档</title>
+<style>
+input{ background:#69C;}
+.active{ background:#FC6;}
+div{ width:180px; height:200px; background:#9C0; border:1px solid #ccc; display:none;}
+</style>
+<script>
+window.onload=function()
+{
+	var aInput=document.getElementsByTagName('input');
+	var aDiv=document.getElementsByTagName('div');
+	var i=0;
+    for(i=0;i<aInput.length;i++)
+	{   
+	    aInput[i].index=i;
+		aInput[i].onclick=function()
+		{
+			for(i=0;i<aInput.length;i++)
+			{
+				aDiv[i].style.display='none';
+				aInput[i].className='';
+			}
+			this.className='active';
+			aDiv[this.index].style.display='block';
+		}
+	}	
+}
+</script>
+</head>
+
+<body>
+<input class="active" type="button" value="1" />
+<input type="button" value="2" />
+<input type="button" value="3" />
+<input type="button" value="4" />
+<input type="button" value="5" />
+<div style="display:block;">111</div>
+<div>222</div>
+<div>333</div>
+<div>444</div>
+<div>555</div>
+</body>
+</html>

@@ -1,0 +1,83 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>无标题文档</title>
+<style>
+body{font-size:12px; background:url(body_bg_repeat.jpg); height:4000px;}
+#arrow{width:80px; height:93px; background:#ccc; border-radius:5px; position:fixed; right:68px; top:550px;cursor:pointer; display:none;}
+#top{width:40px; height:55px; margin:0px auto; padding-top:10px;}
+#arrow p{text-align:center; color:#fff; display:block;}
+</style>
+<script src="run.js"/></script>
+<script>
+window.onload=function()
+{
+toTop()
+}
+function toTop()
+{
+		var oArrow=document.getElementById('arrow');
+	var oP=oArrow.getElementsByTagName('p')[0]
+	var timer=null;
+	var bSys=true;
+	oArrow.onmouseover=function()
+	{
+		this.style.background='#666';
+		oP.style.color='#ccc';
+	}
+	oArrow.onmouseout=function()
+	{
+		this.style.background='#ccc';
+		oP.style.color='#fff';
+	}
+	window.onscroll=function()
+	{
+		var scrollTop=document.documentElement.scrollTop||document.body.scrollTop;
+		
+		if(scrollTop>=400)
+		{
+			startMove(oArrow,{opacity:100},function(){
+				oArrow.style.display="block";
+			})
+		}
+		else
+		{
+			
+			startMove(oArrow,{opacity:0},function(){
+				oArrow.style.display="none";
+			})
+		}
+		if(!bSys)
+		{
+			clearInterval(timer)
+		}
+		bSys=false;
+	}
+	oArrow.onclick=function()
+	{
+		timer=setInterval(function(){
+			var scrollTop=document.documentElement.scrollTop||document.body.scrollTop;
+			if(scrollTop==0)
+			{
+				clearInterval(timer);
+			}
+			bSys=true;
+			var speed=(0-scrollTop)/8;
+			speed=speed>0?Math.ceil(speed):Math.floor(speed);
+			document.documentElement.scrollTop=document.body.scrollTop=speed+scrollTop;
+		},30)
+	}
+}
+</script>
+</head>
+
+<body>
+<div id="arrow">
+ <div id="top">
+   <img src="arrow-up.png" />
+ </div>
+ <p>返回顶部</p>
+</div>
+</body>
+</html>

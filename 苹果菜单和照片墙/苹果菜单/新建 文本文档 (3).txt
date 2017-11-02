@@ -1,0 +1,25 @@
+1、获取鼠标到每张图片之间的距离  并不是鼠标距离图片左上角的距离，而是鼠标距离图片中心点的距离
+
+鼠标位置：clientX  clientY
+
+求图片的位置：
+
+对图片来一个循环 
+:
+（鼠标距离图片左上角的距离）:  x:aImg[i].offsetLeft  y:aImg[i].offsetTop+oDiv.offsetTop 
+
+（鼠标距离图片中心点的距离）：x:aImg[i].offsetLeft+aImg[i].offsetWidth/2  y:aImg[i].offsetTop+oDiv.offsetTop+aImg[i].offsetHeight/2;
+
+x=aImg[i].offsetLeft+aImg[i].offsetWidth/2
+y=aImg[i].offsetTop+oDiv.offsetTop+aImg[i].offsetHeight/2;
+
+2、距离：
+
+var a=x-oEvent.clIentX;
+var b=y-oEvent.clientY;
+var dis=Math.sqart(a*a+b*b)  //鼠标和物体之间的距离
+
+
+3：通过距离求大小  把距离换算成一个比例
+
+var scale=dis/300;

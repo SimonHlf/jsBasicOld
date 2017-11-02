@@ -1,0 +1,22 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>无标题文档</title>
+<script>
+window.onload=function()
+{
+	var oBtn=document.getElementById('btn');
+	oBtn.onclick=function()
+	{
+		alert('a');
+	}
+	oBtn.setCapture();//事件捕获 在ie下管用  就是把网页中所有的事件全部都集中到这个按钮身上用
+}
+</script>
+</head>
+
+<body>
+<input type="button" value="按钮" id="btn" />
+</body>
+</html>
